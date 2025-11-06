@@ -1,0 +1,700 @@
+{
+  "metadata": {
+    "title": "Usage Examples for Compliance System",
+    "version": "1.0",
+    "last_updated": "2023-11-22",
+    "purpose": "Provide concrete examples of how to use the compliance database system",
+    "description": "Exemples pratiques d'utilisation conjointe des fichiers rules_database.json, disclaimers-glossary.json, compliance-mapping.json et validation-schema.json"
+  },
+
+  "scenarios": [
+    {
+      "scenario_id": "1",
+      "scenario_name": "Retail presentation for French fund (OBAM SAS)",
+      "description": "Création d'une présentation commerciale standard pour un fonds français destiné aux clients retail",
+      "input_parameters": {
+        "document_type": "OBAM_PRESENTATION",
+        "client_type": "retail",
+        "management_company": "OBAM_SAS",
+        "language": "fr",
+        "country": "FR",
+        "fund_name": "ODDO BHF Avenir Europe",
+        "fund_age_years": 15,
+        "has_performance": true,
+        "has_sri": true
+      },
+      "required_elements": {
+        "from_rules_database": {
+          "cover_page": {
+            "section_ref": "2",
+            "elements": ["fund_name", "month_year", "promotional_mention", "target_audience"]
+          },
+          "disclaimer_page": {
+            "section_ref": "3",
+            "elements": ["standard_disclaimer", "risk_profile", "registration_countries"]
+          },
+          "general_rules": {
+            "section_ref": "1",
+            "rules": ["1.1", "1.3", "1.4", "1.5", "1.6", "1.7", "1.8"]
+          },
+          "performance_rules": {
+            "section_ref": "4.3",
+            "rules": ["4.3.funds_rules.minimum_duration", "4.3.funds_rules.net_vs_gross.retail", "4.3.disclaimers.past_performance"]
+          }
+        },
+        "from_disclaimers_glossary": {
+          "main_disclaimer": {
+            "id": "FR_PRES_RET_SAS",
+            "path": "disclaimers.french.obam_presentation_retail_sas",
+            "type": "full_text"
+          },
+          "performance_disclaimer": {
+            "id": "PAST_PERF",
+            "path": "special_disclaimers.past_performance",
+            "language": "fr"
+          },
+          "sri_disclaimer": {
+            "note": "Référence au glossaire pour définition SRI"
+          }
+        },
+        "from_compliance_mapping": {
+          "client_type_mapping": {
+            "glossary_code": "NON_PROFESSIONAL",
+            "rules_code": "retail"
+          },
+          "applicable_rules": ["1.1", "1.5", "1.11"]
+        }
+      },
+      "validation_checklist": {
+        "cover_page": [
+          "✓ Nom du fonds présent",
+          "✓ Mois et année présents",
+          "✓ Mention 'document promotionnel'",
+          "✓ Audience cible indiquée (retail)"
+        ],
+        "disclaimer_page": [
+          "✓ Disclaimer FR_PRES_RET_SAS complet",
+          "✓ Profil de risque exhaustif",
+          "✓ Pays de commercialisation listés"
+        ],
+        "content": [
+          "✓ Glossaire des termes techniques en fin",
+          "✓ Pas d'anglicismes non définis",
+          "✓ SRI mentionné avec disclaimer",
+          "✓ Performances nettes de frais uniquement",
+          "✓ Disclaimer PAST_PERF visible et en gras"
+        ]
+      },
+      "step_by_step_workflow": [
+        {
+          "step": 1,
+          "action": "Identifier le type de document",
+          "tool": "rules_database.json#document_types",
+          "result": "OBAM_PRESENTATION"
+        },
+        {
+          "step": 2,
+          "action": "Identifier le type de client",
+          "tool": "compliance-mapping.json#client_type_mapping",
+          "result": "retail (NON_PROFESSIONAL)"
+        },
+        {
+          "step": 3,
+          "action": "Sélectionner le disclaimer principal",
+          "tool": "disclaimers-glossary.json#disclaimers.french.obam_presentation_retail_sas",
+          "result": "FR_PRES_RET_SAS"
+        },
+        {
+          "step": 4,
+          "action": "Appliquer les règles générales retail",
+          "tool": "rules_database.json#sections[0].rules + client_type_differentiation.retail",
+          "result": "Règles 1.1, 1.5, 1.11 appliquées"
+        },
+        {
+          "step": 5,
+          "action": "Valider la structure",
+          "tool": "validation-schema.json#document_validation",
+          "result": "Validation de chaque section"
+        }
+      ]
+    },
+    {
+      "scenario_id": "2",
+      "scenario_name": "Professional strategy presentation (OBAM GmbH)",
+      "description": "Présentation d'une stratégie pour clients professionnels allemands",
+      "input_parameters": {
+        "document_type": "COMMERCIAL_DOC_STRATEGIES",
+        "client_type": "professional",
+        "management_company": "OBAM_GmbH",
+        "language": "en",
+        "country": "DE",
+        "strategy_name": "European Equity Strategy",
+        "strategy_age_years": 12,
+        "has_backtested_data": false
+      },
+      "required_elements": {
+        "from_rules_database": {
+          "general_rules": {
+            "rules": ["1.2", "1.12"],
+            "note": "Documents stratégies réservés aux professionnels uniquement"
+          },
+          "strategy_performance_rules": {
+            "section_ref": "4.3.strategy_rules",
+            "rules": ["minimum_duration", "net_vs_gross", "benchmark_rules"]
+          }
+        },
+        "from_disclaimers_glossary": {
+          "main_disclaimer": {
+            "id": "EN_STRAT_PRO_GMBH",
+            "path": "disclaimers.english.strategy_professional_gmbh"
+          },
+          "performance_disclaimer": {
+            "id": "PAST_PERF",
+            "language": "en"
+          },
+          "country_specific": {
+            "germany_mifid": "country_specific_requirements.germany.performance_article"
+          }
+        }
+      },
+      "validation_checklist": {
+        "general": [
+          "✓ Disclaimer EN_STRAT_PRO_GMBH présent",
+          "✓ Mention 'professional only'",
+          "✓ Performances brutes avec disclosure des frais",
+          "✓ Benchmark officiel comparé",
+          "✓ Article 44 MiFID II mentionné (Allemagne)"
+        ]
+      }
+    },
+    {
+      "scenario_id": "3",
+      "scenario_name": "Belgium retail presentation with FSMA approval",
+      "description": "Présentation pour clients retail belges nécessitant validation FSMA",
+      "input_parameters": {
+        "document_type": "OBAM_PRESENTATION",
+        "client_type": "retail",
+        "management_company": "OBAM_Lux",
+        "language": "fr",
+        "country": "BE",
+        "fund_name": "ODDO BHF Euro Credit Short Duration",
+        "fsma_approval": true
+      },
+      "required_elements": {
+        "from_rules_database": {
+          "belgium_specific": {
+            "rule": "1.14",
+            "requirement": "Validation préalable FSMA obligatoire"
+          }
+        },
+        "from_disclaimers_glossary": {
+          "main_disclaimer": {
+            "id": "FR_PRES_RET_LUX",
+            "belgium_specific_note": true
+          },
+          "country_specific": {
+            "belgium": {
+              "retail_restriction": "document_for_distributors_only",
+              "mediation_service": "http://mediationconsommateur.be"
+            }
+          }
+        },
+        "from_compliance_mapping": {
+          "country_mapping": {
+            "country_code": "BE",
+            "fsma_approval_required": true,
+            "specific_rules": ["1.14"]
+          }
+        }
+      },
+      "validation_checklist": {
+        "belgium_specific": [
+          "✓ Validation FSMA obtenue",
+          "✓ Mention 'réservé aux distributeurs'",
+          "✓ Service de médiation mentionné",
+          "✓ Disclaimer adapté pour Belgique"
+        ]
+      }
+    },
+    {
+      "scenario_id": "4",
+      "scenario_name": "Fund with backtested performance (France, Professional)",
+      "description": "Présentation avec performances backtestées pour professionnels français",
+      "input_parameters": {
+        "document_type": "OBAM_PRESENTATION",
+        "client_type": "professional",
+        "management_company": "OBAM_SAS",
+        "language": "fr",
+        "country": "FR",
+        "fund_name": "ODDO BHF Artificial Intelligence",
+        "has_backtested_data": true,
+        "fund_age_years": 2
+      },
+      "required_elements": {
+        "from_rules_database": {
+          "backtested_rules": {
+            "section_ref": "4.3.disclaimers.backtested",
+            "applicability": ["professional", "france_only"]
+          }
+        },
+        "from_disclaimers_glossary": {
+          "main_disclaimer": {
+            "id": "FR_PRES_PRO_SAS"
+          },
+          "backtested_disclaimer": {
+            "id": "BACKTEST_PERF",
+            "path": "special_disclaimers.backtested_performance",
+            "language": "fr",
+            "mandatory": true
+          }
+        },
+        "from_compliance_mapping": {
+          "rule_mapping": {
+            "rule_id": "4.3.disclaimers.backtested",
+            "country": "FR",
+            "client_type": "professional"
+          }
+        }
+      },
+      "validation_checklist": {
+        "backtested_specific": [
+          "✓ Client type = professional",
+          "✓ Country = France",
+          "✓ Disclaimer BACKTEST_PERF présent",
+          "✓ Disclaimer visible et en gras",
+          "✓ Mention explicite 'simulations'"
+        ]
+      }
+    },
+    {
+      "scenario_id": "5",
+      "scenario_name": "New fund (less than 1 year) - Germany",
+      "description": "Présentation d'un fonds de moins d'un an pour le marché allemand",
+      "input_parameters": {
+        "document_type": "OBAM_PRESENTATION",
+        "client_type": "retail",
+        "management_company": "OBAM_GmbH",
+        "language": "de",
+        "country": "DE",
+        "fund_name": "ODDO BHF Sustainable Credit",
+        "fund_age_months": 8,
+        "has_performance": false
+      },
+      "required_elements": {
+        "from_rules_database": {
+          "performance_restriction": {
+            "rule": "4.3.funds_rules.less_than_1_year",
+            "restriction": "Aucune performance ne peut être affichée"
+          },
+          "nav_display": {
+            "rule": "4.3.funds_rules.less_than_1_year.nav_display",
+            "germany_specific": "Simple mention de la 1ère et dernière VL sous forme de tableau"
+          }
+        },
+        "from_disclaimers_glossary": {
+          "main_disclaimer": {
+            "id": "DE_PRES_RET_GMBH"
+          }
+        }
+      },
+      "validation_checklist": {
+        "new_fund_specific": [
+          "✓ Aucune performance affichée",
+          "✓ VL affichée en tableau simple (pas de graphe)",
+          "✓ Première VL et dernière VL mentionnées",
+          "✓ Pas de disclaimer PAST_PERF (pas de performance)"
+        ]
+      }
+    },
+    {
+      "scenario_id": "6",
+      "scenario_name": "ESG fund with 'engageante' approach",
+      "description": "Fonds ESG avec approche engageante permettant communication illimitée",
+      "input_parameters": {
+        "document_type": "OBAM_PRESENTATION",
+        "client_type": "retail",
+        "management_company": "OBAM_SAS",
+        "language": "fr",
+        "country": "FR",
+        "fund_name": "ODDO BHF Green Planet",
+        "esg_approach": "engageante",
+        "exclusion_percentage": 25,
+        "portfolio_coverage": 95
+      },
+      "required_elements": {
+        "from_rules_database": {
+          "esg_rules": {
+            "section_ref": "4.1",
+            "approach": "engageante",
+            "criteria": {
+              "exclusion": ">=20%",
+              "portfolio_coverage": ">=90%"
+            },
+            "communication_limit": "unlimited"
+          }
+        },
+        "from_disclaimers_glossary": {
+          "esg_disclaimer": {
+            "id": "ESG_RISK",
+            "path": "special_disclaimers.esg_risk",
+            "language": "fr"
+          }
+        }
+      },
+      "validation_checklist": {
+        "esg_specific": [
+          "✓ Approche ESG identifiée: engageante",
+          "✓ Critères vérifiés: exclusion >=20%, couverture >=90%",
+          "✓ Communication ESG illimitée autorisée",
+          "✓ Disclaimer ESG_RISK présent"
+        ]
+      }
+    },
+    {
+      "scenario_id": "7",
+      "scenario_name": "Money Market Fund weekly reporting",
+      "description": "Reporting hebdomadaire réglementaire pour fonds monétaire",
+      "input_parameters": {
+        "document_type": "MMF_WEEKLY_REPORTING",
+        "client_type": "all",
+        "management_company": "OBAM_Lux",
+        "language": "fr",
+        "fund_name": "ODDO BHF Money Market",
+        "regulation": "EU_2017_1131_Article_36_2"
+      },
+      "required_elements": {
+        "from_rules_database": {
+          "general_rules": {
+            "note": "Reporting réglementaire spécifique"
+          }
+        },
+        "from_disclaimers_glossary": {
+          "regulatory_disclaimer": {
+            "id": "MMF_WEEKLY",
+            "path": "special_disclaimers.mmf_weekly_reporting",
+            "regulation": "EU_2017_1131_Article_36_2",
+            "mandatory": true
+          }
+        }
+      },
+      "validation_checklist": {
+        "mmf_specific": [
+          "✓ Disclaimer MMF_WEEKLY présent",
+          "✓ Référence à l'article 36(2) du règlement UE 2017/1131",
+          "✓ Avertissement sur absence de garantie",
+          "✓ Mention risque de perte en capital"
+        ]
+      }
+    },
+    {
+      "scenario_id": "8",
+      "scenario_name": "Switzerland fund distribution",
+      "description": "Présentation pour distribution en Suisse avec représentant",
+      "input_parameters": {
+        "document_type": "OBAM_PRESENTATION",
+        "client_type": "retail",
+        "management_company": "OBAM_SAS",
+        "language": "fr",
+        "country": "CH",
+        "fund_name": "ODDO BHF Avenir Europe",
+        "fund_type": "french_fund"
+      },
+      "required_elements": {
+        "from_disclaimers_glossary": {
+          "switzerland_specific": {
+            "representative": "RBC INVESTOR SERVICES BANK, succursale de Zürich",
+            "address": "Bleicherweg 7, 8027 Zürich, Switzerland",
+            "disclaimer": "country_specific_requirements.switzerland.representatives.french_funds.disclaimer_fr"
+          }
+        }
+      },
+      "validation_checklist": {
+        "switzerland_specific": [
+          "✓ Représentant suisse mentionné",
+          "✓ Adresse du représentant présente",
+          "✓ Disclaimer suisse spécifique ajouté",
+          "✓ Mention disponibilité DIC/prospectus"
+        ]
+      }
+    },
+    {
+      "scenario_id": "9",
+      "scenario_name": "Validation des pays de commercialisation",
+      "description": "Vérifier qu'un fonds est bien enregistré dans les pays mentionnés dans la présentation",
+      "input_parameters": {
+        "fund_name": "ODDO BHF Active Small Cap",
+        "share_class": "CR-EUR",
+        "isin": "FR0011606268",
+        "target_countries": ["Germany", "Austria", "Belgium", "Spain"],
+        "document_type": "OBAM_PRESENTATION"
+      },
+      "required_elements": {
+        "from_registration_countries": {
+          "data_source": "registration-countries.json#funds[]",
+          "validation_steps": [
+            "Rechercher fund_name: 'ODDO BHF Active Small Cap'",
+            "Trouver share_class: 'CR-EUR' avec ISIN 'FR0011606268'",
+            "Consulter registrations[] pour chaque pays cible",
+            "Vérifier status pour chaque pays"
+          ]
+        },
+        "from_rules_database": {
+          "rule": "1.9",
+          "requirement": "Les pays de commercialisation indiqués doivent être conformes aux dernières données"
+        },
+        "from_compliance_mapping": {
+          "mapping": "rule_id: 1.9",
+          "validation_logic": "4 étapes de vérification"
+        }
+      },
+      "validation_result": {
+        "Germany": {
+          "status": "R",
+          "category": "Registration",
+          "result": "✓ Autorisé"
+        },
+        "Austria": {
+          "status": "R",
+          "category": "Registration",
+          "result": "✓ Autorisé"
+        },
+        "Belgium": {
+          "status": "R",
+          "category": "Registration",
+          "result": "✓ Autorisé"
+        },
+        "Spain": {
+          "status": "R",
+          "registration_type": "unit",
+          "result": "✓ Autorisé"
+        }
+      },
+      "validation_checklist": {
+        "registration_specific": [
+          "✓ Fonds identifié dans registration-countries.json",
+          "✓ Share class correcte vérifiée",
+          "✓ Tous les pays cibles sont enregistrés",
+          "✓ Status 'R' ou 'RX' confirmé pour chaque pays",
+          "✓ Règle 1.9 respectée"
+        ]
+      },
+      "step_by_step_workflow": [
+        {
+          "step": 1,
+          "action": "Ouvrir registration-countries.json",
+          "tool": "registration-countries.json#funds[]"
+        },
+        {
+          "step": 2,
+          "action": "Rechercher le fonds par nom",
+          "search": "fund_name: 'ODDO BHF Active Small Cap'"
+        },
+        {
+          "step": 3,
+          "action": "Trouver la share class",
+          "search": "share_classes[].share_class: 'CR-EUR'"
+        },
+        {
+          "step": 4,
+          "action": "Vérifier l'ISIN",
+          "verify": "isin: 'FR0011606268'"
+        },
+        {
+          "step": 5,
+          "action": "Consulter les enregistrements",
+          "tool": "registrations[]"
+        },
+        {
+          "step": 6,
+          "action": "Pour chaque pays cible, vérifier le status",
+          "check": "status: 'R' (Registered) ou 'RX' (Registration with exception)"
+        },
+        {
+          "step": 7,
+          "action": "Valider la conformité",
+          "result": "Tous les pays cibles sont autorisés ✓"
+        }
+      ],
+      "error_scenarios": {
+        "country_not_registered": {
+          "problem": "Pays mentionné mais non enregistré",
+          "action": "Retirer le pays de la liste ou obtenir l'enregistrement",
+          "severity": "error"
+        },
+        "fund_not_found": {
+          "problem": "Fonds non trouvé dans registration-countries.json",
+          "action": "Vérifier le nom exact du fonds ou contacter compliance",
+          "severity": "error"
+        },
+        "share_class_not_found": {
+          "problem": "Share class non trouvée pour ce fonds",
+          "action": "Vérifier la share class ou utiliser une autre",
+          "severity": "error"
+        }
+      }
+    }
+  ],
+
+  "integration_patterns": {
+    "pattern_1": {
+      "name": "Disclaimer Selection Pattern",
+      "description": "Comment sélectionner le bon disclaimer",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identifier les paramètres",
+          "parameters": ["document_type", "client_type", "management_company", "language"]
+        },
+        {
+          "step": 2,
+          "action": "Mapper le type de client",
+          "tool": "compliance-mapping.json#client_type_mapping",
+          "example": "retail -> NON_PROFESSIONAL"
+        },
+        {
+          "step": 3,
+          "action": "Construire le chemin du disclaimer",
+          "formula": "disclaimers.{language}.{document_type}_{client_type}_{company}",
+          "example": "disclaimers.french.obam_presentation_retail_sas"
+        },
+        {
+          "step": 4,
+          "action": "Récupérer le contenu",
+          "tool": "disclaimers-glossary.json#{path}.content"
+        }
+      ]
+    },
+    "pattern_2": {
+      "name": "Rule Validation Pattern",
+      "description": "Comment valider la conformité d'un document",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Charger les règles applicables",
+          "tool": "rules_database.json#sections[].rules",
+          "filter": "mandatory == true AND applicability includes client_type"
+        },
+        {
+          "step": 2,
+          "action": "Charger le schéma de validation",
+          "tool": "validation-schema.json#document_validation"
+        },
+        {
+          "step": 3,
+          "action": "Pour chaque règle, vérifier la conformité",
+          "tool": "validation-schema.json#{section}_validations"
+        },
+        {
+          "step": 4,
+          "action": "Générer le rapport",
+          "tool": "validation-schema.json#validation_output_format"
+        }
+      ]
+    },
+    "pattern_3": {
+      "name": "Country-Specific Requirements Pattern",
+      "description": "Comment appliquer les règles spécifiques à un pays",
+      "steps": [
+        {
+          "step": 1,
+          "action": "Identifier le pays",
+          "parameter": "country_code"
+        },
+        {
+          "step": 2,
+          "action": "Charger les règles pays",
+          "tool": "rules_database.json#country_specific_rules[country == {country_code}]"
+        },
+        {
+          "step": 3,
+          "action": "Charger les exigences pays",
+          "tool": "disclaimers-glossary.json#country_specific_requirements.{country}"
+        },
+        {
+          "step": 4,
+          "action": "Appliquer les validations pays",
+          "tool": "validation-schema.json#country_specific_validations.{country}"
+        }
+      ]
+    }
+  },
+
+  "common_queries": {
+    "query_1": {
+      "question": "Quels disclaimers pour un document retail français ?",
+      "answer": {
+        "main_disclaimer": "disclaimers-glossary.json#disclaimers.french.obam_presentation_retail_sas",
+        "performance_disclaimer": "disclaimers-glossary.json#special_disclaimers.past_performance.languages.fr",
+        "rules_reference": "rules_database.json#sections[0].rules[id='1.1']"
+      }
+    },
+    "query_2": {
+      "question": "Puis-je afficher des performances backtestées ?",
+      "answer": {
+        "condition": "client_type == 'professional' AND country == 'FR'",
+        "rule_reference": "rules_database.json#sections[3].subsections[2].strategy_rules.backtested",
+        "disclaimer_required": "disclaimers-glossary.json#special_disclaimers.backtested_performance",
+        "validation": "validation-schema.json#performance_pages.required_disclaimers[disclaimer_id='BACKTEST_PERF']"
+      }
+    },
+    "query_3": {
+      "question": "Quelles sont les règles pour un fonds de moins d'un an ?",
+      "answer": {
+        "restriction": "Aucune performance ne peut être affichée",
+        "alternative": "Afficher uniquement les VL (première et dernière)",
+        "rule_reference": "rules_database.json#sections[3].subsections[2].funds_rules.less_than_1_year",
+        "validation": "validation-schema.json#performance_pages.funds_performance_validations.less_than_1_year"
+      }
+    },
+    "query_4": {
+      "question": "Comment valider un document pour la Belgique ?",
+      "answer": {
+        "requirements": [
+          "Validation FSMA préalable obligatoire",
+          "Document réservé aux distributeurs",
+          "Service de médiation mentionné"
+        ],
+        "rule_reference": "rules_database.json#sections[0].rules[id='1.14']",
+        "country_requirements": "disclaimers-glossary.json#country_specific_requirements.belgium",
+        "validation": "validation-schema.json#country_specific_validations.belgium"
+      }
+    },
+    "query_5": {
+      "question": "Comment vérifier si un fonds est enregistré dans un pays ?",
+      "answer": {
+        "step_1": "Identifier le fonds dans registration-countries.json#funds[]",
+        "step_2": "Trouver la share_class (ex: CR-EUR, DN-EUR)",
+        "step_3": "Consulter registrations[] pour voir les pays",
+        "step_4": "Vérifier status: 'R' = Registered, 'RX' = Registration with exception",
+        "rule_reference": "rules_database.json#sections[0].rules[id='1.9']",
+        "data_source": "registration-countries.json",
+        "mapping": "compliance-mapping.json#mappings[rule_id='1.9']",
+        "note": "Ne pas utiliser pour Private Equity"
+      }
+    }
+  },
+
+  "troubleshooting": {
+    "issue_1": {
+      "problem": "Le disclaimer ne correspond pas au type de client",
+      "solution": "Vérifier le mapping client_type",
+      "check": "compliance-mapping.json#client_type_mapping",
+      "note": "retail -> NON_PROFESSIONAL, professional -> PROFESSIONAL"
+    },
+    "issue_2": {
+      "problem": "Règle de performance non respectée",
+      "solution": "Vérifier la durée minimum et le type de client",
+      "check": "validation-schema.json#performance_pages.funds_performance_validations",
+      "note": "10 ans pour annualisé, 5 ans pour autres, ou depuis création"
+    },
+    "issue_3": {
+      "problem": "Règle pays non appliquée",
+      "solution": "Vérifier les règles spécifiques au pays",
+      "check": [
+        "rules_database.json#country_specific_rules",
+        "compliance-mapping.json#country_specific_mapping",
+        "validation-schema.json#country_specific_validations"
+      ]
+    }
+  }
+}

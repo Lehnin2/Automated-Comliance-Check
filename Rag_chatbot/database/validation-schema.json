@@ -1,0 +1,509 @@
+{
+  "metadata": {
+    "title": "Validation Schema for Commercial Presentations",
+    "version": "1.0",
+    "last_updated": "2023-11-22",
+    "purpose": "Automated validation schema for document compliance",
+    "description": "Ce schéma définit les règles de validation automatique pour les présentations commerciales"
+  },
+
+  "document_validation": {
+    "cover_page": {
+      "section_id": "2",
+      "section_name": "Page de garde - Présentation Standard (~30 pages)",
+      "required_fields": [
+        {
+          "field": "fund_name",
+          "mandatory": true,
+          "validation": "non_empty_string",
+          "error_message": "Le nom du fonds est obligatoire"
+        },
+        {
+          "field": "month_year",
+          "mandatory": true,
+          "validation": "date_format_MM_YYYY",
+          "error_message": "Le mois et l'année sont obligatoires au format MM/YYYY"
+        },
+        {
+          "field": "promotional_mention",
+          "mandatory": true,
+          "expected_value": "document promotionnel",
+          "validation": "exact_match",
+          "error_message": "La mention 'document promotionnel' est obligatoire"
+        },
+        {
+          "field": "target_audience",
+          "mandatory": true,
+          "allowed_values": ["retail", "professionnel"],
+          "validation": "enum",
+          "error_message": "Le type de clientèle cible doit être spécifié (retail ou professionnel)"
+        }
+      ],
+      "conditional_elements": [
+        {
+          "condition": "pre_commercialisation == true",
+          "element": "warning_text",
+          "mandatory": true,
+          "formatting": {
+            "color": "red",
+            "weight": "bold"
+          },
+          "validation": "contains_keywords",
+          "keywords": ["N'A PAS ENCORE ÉTÉ AGRÉÉ", "CONFIDENTIELLE"],
+          "error_message": "L'avertissement de pré-commercialisation doit être présent en rouge et gras"
+        },
+        {
+          "condition": "client_type == 'professional'",
+          "element": "confidentiality_mention",
+          "mandatory": true,
+          "expected_value": "do not disclose",
+          "error_message": "La mention 'do not disclose' est obligatoire pour les documents professionnels"
+        },
+        {
+          "condition": "client_specific == true",
+          "element": "client_name",
+          "mandatory": true,
+          "validation": "non_empty_string",
+          "error_message": "Le nom du client doit être mentionné pour les présentations personnalisées"
+        }
+      ],
+      "rules_reference": ["2.mandatory_elements", "2.conditional_elements"]
+    },
+
+    "disclaimer_page": {
+      "section_id": "3",
+      "section_name": "Slide 2 (après la page de garde - Présentation Standard)",
+      "required_disclaimers": [
+        {
+          "condition": "client_type == 'retail'",
+          "disclaimer_id_pattern": "*_RET_*",
+          "source": "disclaimers-glossary.json#disclaimers",
+          "mandatory": true,
+          "validation": "disclaimer_present_and_complete",
+          "error_message": "Le disclaimer retail complet doit être présent"
+        },
+        {
+          "condition": "client_type == 'professional'",
+          "disclaimer_id_pattern": "*_PRO_*",
+          "source": "disclaimers-glossary.json#disclaimers",
+          "mandatory": true,
+          "validation": "disclaimer_present_and_complete",
+          "error_message": "Le disclaimer professionnel complet doit être présent"
+        }
+      ],
+      "required_elements": [
+        {
+          "element": "risk_profile",
+          "mandatory": true,
+          "validation": "matches_prospectus",
+          "source": "prospectus",
+          "error_message": "Le profil de risque doit être exhaustif et conforme au prospectus"
+        },
+        {
+          "element": "registration_countries",
+          "mandatory": true,
+          "validation": "matches_registration_file",
+          "source": "I:\\service\\DOC LIB\\GENERAL\\Registration abroad of Funds",
+          "error_message": "Les pays de commercialisation doivent être conformes au fichier Registration abroad"
+        }
+      ],
+      "rules_reference": ["3.mandatory_elements", "1.1", "1.2"]
+    },
+
+    "content_pages": {
+      "section_id": "4",
+      "section_name": "Pages suivantes",
+      "general_validations": [
+        {
+          "rule": "performance_not_first",
+          "validation": "first_content_slide != 'performance'",
+          "mandatory": true,
+          "error_message": "La présentation ne doit jamais commencer par les performances"
+        },
+        {
+          "rule": "fund_presentation_before_performance",
+          "validation": "fund_presentation_before_performance_slides",
+          "mandatory": true,
+          "error_message": "La présentation du fonds doit précéder les performances"
+        }
+      ],
+      "sri_disclosure": {
+        "mandatory": true,
+        "validation": "sri_present_with_disclaimer",
+        "required_elements": ["sri_value", "sri_disclaimer"],
+        "placement": "same_slide",
+        "error_message": "Le SRI doit être mentionné avec son disclaimer sur la même slide"
+      },
+      "morningstar_rating": {
+        "condition": "morningstar_rating_present == true",
+        "required_elements": ["rating_value", "calculation_date", "morningstar_category"],
+        "mandatory": true,
+        "error_message": "La notation Morningstar doit inclure la date et la catégorie de référence"
+      },
+      "management_team": {
+        "condition": "management_team_presented == true",
+        "required_disclaimer": "L'équipe est susceptible de changer",
+        "placement": "bottom_of_page",
+        "mandatory": true,
+        "error_message": "Le disclaimer sur le changement d'équipe doit être présent"
+      },
+      "rules_reference": ["4.0.1", "4.0.2", "4.0.7", "1.4"]
+    },
+
+    "esg_pages": {
+      "section_id": "4.1",
+      "section_name": "Mentions spécifiques relatives à l'ESG",
+      "applicability": ["retail", "non_professional_funds"],
+      "validation_logic": {
+        "step_1": {
+          "action": "identify_esg_approach",
+          "source": "I:\\service\\OAM\\PROCEDURES ET POLITIQUES OBAM SAS\\CARTOGRAPHIE ESG",
+          "output": "esg_approach_type"
+        },
+        "step_2": {
+          "action": "validate_communication_volume",
+          "rules": {
+            "engageante": {
+              "criteria": {
+                "exclusion": ">=20%",
+                "portfolio_coverage": ">=90%"
+              },
+              "communication_limit": "unlimited",
+              "validation": "no_limit"
+            },
+            "réduite": {
+              "communication_limit": "<=10%",
+              "measurement": "character_count_percentage",
+              "validation": "esg_content <= 10% of total",
+              "error_message": "La communication ESG ne doit pas dépasser 10% du volume total"
+            },
+            "limitée_au_prospectus": {
+              "communication_limit": "none",
+              "exception": "institutional_professional_only",
+              "validation": "no_esg_mention_unless_institutional",
+              "error_message": "Aucune mention ESG sauf pour investisseurs institutionnels professionnels"
+            },
+            "autres_fonds": {
+              "communication_limit": "common_exclusions_only",
+              "validation": "only_obam_common_exclusions",
+              "error_message": "Seules les exclusions du socle commun OBAM peuvent être mentionnées"
+            }
+          }
+        }
+      },
+      "rules_reference": ["4.1"]
+    },
+
+    "securities_mentions": {
+      "section_id": "4.2",
+      "section_name": "Mentions spécifiques des valeurs",
+      "prohibited_validations": [
+        {
+          "rule": "no_investment_recommendation",
+          "validation": "!contains_recommendation_keywords",
+          "keywords": ["recommandons", "conseillons", "suggérons", "devriez acheter", "devriez vendre"],
+          "mandatory": true,
+          "error_message": "Aucune recommandation d'investissement directe ou indirecte n'est autorisée"
+        },
+        {
+          "rule": "no_valuation_assessment",
+          "validation": "!contains_valuation_keywords",
+          "keywords": ["sous-évalué", "surévalué", "correctement évalué", "bon prix", "prix attractif"],
+          "mandatory": true,
+          "error_message": "Aucune évaluation de valorisation n'est autorisée"
+        },
+        {
+          "rule": "no_buy_sell_advice",
+          "validation": "!contains_action_keywords",
+          "keywords": ["acheter", "vendre", "renforcer", "alléger", "prendre position"],
+          "mandatory": true,
+          "error_message": "Aucun conseil d'achat ou de vente n'est autorisé"
+        },
+        {
+          "rule": "no_repeated_mention",
+          "validation": "security_mention_count <= 1",
+          "mandatory": true,
+          "error_message": "Une même valeur ne peut être citée plusieurs fois"
+        },
+        {
+          "rule": "no_future_projections",
+          "validation": "!contains_projection_keywords",
+          "keywords": ["prévoit", "anticipons", "devrait atteindre", "objectif de cours"],
+          "mandatory": true,
+          "error_message": "Aucune projection future pour une valeur n'est autorisée"
+        }
+      ],
+      "permitted_validations": [
+        {
+          "rule": "market_trends_allowed",
+          "validation": "general_market_commentary",
+          "allowed": true
+        },
+        {
+          "rule": "factual_information_allowed",
+          "validation": "factual_events_only",
+          "allowed": true
+        },
+        {
+          "rule": "portfolio_holdings_allowed",
+          "validation": "portfolio_holdings_with_past_performance",
+          "required_disclaimer": "PAST_PERF",
+          "allowed": true
+        }
+      ],
+      "rules_reference": ["4.2"]
+    },
+
+    "performance_pages": {
+      "section_id": "4.3",
+      "section_name": "Mentions spécifiques relatives aux performances",
+      "general_validations": [
+        {
+          "rule": "not_first_element",
+          "validation": "performance_not_first_in_document",
+          "mandatory": true,
+          "error_message": "Les performances ne peuvent pas être le premier élément"
+        },
+        {
+          "rule": "not_central",
+          "validation": "performance_not_central_element",
+          "mandatory": true,
+          "error_message": "Les performances ne peuvent pas être l'élément central"
+        },
+        {
+          "rule": "not_disproportionate",
+          "validation": "font_size == main_text_font_size",
+          "mandatory": true,
+          "error_message": "La police des performances doit être identique au texte principal"
+        }
+      ],
+      "funds_performance_validations": {
+        "minimum_duration": {
+          "annualized": {
+            "rule": "min_10_years_or_since_inception",
+            "validation": "performance_period >= 10_years OR since_inception",
+            "mandatory": true,
+            "error_message": "Les performances annualisées doivent couvrir au moins 10 ans ou depuis la création"
+          },
+          "other": {
+            "rule": "min_5_years_or_since_inception",
+            "validation": "performance_period >= 5_years OR since_inception",
+            "mandatory": true,
+            "error_message": "Les performances doivent couvrir au moins 5 ans ou depuis la création"
+          }
+        },
+        "less_than_1_year": {
+          "rule": "no_performance_display",
+          "validation": "fund_age >= 1_year OR no_performance",
+          "mandatory": true,
+          "error_message": "Aucune performance ne peut être affichée pour un fonds de moins d'un an"
+        },
+        "less_than_1_month": {
+          "rule": "no_performance_except_ytd",
+          "validation": "performance_period >= 1_month OR ytd_only",
+          "mandatory": true,
+          "error_message": "Aucune performance de moins d'un mois sauf YTD"
+        },
+        "ytd_validation": {
+          "rule": "ytd_not_standalone",
+          "validation": "ytd_with_full_history",
+          "mandatory": true,
+          "error_message": "Le YTD ne peut pas être affiché seul sans historique complet"
+        },
+        "benchmark_validation": {
+          "official_benchmark": {
+            "rule": "must_compare_to_official",
+            "validation": "official_benchmark_present AND compared",
+            "mandatory": true,
+            "condition": "official_benchmark_exists",
+            "error_message": "Les performances doivent être comparées à l'indicateur de référence officiel"
+          },
+          "non_prospectus_benchmark": {
+            "rule": "no_comparison_to_non_prospectus",
+            "validation": "!compared_to_non_prospectus_benchmark",
+            "mandatory": true,
+            "error_message": "Aucune comparaison à un benchmark non mentionné au prospectus"
+          }
+        },
+        "net_gross_validation": {
+          "retail": {
+            "rule": "net_mandatory",
+            "validation": "performance_net_of_all_fees",
+            "mandatory": true,
+            "error_message": "Les performances retail doivent être nettes de tous frais"
+          },
+          "professional": {
+            "rule": "gross_allowed_with_disclosure",
+            "validation": "if_gross_then_fee_impact_disclosed",
+            "mandatory": true,
+            "error_message": "Les performances brutes doivent mentionner l'impact des frais"
+          }
+        }
+      },
+      "required_disclaimers": [
+        {
+          "disclaimer_id": "PAST_PERF",
+          "source": "disclaimers-glossary.json#special_disclaimers.past_performance",
+          "mandatory": true,
+          "placement": "near_performance_data",
+          "formatting": "bold_visible",
+          "error_message": "Le disclaimer 'performances passées' est obligatoire"
+        },
+        {
+          "disclaimer_id": "BACKTEST_PERF",
+          "source": "disclaimers-glossary.json#special_disclaimers.backtested_performance",
+          "condition": "has_backtested_data == true AND client_type == 'professional' AND country == 'FR'",
+          "mandatory": true,
+          "error_message": "Le disclaimer backtesté est obligatoire pour les données simulées (France, professionnels)"
+        },
+        {
+          "disclaimer_id": "FUTURE_SIM",
+          "source": "disclaimers-glossary.json#special_disclaimers.future_simulations",
+          "condition": "has_future_simulation == true",
+          "mandatory": true,
+          "error_message": "Le disclaimer simulation future est obligatoire"
+        }
+      ],
+      "rules_reference": ["4.3"]
+    },
+
+    "closing_page": {
+      "section_id": "5",
+      "section_name": "Page de fin de présentation",
+      "required_elements": [
+        {
+          "element": "legal_mention_sgp",
+          "source": "disclaimers-glossary.json",
+          "mandatory": true,
+          "error_message": "La mention légale SGP doit être présente"
+        }
+      ],
+      "rules_reference": ["5.mandatory_elements"]
+    }
+  },
+
+  "country_specific_validations": {
+    "germany": {
+      "performance_rules": [
+        {
+          "rule": "rolling_with_inception",
+          "validation": "rolling_performance_includes_inception_to_first_year",
+          "mandatory": true,
+          "error_message": "Les performances glissantes doivent inclure la période depuis création jusqu'à la première année"
+        },
+        {
+          "rule": "subscription_fees_first_year",
+          "validation": "first_year_includes_max_subscription_fees",
+          "mandatory": true,
+          "error_message": "La première année doit incorporer les frais de souscription maximum"
+        },
+        {
+          "rule": "redemption_fees_last_year",
+          "validation": "last_year_includes_max_redemption_fees",
+          "mandatory": true,
+          "error_message": "La dernière année doit incorporer les frais de rachat maximum"
+        },
+        {
+          "rule": "nav_display_less_1year",
+          "validation": "if_less_1year_then_simple_table",
+          "mandatory": true,
+          "error_message": "Pour les fonds de moins d'un an : tableau simple de VL (pas de graphe)"
+        }
+      ]
+    },
+    "belgium": {
+      "retail_rules": [
+        {
+          "rule": "fsma_approval",
+          "validation": "fsma_approval_obtained",
+          "mandatory": true,
+          "condition": "client_type == 'retail'",
+          "error_message": "La validation FSMA est obligatoire pour les clients retail belges"
+        },
+        {
+          "rule": "distributor_only_mention",
+          "validation": "contains_distributor_only_disclaimer",
+          "mandatory": true,
+          "condition": "client_type == 'retail'",
+          "error_message": "Le document doit mentionner qu'il est réservé aux distributeurs"
+        }
+      ]
+    },
+    "france": {
+      "professional_rules": [
+        {
+          "rule": "backtested_allowed",
+          "validation": "backtested_with_disclaimer",
+          "condition": "client_type == 'professional'",
+          "allowed": true,
+          "required_disclaimer": "BACKTEST_PERF"
+        }
+      ]
+    },
+    "switzerland": {
+      "fund_rules": [
+        {
+          "rule": "representative_mention",
+          "validation": "swiss_representative_mentioned",
+          "mandatory": true,
+          "source": "disclaimers-glossary.json#country_specific_requirements.switzerland",
+          "error_message": "Le représentant suisse doit être mentionné"
+        }
+      ]
+    }
+  },
+
+  "formatting_validations": {
+    "warnings_disclaimers": {
+      "weight": {
+        "rule": "must_be_bold",
+        "validation": "font_weight == 'bold'",
+        "mandatory": true,
+        "error_message": "Les avertissements doivent être en gras"
+      },
+      "font_size": {
+        "rule": "same_as_main_text",
+        "validation": "font_size == main_text_font_size",
+        "mandatory": true,
+        "error_message": "La taille de police doit être identique au texte principal"
+      },
+      "visibility": {
+        "rule": "not_in_footnote",
+        "validation": "!in_footnote",
+        "mandatory": true,
+        "error_message": "Les avertissements ne doivent pas être en note de bas de page"
+      }
+    }
+  },
+
+  "validation_output_format": {
+    "compliance_report": {
+      "document_id": "string",
+      "validation_date": "ISO_8601_datetime",
+      "validator_version": "1.0",
+      "overall_status": "enum[compliant, non_compliant, warnings]",
+      "sections_validated": [
+        {
+          "section_name": "string",
+          "section_id": "string",
+          "status": "enum[pass, fail, warning]",
+          "rules_checked": ["array_of_rule_ids"],
+          "errors": [
+            {
+              "rule_id": "string",
+              "severity": "enum[error, warning]",
+              "message": "string",
+              "location": "string"
+            }
+          ]
+        }
+      ],
+      "summary": {
+        "total_rules_checked": "integer",
+        "rules_passed": "integer",
+        "rules_failed": "integer",
+        "warnings": "integer"
+      }
+    }
+  }
+}

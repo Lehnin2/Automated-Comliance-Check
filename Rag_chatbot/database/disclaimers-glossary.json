@@ -1,0 +1,543 @@
+{
+  "metadata": {
+    "title": "Glossaire des Disclaimers ODDO BHF Asset Management",
+    "version": "20231122",
+    "languages": ["english", "french", "german"],
+    "last_updated": "2023-11-22",
+    "description": "Disclaimers standards pour les présentations commerciales, stratégies et fonds",
+    "source_file": "GLOSSAIRE_DISCLAIMERS_20231122.pdf",
+    "synchronized_with": {
+      "rules_database.json": "20231122"
+    },
+    "change_log": [
+      {
+        "date": "2023-11-22",
+        "changes": "Initial alignment with rules database, added client type mapping and country codes"
+      }
+    ]
+  },
+  
+  "management_companies": [
+    {
+      "code": "OBAM_SAS",
+      "name": "ODDO BHF Asset Management SAS",
+      "country": "France",
+      "regulators": ["AMF"]
+    },
+    {
+      "code": "OBAM_GmbH",
+      "name": "ODDO BHF Asset Management GmbH",
+      "country": "Germany",
+      "regulators": ["BaFin"]
+    },
+    {
+      "code": "OBAM_Lux",
+      "name": "ODDO BHF Asset Management Lux",
+      "country": "Luxembourg",
+      "regulators": ["CSSF"]
+    }
+  ],
+
+  "document_types": [
+    {
+      "code": "OBAM_PRESENTATION",
+      "name": "OBAM Presentation",
+      "description": "Présentations commerciales de fonds (~30 pages)",
+      "applicable_to": ["funds"]
+    },
+    {
+      "code": "COMMERCIAL_DOC_FUNDS",
+      "name": "Commercial documentation",
+      "description": "Documentation commerciale pour fonds",
+      "applicable_to": ["funds"]
+    },
+    {
+      "code": "COMMERCIAL_DOC_STRATEGIES",
+      "name": "Commercial documentation (strategies)",
+      "description": "Documentation commerciale pour stratégies",
+      "applicable_to": ["strategies"],
+      "client_type_restriction": "professional_only"
+    },
+    {
+      "code": "COMMERCIAL_DOC_RAIF",
+      "name": "Commercial documentation (luxembourg funds-RAIF)",
+      "description": "Documentation pour fonds RAIF (Luxembourg)",
+      "applicable_to": ["raif_funds"],
+      "client_type_restriction": "well_informed_investors"
+    },
+    {
+      "code": "FUNDS_REPORTING",
+      "name": "Funds reporting",
+      "description": "Reportings périodiques de fonds",
+      "applicable_to": ["funds"]
+    },
+    {
+      "code": "NEW_OFFER_STRATEGY",
+      "name": "New offer products (strategy only)",
+      "description": "Nouvelles offres de stratégies",
+      "applicable_to": ["strategies"],
+      "client_type_restriction": "professional_only"
+    },
+    {
+      "code": "NEW_OFFER_TRACK_RECORD",
+      "name": "New offer products (strategy mentioning funds track record)",
+      "description": "Nouvelles offres mentionnant le track record de fonds",
+      "applicable_to": ["strategies", "funds"],
+      "client_type_restriction": "professional_only"
+    },
+    {
+      "code": "MMF_WEEKLY_REPORTING",
+      "name": "Regulatory weekly factsheet for Money Market Fund",
+      "description": "Reporting hebdomadaire réglementaire pour fonds monétaires",
+      "applicable_to": ["money_market_funds"],
+      "regulation": "EU_2017_1131_Article_36_2"
+    }
+  ],
+
+  "client_types": {
+    "retail": {
+      "code": "NON_PROFESSIONAL",
+      "rules_database_alias": "retail",
+      "labels": {
+        "en": "Non professional",
+        "fr": "Non professionnel",
+        "de": "Nicht professionell"
+      },
+      "mifid_category": "retail",
+      "applicable_disclaimers": ["*_RET_*"],
+      "compliance_rules": ["1.1", "1.5", "1.11"]
+    },
+    "professional": {
+      "code": "PROFESSIONAL",
+      "rules_database_alias": "professional",
+      "labels": {
+        "en": "Professional",
+        "fr": "Professionnel",
+        "de": "Professionell"
+      },
+      "mifid_category": "professional",
+      "applicable_disclaimers": ["*_PRO_*"],
+      "compliance_rules": ["1.2", "1.12"]
+    },
+    "well_informed": {
+      "code": "WELL_INFORMED",
+      "rules_database_alias": "well_informed_investors",
+      "labels": {
+        "en": "Well-informed investors",
+        "fr": "Investisseurs avertis",
+        "de": "Gut informierte Anleger"
+      },
+      "applicable_to": ["RAIF"],
+      "description": "Category for RAIF funds under Luxembourg law",
+      "compliance_rules": ["1.2"]
+    }
+  },
+
+  "disclaimers": {
+    "english": {
+      "obam_presentation_retail_sas": {
+        "id": "EN_PRES_RET_SAS",
+        "document_type": "OBAM_PRESENTATION",
+        "management_company": "OBAM_SAS",
+        "client_type": "NON_PROFESSIONAL",
+        "language": "en",
+        "content": "ODDO BHF AM is the asset management division of the ODDO BHF Group. It is the common brand of three legally separate asset management companies: ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Germany) and ODDO BHF AM Lux (Luxembourg).\n\nThis document has been drawn up by ODDO BHF ASSET MANAGEMENT SAS. for market communication. Its communication to any investor is the exclusive responsibility of each distributor or advisor with the exception of Belgium, where this document is intended exclusively for distributors and may not be distributed to non-professional clients.\n\nPotential investors should consult an investment advisor before subscribing to the fund. The investor is informed that the fund presents a risk of capital loss, but also many risks linked to the financial instruments/strategies in the portfolio. In case of subscription, investors must read the Key Information Document (KID) and the fund's prospectus in order to acquaint themselves with the detailed nature of any risks incurred and all costs. The value of the investment may vary both upwards and downwards and may not be returned in full. The investment must be made in accordance with investors' investment objectives, their investment horizon and their capacity to deal with the risk arising from the transaction. ODDO BHF ASSET MANAGEMENT SAS cannot be held responsible for any direct or indirect damages resulting from the use of this document or the information contained in it. This information is provided for indicative purposes and may be modified at any moment without prior notice.\n\nAny opinions presented in this document result from our market forecasts on the publication date. They are subject to change according to market conditions and ODDO BHF ASSET MANAGEMENT SAS shall not in any case be held contractually liable for them. The net asset values presented in this document are provided for indicative purposes only. Only the net asset value marked on the transaction statement and the securities account statement is authoritative. Subscriptions and redemptions of mutual funds are processed at an unknown asset value.\n\nA summary of investor rights is available free of charge in electronic form in English language on the website at: https://am.oddo-bhf.com/FRANCE/en/non_professional_investor/infos_reglementaire\n\nThe fund may have been authorized for distribution in different EU member states. Investors are advised to the fact that the management company may decide to withdraw with the arrangements it has made for the distribution of the units of the fund in accordance with Article 93a of Directive 2009/65/EC and Article 32a of Directive 2011/61/EU.\n\nThe complaints handling policy is available on our website am.oddo-bhf.com in the regulatory information section. Customer complaints can be addressed in the first instance to the following e-mail address: service_client@oddo-bhf.com (or directly to the Consumer Mediation Service: http://mediationconsommateur.be (ONLY FOR BELGIUM))",
+        "mandatory_elements": [
+          "management_company_identification",
+          "communication_responsibility",
+          "risk_warnings",
+          "kid_prospectus_reading_requirement",
+          "investor_rights_summary",
+          "complaints_handling"
+        ],
+        "belgium_specific": true
+      },
+      "obam_presentation_professional_sas": {
+        "id": "EN_PRES_PRO_SAS",
+        "document_type": "OBAM_PRESENTATION",
+        "management_company": "OBAM_SAS",
+        "client_type": "PROFESSIONAL",
+        "language": "en",
+        "content": "ODDO BHF AM is the asset management division of the ODDO BHF Group. It is the common brand of three legally separate asset management companies: ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Germany) and ODDO BHF AM Lux (Luxembourg).\n\nThis document, for market communication, has been drawn up by ODDO BHF ASSET MANAGEMENT SAS and is exclusively dedicated to clients categorized as professional (MIFID). It may not be circulated among the public.\n\nThe investor is informed that the fund presents a risk of capital loss, but also many risks linked to the financial instruments/strategies in the portfolio. In case of subscription, investors must read the Key Information Document (KID) and the fund's prospectus in order to acquaint themselves with the detailed nature of any risks incurred and all costs. The value of the investment may vary both upwards and downwards and may not be returned in full. The investment must be made in accordance with investors' investment objectives, their investment horizon and their capacity to deal with the risk arising from the transaction. ODDO BHF ASSET MANAGEMENT SAS cannot be held responsible for any direct or indirect damages resulting from the use of this document or the information contained in it. This information is provided for indicative purposes and may be modified at any moment without prior notice.\n\nAny opinions presented in this document result from our market forecasts on the publication date. They are subject to change according to market conditions and ODDO BHF ASSET MANAGEMENT SAS shall not in any case be held contractually liable for them. The net asset values presented in this document are provided for indicative purposes only. Only the net asset value marked on the transaction statement and the securities account statement is authoritative. Subscriptions and redemptions of mutual funds are processed at an unknown asset value.\n\nA summary of investor rights is available free of charge in electronic form in English language on the website at: https://am.oddo-bhf.com/FRANCE/en/non_professional_investor/infos_reglementaire\n\nThe fund may have been authorized for distribution in different EU member states. Investors are advised to the fact that the management company may decide to withdraw with the arrangements it has made for the distribution of the units of the fund in accordance with Article 93a of Directive 2009/65/EC and Article 32a of Directive 2011/61/EU.\n\nThe complaints handling policy is available on our website am.oddo-bhf.com in the regulatory information section. Customer complaints can be addressed in the first instance to the following e-mail address: service_client@oddo-bhf.com (or directly to the Consumer Mediation Service: http://mediationconsommateur.be (ONLY FOR BELGIUM))",
+        "professional_only": true
+      },
+      "obam_presentation_retail_gmbh": {
+        "id": "EN_PRES_RET_GMBH",
+        "document_type": "OBAM_PRESENTATION",
+        "management_company": "OBAM_GmbH",
+        "client_type": "NON_PROFESSIONAL",
+        "language": "en",
+        "content": "ODDO BHF AM is the asset management division of the ODDO BHF Group. It is the common brand of three legally separate asset management companies: ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Germany) and ODDO BHF AM Lux (Luxembourg).\n\nThis document has been drawn up by ODDO BHF ASSET MANAGEMENT GmbH. for market communication. Its communication to any investor is the exclusive responsibility of each distributor or advisor with the exception of Belgium, where this document is intended exclusively for distributors and may not be distributed to non-professional clients.\n\nPotential investors should consult an investment advisor before subscribing to the fund. The investor is informed that the fund presents a risk of capital loss, but also many risks linked to the financial instruments/strategies in the portfolio. In case of subscription, investors must read the Key Information Document (KID) and the fund's prospectus in order to acquaint themselves with the detailed nature of any risks incurred and all costs. The value of the investment may vary both upwards and downwards and may not be returned in full. The investment must be made in accordance with investors' investment objectives, their investment horizon and their capacity to deal with the risk arising from the transaction. ODDO BHF ASSET MANAGEMENT GmbH cannot be held responsible for any direct or indirect damages resulting from the use of this document or the information contained in it. This information is provided for indicative purposes and may be modified at any moment without prior notice.\n\nAny opinions presented in this document result from our market forecasts on the publication date. They are subject to change according to market conditions and ODDO BHF ASSET MANAGEMENT GmbH shall not in any case be held contractually liable for them. The net asset values presented in this document are provided for indicative purposes only. Only the net asset value marked on the transaction statement and the securities account statement is authoritative. Subscriptions and redemptions of mutual funds are processed at an unknown asset value.\n\nA summary of investor rights is available free of charge in electronic form in English language on the website at: https://am.oddo-bhf.com/france/en/non_professional_investor/infos_reglementaire_gmbh\n\nThe fund may have been authorized for distribution in different EU member states. Investors are advised to the fact that the management company may decide to withdraw with the arrangements it has made for the distribution of the units of the fund in accordance with Article 93a of Directive 2009/65/EC and Article 32a of Directive 2011/61/EU.\n\nThe complaints handling policy is available on our website am.oddo-bhf.com in the regulatory information section. Customer complaints can be addressed in the first instance to the following e-mail address: service_client@oddo-bhf.com (or directly to the Consumer Mediation Service: http://mediationconsommateur.be (ONLY FOR BELGIUM))"
+      },
+      "obam_presentation_professional_gmbh": {
+        "id": "EN_PRES_PRO_GMBH",
+        "document_type": "OBAM_PRESENTATION",
+        "management_company": "OBAM_GmbH",
+        "client_type": "PROFESSIONAL",
+        "language": "en",
+        "content": "ODDO BHF AM is the asset management division of the ODDO BHF Group. It is the common brand of three legally separate asset management companies: ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Germany) and ODDO BHF AM Lux (Luxembourg).\n\nThis document, for market communication, has been drawn up by ODDO BHF ASSET MANAGEMENT GmbH and is exclusively dedicated to clients categorized as professional (MIFID). It may not be circulated among the public.\n\nThe investor is informed that the fund presents a risk of capital loss, but also many risks linked to the financial instruments/strategies in the portfolio. In case of subscription, investors must read the Key Information Document (KID) and the fund's prospectus in order to acquaint themselves with the detailed nature of any risks incurred and all costs. The value of the investment may vary both upwards and downwards and may not be returned in full. The investment must be made in accordance with investors' investment objectives, their investment horizon and their capacity to deal with the risk arising from the transaction. ODDO BHF ASSET MANAGEMENT GmbH cannot be held responsible for any direct or indirect damages resulting from the use of this document or the information contained in it. This information is provided for indicative purposes and may be modified at any moment without prior notice.\n\nAny opinions presented in this document result from our market forecasts on the publication date. They are subject to change according to market conditions and ODDO BHF ASSET MANAGEMENT GmbH shall not in any case be held contractually liable for them. The net asset values presented in this document are provided for indicative purposes only. Only the net asset value marked on the transaction statement and the securities account statement is authoritative. Subscriptions and redemptions of mutual funds are processed at an unknown asset value.\n\nA summary of investor rights is available free of charge in electronic form in English language on the website at: https://am.oddo-bhf.com/france/en/non_professional_investor/infos_reglementaire_gmbh\n\nThe fund may have been authorized for distribution in different EU member states. Investors are advised to the fact that the management company may decide to withdraw with the arrangements it has made for the distribution of the units of the fund in accordance with Article 93a of Directive 2009/65/EC and Article 32a of Directive 2011/61/EU.\n\nThe complaints handling policy is available on our website am.oddo-bhf.com in the regulatory information section. Customer complaints can be addressed in the first instance to the following e-mail address: service_client@oddo-bhf.com (or directly to the Consumer Mediation Service: http://mediationconsommateur.be (ONLY FOR BELGIUM))",
+        "professional_only": true
+      },
+      "obam_presentation_retail_lux": {
+        "id": "EN_PRES_RET_LUX",
+        "document_type": "OBAM_PRESENTATION",
+        "management_company": "OBAM_Lux",
+        "client_type": "NON_PROFESSIONAL",
+        "language": "en",
+        "content": "ODDO BHF AM is the asset management division of the ODDO BHF Group. It is the common brand of three legally separate asset management companies: ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Germany) and ODDO BHF AM Lux (Luxembourg).\n\nThis document has been drawn up by ODDO BHF ASSET MANAGEMENT Lux. for market communication. Its communication to any investor is the exclusive responsibility of each distributor or advisor with the exception of Belgium, where this document is intended exclusively for distributors and may not be distributed to non-professional clients.\n\nPotential investors should consult an investment advisor before subscribing to the fund. The investor is informed that the fund presents a risk of capital loss, but also many risks linked to the financial instruments/strategies in the portfolio. In case of subscription, investors must read the Key Information Document (KID) and the fund's prospectus in order to acquaint themselves with the detailed nature of any risks incurred and all costs. The value of the investment may vary both upwards and downwards and may not be returned in full. The investment must be made in accordance with investors' investment objectives, their investment horizon and their capacity to deal with the risk arising from the transaction. ODDO BHF ASSET MANAGEMENT Lux cannot be held responsible for any direct or indirect damages resulting from the use of this document or the information contained in it. This information is provided for indicative purposes and may be modified at any moment without prior notice.\n\nAny opinions presented in this document result from our market forecasts on the publication date. They are subject to change according to market conditions and ODDO BHF ASSET MANAGEMENT Lux shall not in any case be held contractually liable for them. The net asset values presented in this document are provided for indicative purposes only. Only the net asset value marked on the transaction statement and the securities account statement is authoritative. Subscriptions and redemptions of mutual funds are processed at an unknown asset value.\n\nA summary of investor rights is available free of charge in electronic form in English language on the website at: https://am.oddo-bhf.com/france/en/non_professional_investor/infos_reglementaire_AMLux\n\nThe fund may have been authorized for distribution in different EU member states. Investors are advised to the fact that the management company may decide to withdraw with the arrangements it has made for the distribution of the units of the fund in accordance with Article 93a of Directive 2009/65/EC and Article 32a of Directive 2011/61/EU.\n\nThe complaints handling policy is available on our website am.oddo-bhf.com in the regulatory information section. Customer complaints can be addressed in the first instance to the following e-mail address: service_client@oddo-bhf.com (or directly to the Consumer Mediation Service: http://mediationconsommateur.be (ONLY FOR BELGIUM))"
+      },
+      "obam_presentation_professional_lux": {
+        "id": "EN_PRES_PRO_LUX",
+        "document_type": "OBAM_PRESENTATION",
+        "management_company": "OBAM_Lux",
+        "client_type": "PROFESSIONAL",
+        "language": "en",
+        "content": "ODDO BHF AM is the asset management division of the ODDO BHF Group. It is the common brand of three legally separate asset management companies: ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Germany) and ODDO BHF AM Lux (Luxembourg).\n\nThis document, for market communication, has been drawn up by ODDO BHF ASSET MANAGEMENT Lux and is exclusively dedicated to clients categorized as professional (MIFID). It may not be circulated among the public.\n\nThe investor is informed that the fund presents a risk of capital loss, but also many risks linked to the financial instruments/strategies in the portfolio. In case of subscription, investors must read the Key Information Document (KID) and the fund's prospectus in order to acquaint themselves with the detailed nature of any risks incurred and all costs. The value of the investment may vary both upwards and downwards and may not be returned in full. The investment must be made in accordance with investors' investment objectives, their investment horizon and their capacity to deal with the risk arising from the transaction. ODDO BHF ASSET MANAGEMENT Lux cannot be held responsible for any direct or indirect damages resulting from the use of this document or the information contained in it. This information is provided for indicative purposes and may be modified at any moment without prior notice.\n\nAny opinions presented in this document result from our market forecasts on the publication date. They are subject to change according to market conditions and ODDO BHF ASSET MANAGEMENT Lux shall not in any case be held contractually liable for them. The net asset values presented in this document are provided for indicative purposes only. Only the net asset value marked on the transaction statement and the securities account statement is authoritative. Subscriptions and redemptions of mutual funds are processed at an unknown asset value.\n\nA summary of investor rights is available free of charge in electronic form in English language on the website at: https://am.oddo-bhf.com/france/en/non_professional_investor/infos_reglementaire_AMLux\n\nThe fund may have been authorized for distribution in different EU member states. Investors are advised to the fact that the management company may decide to withdraw with the arrangements it has made for the distribution of the units of the fund in accordance with Article 93a of Directive 2009/65/EC and Article 32a of Directive 2011/61/EU.\n\nThe complaints handling policy is available on our website am.oddo-bhf.com in the regulatory information section. Customer complaints can be addressed in the first instance to the following e-mail address: service_client@oddo-bhf.com (or directly to the Consumer Mediation Service: http://mediationconsommateur.be (ONLY FOR BELGIUM))",
+        "professional_only": true
+      },
+      "strategy_professional_sas": {
+        "id": "EN_STRAT_PRO_SAS",
+        "document_type": "COMMERCIAL_DOC_STRATEGIES",
+        "management_company": "OBAM_SAS",
+        "client_type": "PROFESSIONAL",
+        "language": "en",
+        "content": "ODDO BHF AM is the asset management division of the ODDO BHF Group. It is the common brand of three legally separate asset management companies: ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Germany) and ODDO BHF AM Lux (Luxembourg).\n\nThis document, for market communication, has been drawn up by ODDO BHF ASSET MANAGEMENT SAS and is exclusively dedicated to clients categorized as professional (MIFID). It may not be circulated among the public.\n\nThe investor is informed that the strategy presents a risk of capital loss, but also many risks linked to the financial instruments/strategies in the portfolio. The value of the investment through this strategy may vary both upwards and downwards and may not be returned in full. The investment must be made in accordance with investors' investment objectives, their investment horizon and their capacity to deal with the risk arising from the transaction. ODDO BHF ASSET MANAGEMENT SAS cannot be held responsible for any direct or indirect damages resulting from the use of this document or the information contained in it. This information is provided for indicative purposes and may be modified at any moment without prior notice.\n\nAny opinions presented in this document result from our market forecasts on the publication date. They are subject to change according to market conditions and ODDO BHF ASSET MANAGEMENT SAS shall not in any case be held contractually liable for them.",
+        "professional_only": true,
+        "retail_allowed": false
+      },
+      "strategy_professional_gmbh": {
+        "id": "EN_STRAT_PRO_GMBH",
+        "document_type": "COMMERCIAL_DOC_STRATEGIES",
+        "management_company": "OBAM_GmbH",
+        "client_type": "PROFESSIONAL",
+        "language": "en",
+        "content": "ODDO BHF AM is the asset management division of the ODDO BHF Group. It is the common brand of three legally separate asset management companies: ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Germany) and ODDO BHF AM Lux (Luxembourg).\n\nThis document, for market communication, has been drawn up by ODDO BHF ASSET MANAGEMENT GmbH and is exclusively dedicated to clients categorized as professional (MIFID). It may not be circulated among the public.\n\nThe investor is informed that the strategy presents a risk of capital loss, but also many risks linked to the financial instruments/strategies in the portfolio. The value of the investment through this strategy may vary both upwards and downwards and may not be returned in full. The investment must be made in accordance with investors' investment objectives, their investment horizon and their capacity to deal with the risk arising from the transaction. ODDO BHF ASSET MANAGEMENT GmbH cannot be held responsible for any direct or indirect damages resulting from the use of this document or the information contained in it. This information is provided for indicative purposes and may be modified at any moment without prior notice.\n\nAny opinions presented in this document result from our market forecasts on the publication date. They are subject to change according to market conditions and ODDO BHF ASSET MANAGEMENT GmbH shall not in any case be held contractually liable for them.",
+        "professional_only": true,
+        "retail_allowed": false
+      },
+      "strategy_professional_lux": {
+        "id": "EN_STRAT_PRO_LUX",
+        "document_type": "COMMERCIAL_DOC_STRATEGIES",
+        "management_company": "OBAM_Lux",
+        "client_type": "PROFESSIONAL",
+        "language": "en",
+        "content": "ODDO BHF AM is the asset management division of the ODDO BHF Group. It is the common brand of three legally separate asset management companies: ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Germany) and ODDO BHF AM Lux (Luxembourg).\n\nThis document, for market communication, has been drawn up by ODDO BHF ASSET MANAGEMENT Lux and is exclusively dedicated to clients categorized as professional (MIFID). It may not be circulated among the public.\n\nThe investor is informed that the strategy presents a risk of capital loss, but also many risks linked to the financial instruments/strategies in the portfolio. The value of the investment through this strategy may vary both upwards and downwards and may not be returned in full. The investment must be made in accordance with investors' investment objectives, their investment horizon and their capacity to deal with the risk arising from the transaction. ODDO BHF ASSET MANAGEMENT Lux cannot be held responsible for any direct or indirect damages resulting from the use of this document or the information contained in it. This information is provided for indicative purposes and may be modified at any moment without prior notice.\n\nAny opinions presented in this document result from our market forecasts on the publication date. They are subject to change according to market conditions and ODDO BHF ASSET MANAGEMENT Lux shall not in any case be held contractually liable for them.",
+        "professional_only": true,
+        "retail_allowed": false
+      }
+    },
+    
+    "french": {
+      "obam_presentation_retail_sas": {
+        "id": "FR_PRES_RET_SAS",
+        "document_type": "OBAM_PRESENTATION",
+        "management_company": "OBAM_SAS",
+        "client_type": "NON_PROFESSIONAL",
+        "language": "fr",
+        "content": "ODDO BHF AM est la branche de gestion d'actifs du Groupe ODDO BHF. Elle est la marque commune des trois sociétés de gestion juridiquement distinctes ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Allemagne) et ODDO BHF AM Lux (Luxembourg).\n\nCe document, à caractère promotionnel, est établi par ODDO BHF ASSET MANAGEMENT SAS. Sa remise à tout investisseur relève de la responsabilité exclusive de chaque distributeur ou conseil à l'exception de la Belgique où ce document est exclusivement dédié aux distributeurs et ne peut être diffusé auprès de clients non professionnels.\n\nL'investisseur potentiel doit consulter un conseiller en investissement avant de souscrire dans le fonds. L'investisseur est informé que le fonds présente un risque de perte en capital, mais aussi un certain nombre de risques liés aux instruments/stratégies en portefeuille. En cas de souscription, l'investisseur doit obligatoirement prendre connaissance du Document d'information clé (DIC) ou du prospectus de l'OPC pour une présentation exacte des risques encourus et de l'ensemble des frais. La valeur de l'investissement peut évoluer tant à la hausse qu'à la baisse et peut ne pas lui être intégralement restituée. L'investissement doit s'effectuer en fonction de ses objectifs d'investissement, son horizon d'investissement et sa capacité à faire face au risque lié à la transaction. ODDO BHF ASSET MANAGEMENT SAS ne saurait également être tenue pour responsable de tout dommage direct ou indirect résultant de l'usage de la présente publication ou des informations qu'elle contient. Les informations sont données à titre indicatif et sont susceptibles de modifications à tout moment sans avis préalable.\n\nLes opinions émises dans ce document correspondent à nos anticipations de marché au moment de la publication du document. Elles sont susceptibles d'évoluer en fonction des conditions de marché et ne sauraient en aucun cas engager la responsabilité contractuelle d'ODDO BHF ASSET MANAGEMENT SAS. Les valeurs liquidatives affichées sur le présent document le sont à titre indicatif uniquement. Seule la valeur liquidative inscrite sur l'avis d'opéré et les relevés de titres fait foi. La souscription et le rachat des OPC s'effectuent à valeur liquidative inconnue.\n\nUn résumé des droits des investisseurs est disponible gratuitement sous forme électronique en anglais sur le site web à l'adresse suivante : https://am.oddo-bhf.com/france/fr/investisseur_non_professionnel/infos_reglementaire\n\nLe fonds peut avoir été autorisé à la distribution dans différents Etats membres de l'UE. L'attention des investisseurs est attirée sur le fait que la société de gestion peut décider de mettre fin aux dispositions qu'elle a prises pour la distribution des parts du fonds conformément à l'article 93 bis de la directive 2009/65/CE et à l'article 32 bis de la directive 2011/61/UE.\n\nLa politique de traitement des réclamations est disponible sur notre site Internet am.oddo-bhf.com dans la rubrique informations réglementaires. Les réclamations clients peuvent être adressées en premier lieu à la messagerie suivante : service_client@oddo-bhf.com (ou directement au Service de Médiation pour le consommateur: http://mediationconsommateur.be (UNIQUEMENT POUR LA BELGIQUE))"
+      },
+      "obam_presentation_professional_sas": {
+        "id": "FR_PRES_PRO_SAS",
+        "document_type": "OBAM_PRESENTATION",
+        "management_company": "OBAM_SAS",
+        "client_type": "PROFESSIONAL",
+        "language": "fr",
+        "content": "ODDO BHF AM est la branche de gestion d'actifs du Groupe ODDO BHF. Elle est la marque commune des trois sociétés de gestion juridiquement distinctes ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Allemagne) et ODDO BHF AM Lux (Luxembourg).\n\nCe document, à caractère promotionnel, est établi par ODDO BHF ASSET MANAGEMENT SAS et est à usage exclusif des clients catégorisés professionnels (Directive MIF). Il ne peut être distribué dans le grand public.\n\nL'investisseur est informé que le fonds présente un risque de perte en capital, mais aussi un certain nombre de risques liés aux instruments/stratégies en portefeuille. En cas de souscription, l'investisseur doit obligatoirement prendre connaissance du Document d'information clé (DIC) ou du prospectus de l'OPC pour une présentation exacte des risques encourus et de l'ensemble des frais.\n\nLa valeur de l'investissement peut évoluer tant à la hausse qu'à la baisse et peut ne pas lui être intégralement restituée. L'investissement doit s'effectuer en fonction de ses objectifs d'investissement, son horizon d'investissement et sa capacité à faire face au risque lié à la transaction. ODDO BHF ASSET MANAGEMENT SAS ne saurait également être tenue pour responsable de tout dommage direct ou indirect résultant de l'usage de la présente publication ou des informations qu'elle contient. Les informations sont données à titre indicatif et sont susceptibles de modifications à tout moment sans avis préalable.\n\nLes opinions émises dans ce document correspondent à nos anticipations de marché au moment de la publication de document. Elles sont susceptibles d'évoluer en fonction des conditions de marché et ne sauraient en aucun cas engager la responsabilité contractuelle d'ODDO BHF ASSET MANAGEMENT SAS. Les valeurs liquidatives affichées sur le présent document le sont à titre indicatif uniquement. Seule la valeur liquidative inscrite sur l'avis d'opéré et les relevés de titres fait foi. La souscription et le rachat des OPC s'effectuent à valeur liquidative inconnue.\n\nUn résumé des droits des investisseurs est disponible gratuitement sous forme électronique en anglais sur le site web à l'adresse suivante : https://am.oddo-bhf.com/france/fr/investisseur_non_professionnel/infos_reglementaire\n\nLe fonds peut avoir été autorisé à la distribution dans différents Etats membres de l'UE. L'attention des investisseurs est attirée sur le fait que la société de gestion peut décider de mettre fin aux dispositions qu'elle a prises pour la distribution des parts du fonds conformément à l'article 93 bis de la directive 2009/65/CE et à l'article 32 bis de la directive 2011/61/UE.\n\nLa politique de traitement des réclamations est disponible sur notre site Internet am.oddo-bhf.com dans la rubrique informations réglementaires. Les réclamations clients peuvent être adressées en premier lieu à la messagerie suivante : service_client@oddo-bhf.com (ou directement au Service de Médiation pour le consommateur: http://mediationconsommateur.be (UNIQUEMENT POUR LA BELGIQUE))",
+        "professional_only": true
+      },
+      "strategy_professional_sas": {
+        "id": "FR_STRAT_PRO_SAS",
+        "document_type": "COMMERCIAL_DOC_STRATEGIES",
+        "management_company": "OBAM_SAS",
+        "client_type": "PROFESSIONAL",
+        "language": "fr",
+        "content": "ODDO BHF AM est la branche de gestion d'actifs du Groupe ODDO BHF. Elle est la marque commune des trois sociétés de gestion juridiquement distinctes ODDO BHF AM SAS (France), ODDO BHF AM GmbH (Allemagne), ODDO BHF AM Lux (Luxembourg).\n\nCe document, à caractère promotionnel, est établi par ODDO BHF ASSET MANAGEMENT SAS et est à usage exclusif des clients catégorisés professionnels (Directive MIF). Il ne peut être distribué dans le grand public.\n\nL'investisseur est informé que la stratégie présente un risque de perte en capital, mais aussi un certain nombre de risques liés aux instruments/stratégies en portefeuille. La valeur de l'investissement dans cette stratégie peut évoluer tant à la hausse qu'à la baisse et peut ne pas lui être intégralement restituée. L'investissement doit s'effectuer en fonction de ses objectifs d'investissement, son horizon d'investissement et sa capacité à faire face au risque lié à la transaction. ODDO BHF ASSET MANAGEMENT SAS ne saurait également être tenue pour responsable de tout dommage direct ou indirect résultant de l'usage de la présente publication ou des informations qu'elle contient. Les informations sont données à titre indicatif et sont susceptibles de modifications à tout moment sans avis préalable. Les opinions émises dans ce document correspondent à nos anticipations de marché au moment de la publication de document. Elles sont susceptibles d'évoluer en fonction des conditions de marché et ne sauraient en aucun cas engager la responsabilité contractuelle d'ODDO BHF ASSET MANAGEMENT SAS.",
+        "professional_only": true,
+        "retail_allowed": false
+      }
+    },
+
+    "german": {
+      "obam_presentation_retail_sas": {
+        "id": "DE_PRES_RET_SAS",
+        "document_type": "OBAM_PRESENTATION",
+        "management_company": "OBAM_SAS",
+        "client_type": "NON_PROFESSIONAL",
+        "language": "de",
+        "content": "ODDO BHF Asset Management ist die Vermögensverwaltungssparte der ODDO BHF-Gruppe. Es handelt sich hierbei um die gemeinsame Marke von drei eigenständigen juristischen Einheiten: ODDO BHF Asset Management SAS (Frankreich), ODDO BHF Asset Management GmbH (Deutschland) und ODDO BHF Asset Management Lux (Luxembourg).\n\nVorliegendes Dokument wurde durch die ODDO BHF ASSET MANAGEMENT SAS zu Werbezwecken erstellt. Die Aushändigung dieses Dokuments liegt in der ausschließlichen Verantwortlichkeit jedes Vertriebspartners oder Beraters mit Ausnahme von Belgien, wo dieses Dokument ausschließlich für Vertriebsstellen/Vermittler bestimmt ist und nicht an nicht-professionelle Kunden weitergegeben werden darf.\n\nPotenzielle Investoren sind aufgefordert, vor der Investition in den Fonds einen Anlageberater zu konsultieren. Der Anleger wird auf die mit der Anlage des Fonds in Investmentstrategie und Finanzinstrumente verbundenen Risiken und insbesondere auf das Kapitalverlustrisiko des Fonds hingewiesen. Bei einer Investition in den Fonds ist der Anleger verpflichtet, das Basisinformationsblatt (KID) und den Verkaufsprospekt des Fonds zu lesen, um sich ausführlich über sämtliche Risiken und Kosten der Anlage zu informieren. Der Wert der Kapitalanlage kann Schwankungen sowohl nach oben als auch nach unten unterworfen sein, und es ist möglich, dass der investierte Betrag nicht vollständig zurückgezahlt wird. Die Investition muss mit den Anlagezielen, dem Anlagehorizont und der Risikobereitschaft des Anlegers in Bezug auf die Investition übereinstimmen. ODDO BHF Asset Management SAS übernimmt keine Haftung für Verluste oder Schäden jeglicher Art, die sich aus der Nutzung des gesamten Dokuments oder eines Teiles davon ergeben. Alle in diesem Dokument wiedergegebenen Einschätzungen und Meinungen dienen lediglich zur Veranschaulichung. Sie spiegeln die Einschätzungen und Meinungen des jeweiligen Autors zum Zeitpunkt der Veröffentlichung wider und können sich jederzeit ohne vorherige Ankündigung verändern, eine Haftung hierfür wird nicht übernommen.\n\nDie in dem vorliegenden Dokument angegebenen Nettoinventarwerte (NIW) dienen lediglich der Orientierung. Nur der in den Ausführungsanzeigen und den Depotauszügen angegebene NIW ist verbindlich. Ausgabe und Rücknahme von Anteilen des Fonds erfolgen zu einem zum Zeitpunkt der Ausgabe und Rücknahme unbekannten NIW.\n\nEine Zusammenfassung der Anlegerrechte ist kostenlos in elektronischer Form in deutscher Sprache auf der Website verfügbar unter https://am.oddo-bhf.com/deutschland/de/privatanleger/infos_reglementaire\n\nDie in diesem Marketing beschriebenen Fonds können in verschiedenen EU-Mitgliedstaaten zum Vertrieb angemeldet worden sein. Die Anleger werden darauf hingewiesen, dass die jeweilige Verwaltungsgesellschaft beschließen kann, die von ihr getroffenen Vorkehrungen für den Vertrieb der Anteile ihrer Fonds in Übereinstimmung mit Artikel 93a der Richtlinie 2009/65/EG und Artikel 32a der Richtlinie 2011/61/EU zu widerrufen.\n\nDie Richtlinien für die Bearbeitung von Beschwerden sind auf unserer Website am.oddo-bhf.com im Abschnitt über regulatorische Informationen zu finden. Kundenbeschwerden können in erster Linie an die folgende E-Mail-Adresse gerichtet werden:kundenservice@oddo-bhf.com (oder direkt an die Verbraucherschlichtungsstelle: http://mediationconsommateur.be (Gilt nur für Belgien))."
+      },
+      "obam_presentation_professional_sas": {
+        "id": "DE_PRES_PRO_SAS",
+        "document_type": "OBAM_PRESENTATION",
+        "management_company": "OBAM_SAS",
+        "client_type": "PROFESSIONAL",
+        "language": "de",
+        "content": "ODDO BHF Asset Management ist die Vermögensverwaltungssparte der ODDO BHF-Gruppe. Es handelt sich hierbei um die gemeinsame Marke von drei eigenständigen juristischen Einheiten: ODDO BHF Asset Management SAS (Frankreich), ODDO BHF Asset Management GmbH (Deutschland) und ODDO BHF Asset Management Lux (Luxembourg).\n\nVorliegendes Dokument wurde durch die ODDO BHF ASSET MANAGEMENT SAS zu Werbezwecken erstellt. Dieses Dokument ist ausschließlich für als professionell klassifizierte Kunden (MiFID) bestimmt und nicht zur Aushändigung an Privatkunden gedacht. Es darf nicht in der Öffentlichkeit verbreitet werden.\n\nDer Anleger wird auf die mit der Anlage des Fonds in Investmentstrategie und Finanzinstrumente verbundenen Risiken und insbesondere auf das Kapitalverlustrisiko des Fonds hingewiesen. Bei einer Investition in den Fonds ist der Anleger verpflichtet, das Basisinformationsblatt (KID) und den Verkaufsprospekt des Fonds zu lesen, um sich ausführlich über sämtliche Risiken und Kosten der Anlage zu informieren. Der Wert der Kapitalanlage kann Schwankungen sowohl nach oben als auch nach unten unterworfen sein, und es ist möglich, dass der investierte Betrag nicht vollständig zurückgezahlt wird. Die Investition muss mit den Anlagezielen, dem Anlagehorizont und der Risikobereitschaft des Anlegers in Bezug auf die Investition übereinstimmen. ODDO BHF Asset Management SAS übernimmt keine Haftung für Verluste oder Schäden jeglicher Art, die sich aus der Nutzung des gesamten Dokuments oder eines Teiles davon ergeben. Alle in diesem Dokument wiedergegebenen Einschätzungen und Meinungen dienen lediglich zur Veranschaulichung. Sie spiegeln die Einschätzungen und Meinungen des jeweiligen Autors zum Zeitpunkt der Veröffentlichung wider und können sich jederzeit ohne vorherige Ankündigung verändern, eine Haftung hierfür wird nicht übernommen.\n\nDie in dem vorliegenden Dokument angegebenen Nettoinventarwerte (NIW) dienen lediglich der Orientierung. Nur der in den Ausführungsanzeigen und den Depotauszügen angegebene NIW ist verbindlich. Ausgabe und Rücknahme von Anteilen des Fonds erfolgen zu einem zum Zeitpunkt der Ausgabe und Rücknahme unbekannten NIW.\n\nEine Zusammenfassung der Anlegerrechte ist kostenlos in elektronischer Form in deutscher Sprache auf der Website verfügbar unter https://am.oddo-bhf.com/deutschland/de/privatanleger/infos_reglementaire\n\nDie in diesem Marketing beschriebenen Fonds können in verschiedenen EU-Mitgliedstaaten zum Vertrieb angemeldet worden sein. Die Anleger werden darauf hingewiesen, dass die jeweilige Verwaltungsgesellschaft beschließen kann, die von ihr getroffenen Vorkehrungen für den Vertrieb der Anteile ihrer Fonds in Übereinstimmung mit Artikel 93a der Richtlinie 2009/65/EG und Artikel 32a der Richtlinie 2011/61/EU zu widerrufen. Die Richtlinien für die Bearbeitung von Beschwerden sind auf unserer Website am.oddo-bhf.com im Abschnitt über regulatorische Informationen zu finden. Kundenbeschwerden können in erster Linie an die folgende E-Mail-Adresse gerichtet werden: kundenservice@oddo-bhf.com (oder direkt an die Verbraucherschlichtungsstelle: http://mediationconsommateur.be (Gilt nur für Belgien)).",
+        "professional_only": true
+      },
+      "strategy_professional_sas": {
+        "id": "DE_STRAT_PRO_SAS",
+        "document_type": "COMMERCIAL_DOC_STRATEGIES",
+        "management_company": "OBAM_SAS",
+        "client_type": "PROFESSIONAL",
+        "language": "de",
+        "content": "ODDO BHF Asset Management ist die Vermögensverwaltungssparte der ODDO BHF-Gruppe. Es handelt sich hierbei um die gemeinsame Marke von drei eigenständigen juristischen Einheiten: ODDO BHF Asset Management SAS (Frankreich), ODDO BHF Asset Management GmbH (Deutschland) und ODDO BHF Asset Management Lux (Luxembourg).\n\nVorliegendes Dokument wurde durch die ODDO BHF ASSET MANAGEMENT SAS zu Werbezwecken erstellt. Dieses Dokument ist ausschließlich für als professionell klassifizierte Kunden (MiFID) bestimmt und nicht zur Aushändigung an Privatkunden gedacht. Es darf nicht in der Öffentlichkeit verbreitet werden.\n\nDer Anleger wird auf das mit der Anlage in die Strategie vorhandene Kapitalverlustrisiko und verbundene Risiken in Bezug auf Investmentstrategie und Finanzinstrumente hingewiesen. Der Wert einer Kapitalanlage in diese Strategie kann Schwankungen sowohl nach oben als auch nach unten unterworfen sein, und es ist möglich, dass der investierte Betrag nicht vollständig zurückgezahlt wird. Die Investition muss mit den Anlagezielen, dem Anlagehorizont und der Risikobereitschaft des Anlegers in Bezug auf die Investition übereinstimmen. ODDO BHF Asset Management SAS übernimmt keine Haftung für Verluste oder Schäden jeglicher Art, die sich aus der Nutzung des gesamten Dokuments oder eines Teiles davon ergeben. Alle in diesem Dokument wiedergegebenen Einschätzungen und Meinungen dienen lediglich zur Veranschaulichung. Sie spiegeln die Einschätzungen und Meinungen des jeweiligen Autors zum Zeitpunkt der Veröffentlichung wider und können sich jederzeit ohne vorherige Ankündigung verändern, eine Haftung hierfür wird nicht übernommen.",
+        "professional_only": true,
+        "retail_allowed": false
+      }
+    }
+  },
+
+  "special_disclaimers": {
+    "past_performance": {
+      "id": "PAST_PERF",
+      "type": "mandatory",
+      "placement": "near_performance_data",
+      "formatting": "bold_visible",
+      "languages": {
+        "en": "Past performance is not a reliable indication of future return and is not constant over time",
+        "fr": "Les performances passées ne préjugent pas des performances futures et ne sont pas constantes dans le temps",
+        "de": "Historische Wertentwicklungen, Simulationen oder Prognosen sind kein verlässlicher Indikator für künftige Wertentwicklungen und unterliegen im Zeitverlauf Schwankungen."
+      }
+    },
+    "backtested_performance": {
+      "id": "BACKTEST_PERF",
+      "type": "conditional",
+      "applicability": "professional_only",
+      "france_only": true,
+      "languages": {
+        "fr": "Les chiffres se réfèrent à des simulations des performances passées. Ces simulations sont le résultat d'estimations d'ODDO BHF AM à un moment donné, sur la base de paramètres sélectionnés par Oddo BHF Asset Management, de conditions de marché à ce moment donné et de données historiques qui ne préjugent en rien de résultats futurs. En conséquence, ces simulations n'ont qu'une valeur indicative et ne sauraient constituer en aucune manière une promesse de rendement.",
+        "de": "Die Daten beziehen sich auf Simulationen vergangener Ergebnisse. Diese Simulationen sind das Ergebnis von Schätzungen von ODDO BHF Asset Management GmbH/SAS/Lux (je nach Verwaltungsgesellschaft) zu einem bestimmten Zeitpunkt auf Basis von durch ODDO BHF Asset Management ausgewählten Parametern, der zu diesem bestimmten Zeitpunkt herrschenden Marktbedingungen und historischen Daten, die keine Rückschlüsse auf künftige Ergebnisse zulassen. Dementsprechend haben diese Simulationen lediglich indikativen Wert und stellen keinesfalls eine garantierte Rendite dar."
+      }
+    },
+    "future_simulations": {
+      "id": "FUTURE_SIM",
+      "type": "mandatory",
+      "applicability": "when_displaying_simulations",
+      "languages": {
+        "fr": "La simulation présentée ne constitue pas une prévision de la performance future de vos investissements. Elle a seulement pour but d'illustrer les mécanismes de votre investissement sur la durée de placement. L'évolution de la valeur de votre investissement pourra s'écarter de ce qui est affiché, à la hausse comme à la baisse.",
+        "de": "Die dargestellte Simulation stellt keine Prognose der zukünftigen Wertentwicklung Ihrer Anlage dar. Sie dient lediglich der Veranschaulichung der Funktionsweise Ihrer Anlage über den Anlagezeitraum. Die Wertentwicklung Ihrer Anlage kann von der angezeigten Darstellung abweichen, sowohl nach oben als auch nach unten."
+      }
+    },
+    "multiple_scenarios": {
+      "id": "MULTI_SCEN",
+      "type": "conditional",
+      "applicability": "when_multiple_scenarios_displayed",
+      "languages": {
+        "fr": "Les gains et les pertes peuvent dépasser les montants affichés, respectivement, dans les scénarios les plus favorables et les plus défavorables. En poursuivant, vous reconnaissez avoir pris connaissance de cet avertissement, l'avoir compris et en accepter le contenu."
+      }
+    },
+    "ytm_ytw_usage": {
+      "id": "YTM_YTW",
+      "type": "conditional",
+      "applicability": "dated_funds",
+      "retail_restrictions": {
+        "ytm": "only_buy_and_hold",
+        "ytw": "only_buy_and_hold"
+      },
+      "languages": {
+        "fr": "• Le « taux de rendement actuariel à l'échéance » est une estimation à une date donnée du taux de rendement anticipé d'un portefeuille obligataire à condition que les titres soient détenus jusqu'à échéance. Il ne s'agit en aucun cas d'un engagement de performance future du fonds. Il peut, par conséquent, être affecté par les risques de taux d'intérêt, de défauts, de réinvestissement et le fait que les obligations ne soient pas détenues jusqu'à l'échéance.\n• Le « taux de rendement actuariel au pire » est une estimation à une date donnée du taux de rendement le plus défavorable anticipé d'un portefeuille obligataire dont une partie des titres ne serait pas détenue jusqu'à maturité mais remboursée par anticipation au gré de l'émetteur (Call). Il ne s'agit en aucun cas d'un engagement de performance future du fonds. Il peut, par conséquent, être affecté par les risques de taux d'intérêt, de défauts, de réinvestissement et le fait que les obligations ne soient pas détenues jusqu'à l'échéance."
+      }
+    },
+    "esg_risk": {
+      "id": "ESG_RISK",
+      "type": "conditional",
+      "applicability": "when_esg_criteria_used",
+      "languages": {
+        "fr": "L'utilisation de critères ESG peut affecter la performance du Fonds et, par conséquent, la performance du Fonds peut différer positivement ou négativement de la performance de fonds similaires qui n'utilisent pas de tels critères. Les exclusions sectorielles en place pour le Fonds peuvent ne pas correspondre directement aux propres opinions de certains investisseurs.",
+        "en": "The use of ESG criteria may affect the Fund's performance and therefore the Fund's performance may differ positively or negatively from the performance of similar funds that do not use such criteria. The sector exclusions in place for the Fund may not correspond directly with the investor's views.",
+        "de": "Die Verwendung von ESG-Kriterien kann sich auf die Wertentwicklung des Fonds auswirken und daher kann die Wertentwicklung des Fonds positiv oder negativ von der Wertentwicklung ähnlicher Fonds abweichen, die solche Kriterien nicht verwenden. Die für den Fonds geltenden Sektorenausschlüsse stimmen möglicherweise nicht direkt mit den Ansichten des Anlegers überein."
+      }
+    },
+    "investment_recommendation": {
+      "id": "INV_RECO",
+      "type": "mandatory",
+      "languages": {
+        "fr": "Ceci ne constitue pas une recommandation d'investissement",
+        "en": "This does not constitute an investment recommandation",
+        "de": "Diese Informationen sind keine Anlageempfehlung"
+      }
+    },
+    "opinion": {
+      "id": "OPINION",
+      "type": "mandatory",
+      "languages": {
+        "fr": "Les opinions émises dans ce document correspondent à nos anticipations de marché au moment de la publication du document. Elles sont susceptibles d'évoluer en fonction des conditions de marché et ne sauraient en aucun cas engager la responsabilité contractuelle d'ODDO BHF AM SAS/GmbH/Lux (à choisir en fonction de la Management Company).",
+        "en": "Opinions given in this document reflect our market forecasts at the time of the document's publication. They are subject to change according to market conditions and ODDO BHF AM SAS/GmbH/Lux (depending on the Management Company) shall not in any case be held contractually liable for them",
+        "de": "Alle in diesem Dokument wiedergegebenen Einschätzungen und Meinungen spiegeln die Einschätzungen und Meinungen des jeweiligen Autors zum Zeitpunkt der Veröffentlichung wider und können sich jederzeit ohne vorherige Ankündigung verändern. Eine Haftung der ODDO BHF Asset Management GmbH/SAS/Lux (je nach Verwaltungsgesellschaft) hierfür wird nicht übernommen-"
+      }
+    },
+    "mmf_weekly_reporting": {
+      "id": "MMF_WEEKLY",
+      "type": "regulatory",
+      "regulation": "EU_2017_1131_Article_36_2",
+      "document_type": "MMF_WEEKLY_REPORTING",
+      "languages": {
+        "fr": "Ce document est établi par ODDO BHF ASSET MANAGEMENT SAS/GmbH/Lux (à choisir en fonction de la Management Company) en application de l'article 36 (2) du règlement UE 2017/1131 applicable aux fonds monétaires gérés dans l'Union européenne. L'investisseur est informé que le fonds monétaire n'est pas un investissement garanti et que l'investissement dans un fonds monétaire diffère d'un investissement dans des dépôts. Le capital investi dans un fonds monétaire peut fluctuer et ce dernier présente un risque de perte en capital qui doit être supporté par l'investisseur. L'investisseur est enfin informé que le fonds monétaire ne s'appuie pas sur un soutien extérieur pour garantir sa liquidité ou stabiliser sa valeur liquidative par part."
+      }
+    },
+    "fww_fundstars": {
+      "id": "FWW",
+      "type": "conditional",
+      "applicability": "when_fww_data_used",
+      "languages": {
+        "en": "* Source: FWW Fundservices GmbH. Please take note of the information given at: http://fww.de/disclaimer/.",
+        "fr": "* Source: FWW Fundservices GmbH. Veuillez prendre connaissance des informations à l'adresse suivante : http://fww.de/disclaimer/.",
+        "de": "* Quelle: FWW Fundservices GmbH. Bitte beachten Sie die Hinweise unter: http://fww.de/disclaimer/."
+      }
+    },
+    "msci_esg": {
+      "id": "MSCI_ESG",
+      "type": "conditional",
+      "applicability": "when_msci_esg_data_used",
+      "languages": {
+        "fr": "« Bien qu'ODDO BHF Asset Management et ses fournisseurs d'informations, y compris, sans limitation, MSCI ESG Research LLC et ses sociétés affiliées (les « Parties ESG »), obtiennent des informations (les « Informations ») de sources qu'ils considèrent comme fiables, aucune des Parties ESG ne garantit l'originalité, l'exactitude et/ou l'exhaustivité des données contenues dans le présent document et décline expressément toute garantie expresse ou implicite, y compris celles de qualité marchande et d'adéquation à un usage particulier. Les Informations ne peuvent être utilisées que pour votre usage interne, ne peuvent être reproduites ou rediffusées sous quelque forme que ce soit et ne peuvent être utilisées comme base ou composante de tout instrument ou produit financier ou indice. En outre, aucune des informations ne peut en soi être utilisée pour déterminer quels titres acheter ou vendre ou quand les acheter ou les vendre. Aucune des Parties ESG n'est responsable des erreurs ou omissions liées aux données contenues dans le présent document, ni des dommages directs, indirects, spéciaux, punitifs, consécutifs ou autres (y compris les pertes de bénéfices), même si elle a été informée de la possibilité de tels dommages. ©2020 MSCI ESG Research LLC. Reproduced by permission.",
+        "en": "Although ODDO BHF Asset Management and its information providers, including without limitation, MSCI ESG Research LLC and its affiliates (the \"ESGParties\"), obtain information (the \"Information\")from sources they consider reliable, none of the ESG Parties warrants or guarantees the originality, accuracy and/or completeness, of any data herein and expressly disclaim all express or implied warranties, including those of merchantability and fitness for a particular purpose. The Information may only be used for your internal use, may not be reproduced or re-disseminated in any form and may not be used as a basis for, or a component of, any financial instruments or products or indices. Further, none of the information can in and of itself be used to determine which securities to buy or sell or when to buy or sell them. None of the ESG Parties shall have any liability for any errors or omissions in connection with any data herein, or any liability for any direct, indirect, special, punitive, consequential or any other damages (including lost profits) even if notified of the possibility of such damages. ©2020 MSCI ESG Research LLC. Reproduced by permission."
+      }
+    },
+    "morningstar_stoxx": {
+      "id": "MSTAR_STOXX",
+      "type": "conditional",
+      "applicability": "when_morningstar_stoxx_data_used",
+      "languages": {
+        "en": "Copyright © Morningstar, Inc. All Rights Reserved. The information, data, analyses and opinions with reference to Morningstar contained herein (1) include the confidential and proprietary information of Morningstar, (2) may not be copied or redistributed, (3) do not constitute investment advice offered by Morningstar, (4) are provided solely for informational purposes and therefore are not an offer to buy or sell a security, and (5) are not warranted to be correct, complete or accurate. Except as otherwise required by law, Morningstar shall not be responsible for any trading decisions, damages or other losses resulting from, or related to, this information, data, analyses or opinions or their use. This report is supplemental sales literature, and therefore must be preceded or accompanied by a prospectus and disclosure statement. STOXX Limited (\"STOXX\") is the source of any aforementioned STOXX index and the data comprised therein. STOXX has not been involved in any way in the creation of any reported information and does neither warrant nor assume any liability whatsoever – including without limitation the accuracy, adequateness, correctness, completeness, timeliness, and fitness for any purpose – with respect to any reported information. Any dissemination or further distribution of any such information pertaining to STOXX is prohibited.",
+        "fr": "Copyright © Morningstar, Inc. All Rights Reserved. The information, data, analyses and opinions with reference to Morningstar contained herein (1) include the confidential and proprietary information of Morningstar, (2) may not be copied or redistributed, (3) do not constitute investment advice offered by Morningstar, (4) are provided solely for informational purposes and therefore are not an offer to buy or sell a security, and (5) are not warranted to be correct, complete or accurate. Except as otherwise required by law, Morningstar shall not be responsible for any trading decisions, damages or other losses resulting from, or related to, this information, data, analyses or opinions or their use. This report is supplemental sales literature, and therefore must be preceded or accompanied by a prospectus and disclosure statement. STOXX Limited (\"STOXX\") is the source of any aforementioned STOXX index and the data comprised therein. STOXX has not been involved in any way in the creation of any reported information and does neither warrant nor assume any liability whatsoever – including without limitation the accuracy, adequateness, correctness, completeness, timeliness, and fitness for any purpose – with respect to any reported information. Any dissemination or further distribution of any such information pertaining to STOXX is prohibited."
+      }
+    }
+  },
+
+  "country_codes": {
+    "BE": {
+      "name": "Belgium",
+      "name_fr": "Belgique",
+      "name_de": "Belgien",
+      "specific_rules": ["1.14"],
+      "retail_restriction": true,
+      "fsma_approval_required": true,
+      "requirements_ref": "country_specific_requirements.belgium"
+    },
+    "DE": {
+      "name": "Germany",
+      "name_fr": "Allemagne",
+      "name_de": "Deutschland",
+      "specific_rules": ["4.3.funds_rules.country_specific.germany"],
+      "performance_rules": "extended",
+      "mifid_article": "Article 44 MiFID II",
+      "requirements_ref": "country_specific_requirements.germany"
+    },
+    "FR": {
+      "name": "France",
+      "name_fr": "France",
+      "name_de": "Frankreich",
+      "specific_rules": ["4.3.disclaimers.backtested"],
+      "backtested_performance": "allowed_professional_only"
+    },
+    "CH": {
+      "name": "Switzerland",
+      "name_fr": "Suisse",
+      "name_de": "Schweiz",
+      "representative_required": true,
+      "requirements_ref": "country_specific_requirements.switzerland"
+    },
+    "LU": {
+      "name": "Luxembourg",
+      "name_fr": "Luxembourg",
+      "name_de": "Luxemburg",
+      "regulator": "CSSF"
+    }
+  },
+
+  "country_specific_requirements": {
+    "belgium": {
+      "country_code": "BE",
+      "retail_restriction": "document_for_distributors_only",
+      "distribution_note": "This document is intended exclusively for distributors and may not be distributed to non-professional clients",
+      "mediation_service": {
+        "url": "http://mediationconsommateur.be",
+        "note": "ONLY FOR BELGIUM"
+      },
+      "fsma_approval_required": true,
+      "compliance_rules": ["1.14"]
+    },
+    "germany": {
+      "professional_disclosure": "mifid_extended_requirements",
+      "performance_article": "Article 44 MiFID II",
+      "performance_disclosure_note": {
+        "en": "The European Directive 2014/65/EU (the so-called \"MiFID II Directive\") extends the scope of provisions requiring that investor information be fair, clear and not misleading, making them applicable also for professional clients. Article 44 of such Directive provides that the information be sufficient for, and presented in a way that it is likely to be understood by, the average member of the group to whom it is directed, or by whom it is likely to be received, and that the information does not disguise, diminish or obscure important items, statements or warnings. We have presented the performance shown in this document in a manner that we deem appropriate for the target audience of this document. Further information on the performance presented in this document is available on request.",
+        "de": "La Directive européenne 2014/65/EU (Directive MiFID II) étend aux clients professionnels les exigences en matière d'information correcte, claire et non trompeuse. L'article 44 prévoit que les informations soient suffisantes et présentées de manière compréhensible par le membre moyen du groupe auquel elles s'adressent ou auquel il est probable qu'elles parviennent, et qu'elles ne travestissent, ne minimisent ni n'occultent des éléments, déclarations ou avertissements importants. Nous avons présenté les performances figurant dans le présent document sous une forme que nous jugeons appropriée pour le groupe auquel s'adresse ce document. De plus amples informations sur les performances présentées dans le document sont disponibles sur demande."
+      },
+      "rebates_disclosure": {
+        "text": "If ODDO BHF Asset Management GmbH receives any rebates on the management fee of target funds or other assets, ODDO BHF Asset Management GmbH undertakes to fully remit such payment to the investor or the fund. If ODDO BHF Asset Management GmbH performs services for an investment product of a third party, ODDO BHF Asset Management GmbH will be compensated by the relevant company. Typical services are investment management or sales activities for funds established by a different investment management company. Normally, such compensation is calculated as a percentage of the management fee (up to 100%) of the respective fund, calculated on the basis of such fund's assets managed or distributed by ODDO BHF Asset Management GmbH. This may result in the risk that the investment advice given may not be consistent with the investor's interest. The amount of the management fee is published in the prospectus of the respective fund. Further details are available upon request. It is further intended solely for persons based in countries in which the respective funds are registered for distribution or in which such registration is not required. The shares of the fund have not been registered under the United States Securities Act of 1933, as amended (the \"1933 Act\"); they may therefore not be publicly offered or sold in the United States of America or to US citizens or any US residents. This publication is intended as marketing instrument and does not satisfy the statutory requirements regarding the impartiality of a financial analysis, and the financial instruments concerned are not subject to any prohibition of trading in advance of the publication of this presentation."
+      }
+    },
+    "switzerland": {
+      "representatives": {
+        "french_funds": {
+          "representative": "RBC INVESTOR SERVICES BANK, succursale de Zürich",
+          "address": "Bleicherweg 7, 8027 Zürich, Switzerland",
+          "disclaimer_fr": "Le fonds est autorisé à la commercialisation en Suisse. Le DIC, le prospectus ainsi que le rapport annuel et le rapport semestriel pour la Suisse du Fonds peuvent être obtenus gratuitement auprès du Représentant et Service de Paiements en Suisse, RBC INVESTOR SERVICES BANK, succursale de Zürich, Bleicherweg 7, 8027 Zürich, Switzerland."
+        },
+        "lux_funds": {
+          "representative": "BNP Paribas Securities Services, succursale de Zurich",
+          "address": "Selnaustrasse 16, 8002 Zurich, Switzerland",
+          "disclaimer_fr": "Le fonds est autorisé à la commercialisation en Suisse. Le DIC, le prospectus ainsi que le rapport annuel et le rapport semestriel pour la Suisse du Fonds peuvent être obtenus gratuitement auprès du Représentant et Service de Paiements en Suisse, BNP Paribas Securities Services, succursale de Zurich, Selnaustrasse 16, 8002 Zurich, Switzerland."
+        },
+        "metropole_funds": {
+          "representative": "CACEIS Switzerland SA",
+          "address": "route de Signy 35, CH 1260 Nyon",
+          "paying_agent": "CACEIS Bank, Paris, succursale de Nyon",
+          "paying_agent_address": "route de Signy 35, CH 1260 Nyon",
+          "disclaimer_fr": "Le fonds est autorisé à la commercialisation en Suisse. Le DIC, le prospectus ainsi que le rapport annuel et le rapport semestriel pour la Suisse du Fonds peuvent être obtenus gratuitement auprès du Représentant CACEIS Switzerland SA, route de Signy 35 CH 1260 Nyon. L'agent payeur en Suisse est CACEIS Bank, Paris, succursale de Nyon, route de Signy 35 CH 1260 Nyon"
+        },
+        "german_lux_funds": {
+          "representative": "ACOLIN Fund Services AG",
+          "representative_address": "Leutschenbachstrasse 50 - 8050 Zurich, Switzerland",
+          "paying_agent": "ODDO BHF (Suisse) SA",
+          "paying_agent_address": "Schulhausstrasse 6, 8027 Zurich, Switzerland",
+          "disclaimer_de": "Si le fonds est autorisé à la commercialisation en Suisse, le représentant est ACOLIN Fund Services AG, Leutschenbachstrasse 50 - 8050 Zurich, Switzerland. L'agent payeur est ODDO BHF (Suisse) SA, Schulhausstrasse 6, 8027 Zurich, Suisse. D'autres informations utiles concernant le fonds, le prospectus, le DIC ainsi que les rapports annuels et semestriels y seront également disponibles gratuitement et en langue allemande."
+        }
+      }
+    }
+  },
+
+  "contact_information": {
+    "websites": {
+      "investor_rights_sas": "https://am.oddo-bhf.com/FRANCE/en/non_professional_investor/infos_reglementaire",
+      "investor_rights_gmbh": "https://am.oddo-bhf.com/france/en/non_professional_investor/infos_reglementaire_gmbh",
+      "investor_rights_lux": "https://am.oddo-bhf.com/france/en/non_professional_investor/infos_reglementaire_AMLux",
+      "complaints_handling": "am.oddo-bhf.com",
+      "fww_disclaimer": "http://fww.de/disclaimer/"
+    },
+    "emails": {
+      "customer_service": "service_client@oddo-bhf.com",
+      "customer_service_de": "kundenservice@oddo-bhf.com"
+    },
+    "mediation": {
+      "belgium": "http://mediationconsommateur.be"
+    }
+  },
+
+  "usage_notes": {
+    "variable_placeholders": [
+      {
+        "placeholder": "SAS/GmbH/Lux",
+        "description": "À remplacer par la société de gestion appropriée selon le contexte",
+        "values": ["SAS", "GmbH", "Lux"]
+      },
+      {
+        "placeholder": "[nom du prospect]",
+        "description": "Nom du prospect pour les nouvelles offres professionnelles"
+      },
+      {
+        "placeholder": "[langues disponibles]",
+        "description": "Liste des langues dans lesquelles le KID/prospectus est disponible"
+      }
+    ],
+    "conditional_usage": {
+      "belgium_specific": "Ajouter uniquement si le document est distribué en Belgique",
+      "professional_only": "Utiliser uniquement pour les documents destinés aux clients professionnels",
+      "switzerland_specific": "Ajouter selon le type de fonds et le représentant en Suisse",
+      "germany_specific": "Ajouter pour les documents destinés au marché allemand"
+    }
+  }
+}
