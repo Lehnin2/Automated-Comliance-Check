@@ -1,0 +1,47 @@
+{
+  "rule_id": "RG.2",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "source",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "source",
+        "origine",
+        "provenance"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "date",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "date",
+        "ann\u00e9e",
+        "ann\u00e9e de publication"
+      ],
+      "expected_format": "date",
+      "validation_rule": "must_be_in_correct_format",
+      "is_required": true
+    },
+    {
+      "field_name": "reference",
+      "extraction_method": "position_check",
+      "search_patterns": [
+        "note de bas de page",
+        "renvoi",
+        "footnote"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present_at_bottom_of_page",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.8056600093841553,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:48.194425"
+}

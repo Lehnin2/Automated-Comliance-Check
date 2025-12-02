@@ -1,0 +1,35 @@
+{
+  "rule_id": "RG.25",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "performance_comparison",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "performances",
+        "compar\u00e9es",
+        "indicateur"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_indicator",
+      "is_required": true
+    },
+    {
+      "field_name": "reference_indicator",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "indicateur",
+        "r\u00e9f\u00e9rence",
+        "fonds"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.4338846206665039,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:05.552425"
+}

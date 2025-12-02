@@ -1,0 +1,33 @@
+{
+  "rule_id": "RG.14",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "presentation_type",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "pr\u00e9sentation standard",
+        "pr\u00e9sentation de gamme"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_one_of_standard_or_range",
+      "is_required": true
+    },
+    {
+      "field_name": "mentioned_funds",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "Oddo",
+        "autres fonds"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_be_present_unless_range",
+      "is_required": false
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.4718599319458008,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:57.215212"
+}

@@ -1,0 +1,893 @@
+{
+  "metadata": {
+    "source_file": null,
+    "extraction_strategy": "complete_exhaustive",
+    "timestamp": "2025-12-01T20:35:49.982238",
+    "total_slides": 34,
+    "total_fields": 33,
+    "total_checks": 693,
+    "total_found": 135,
+    "total_missing": 558,
+    "cache_hits": 17,
+    "success_rate": "19.5%"
+  },
+  "summary_by_slide": {
+    "1": [
+      {
+        "field_name": "date",
+        "value": "September 2025",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "nom_fonds",
+        "value": "ODDO BHF US Equity Active UCITS ETF",
+        "confidence": 0.95,
+        "rule_id": "RG.17"
+      },
+      {
+        "field_name": "date_document",
+        "value": "September 2025",
+        "confidence": 0.9,
+        "rule_id": "RG.17"
+      },
+      {
+        "field_name": "mention_promotionnel",
+        "value": "Promotional INFORMATION",
+        "confidence": 0.8,
+        "rule_id": "RG.17"
+      }
+    ],
+    "2": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF ASSET MANAGEMENT SAS",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "L'investisseur est informé que le fonds présente un risque de perte en capital, mais aussi de nombreux risques liés aux instruments financiers/stratégies dans le portefeuille.",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "opinion_text",
+        "value": "Les opinions présentées dans ce document résultent de nos prévisions de marché à la date de publication.",
+        "confidence": 0.9,
+        "rule_id": "RG.6"
+      },
+      {
+        "field_name": "validation_fsma",
+        "value": "Ce document est destiné exclusivement à des distributeurs et ne peut pas être distribué à des clients non professionnels, à l'exception de la Belgique.",
+        "confidence": 0.8,
+        "rule_id": "RG.13"
+      },
+      {
+        "field_name": "mention_liquide",
+        "value": "Liquide",
+        "confidence": 0.6,
+        "rule_id": "RG.15"
+      },
+      {
+        "field_name": "disclaimer_standard",
+        "value": "ODDO BHF ASSET MANAGEMENT SAS ne peut être tenu responsable de tout dommage direct ou indirect résultant de l'utilisation de ce document ou des informations qu'il contient.",
+        "confidence": 0.9,
+        "rule_id": "RG.19"
+      },
+      {
+        "field_name": "profil_de_risque",
+        "value": "Risques : risque d'action, risque de marché secondaire, risque de concentration, risque de marché émergent, risque de change, risque lié aux ETF et non-ETF, normes environnementales, sociales et de gouvernance, risque lié à la classification SFDR des sous-fonds, risque de sélection, liquidité des investissements, risque lié aux petites et moyennes capitalisations, risque politique et/ou légal/réglementaire, restrictions réglementaires et risque d'émetteur, risque lié à la stratégie d'investissement, risque lié à la gestion active, risques liés au modèle quantitatif",
+        "confidence": 0.95,
+        "rule_id": "RG.19"
+      },
+      {
+        "field_name": "pays_de_commercialisation",
+        "value": "Belgique, Suisse",
+        "confidence": 0.8,
+        "rule_id": "RG.19"
+      }
+    ],
+    "3": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "31/08/2025",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "The lowest category does not mean a risk-free investment. This indicator is not constant and is updated if the risk profile of the fund changes over time. Historical data, such as is used to calculate the risk indicator, may not be a reliable indication of the future risk profile of the Fund.",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "ODDO BHF US Equity Active UCITS ETF",
+        "confidence": 0.95,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "approche_esg",
+        "value": "Article 8: The management team addresses sustainability risks by integrating ESG criteria (Environment and/or Social and/or Governance) into its investment decision making process.",
+        "confidence": 0.9,
+        "rule_id": "RG.27"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "Inception date: XX/08/2025, Fund size: 5 M€, SFDR classification: Article 8",
+        "confidence": 0.9,
+        "rule_id": "RG.37"
+      }
+    ],
+    "4": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "The fund presents a risk of capital loss.",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "ODDO BHF US Equity Active UCITS ETF",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "tendances_marche",
+        "value": "markets move in trends (momentum effect)",
+        "confidence": 0.8,
+        "rule_id": "RG.29"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "Systematic, long-only and bottom-up stock selection equity strategy “Algo Trend”",
+        "confidence": 0.8,
+        "rule_id": "RG.37"
+      }
+    ],
+    "5": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "31/08/2025",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "The strategy presents a risk of capital loss.",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "ODDO BHF Algo Trend Strategy",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "Exploiting the momentum effect with a purely quantitative concept for stock selection",
+        "confidence": 0.8,
+        "rule_id": "RG.37"
+      }
+    ],
+    "6": [
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "What are active ETFs and why are they appealing?",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      }
+    ],
+    "7": [
+      {
+        "field_name": "mention_liquide",
+        "value": "liquide",
+        "confidence": 0.9,
+        "rule_id": "RG.15"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "What are active ETFs and why are they appealing?",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      }
+    ],
+    "8": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM, Company websites",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "The fund presents a risk of capital loss.",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "An active ETF is an exchange-traded fund that is actively managed",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "An active investment strategy in an etf format",
+        "confidence": 0.8,
+        "rule_id": "RG.37"
+      }
+    ],
+    "9": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM, Morningstar, Fidelity, Coalition Greenwich; Trackinsight Global ETF Survey 2024",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "31/12/2024",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "The fund presents a risk of capital loss.",
+        "confidence": 0.95,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Active ETF: A growing force in Europe",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      }
+    ],
+    "10": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM, Company websites",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "The funds present a risk of capital loss. Past performance is not a reliable indicator of future performance and is not constant over time.",
+        "confidence": 0.95,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "mention_liquide",
+        "value": "Liquidity/ Flexibility",
+        "confidence": 0.8,
+        "rule_id": "RG.15"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Active ETFs",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "performances",
+        "value": "Outperformance POTENTIAL",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "approche_esg",
+        "value": "ESG",
+        "confidence": 0.8,
+        "rule_id": "RG.27"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "Active ETFs",
+        "confidence": 0.8,
+        "rule_id": "RG.37"
+      }
+    ],
+    "11": [
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Why invest in the US market?",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      }
+    ],
+    "12": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM, Bloomberg, Friedrich Ebert Foundation, IFO, IG, Federal Reserve, Investopedia, WIPO, IMF, MSCI",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "2024",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "Past performance is not a reliable indicator of future performance and is not constant over time",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Introduction Why invest in the USA? A leading Market that cannot be neglected World’s largest economy Industry diversity Major Financial Market",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "performances",
+        "value": "10.3 %",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "indicateurs_macro",
+        "value": "GDP of 29 trillion $",
+        "confidence": 0.8,
+        "rule_id": "RG.29"
+      }
+    ],
+    "13": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM, Company websites",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Introduction Potential Global Champions from both the New and Old Economy",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      }
+    ],
+    "14": [
+      {
+        "field_name": "source",
+        "value": "Source: ODDO BHF AM, Bloomberg",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "30/06/2025",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "Past performance is not a reliable indicator of future performance and is not constant over time",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "The World’s most important Financial Market",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "performances",
+        "value": "attractive performance compared to other regions",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      }
+    ],
+    "15": [],
+    "16": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "Past performance is not a reliable indicator of future performance and is not constant over time",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "hypothese_text",
+        "value": "The efficient-market hypothesis states that asset prices reflect currently available information",
+        "confidence": 0.9,
+        "rule_id": "RG.6"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "The case for momentum investments",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      }
+    ],
+    "17": [
+      {
+        "field_name": "source",
+        "value": "Bloomberg, ODDO BHF AM",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "31/08/2025",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "Past performance is not a reliable indicator of future performance and is not constant over time",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "The case for momentum investments",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "performances",
+        "value": "momentum historically outperformed the broad market and other Factors in the us",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "tendances_marche",
+        "value": "Stock markets move in short- to medium-term trends",
+        "confidence": 0.9,
+        "rule_id": "RG.29"
+      }
+    ],
+    "18": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      }
+    ],
+    "19": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM, DeBondt and Thaler 1985, Jegadesh and Titman 1993, Kal’s Cartoon, Ola Svenson 1981, Ethan Zell 2020",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "31/10/2024",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "Past performance is not a reliable indication of future return and is not constant over time.",
+        "confidence": 0.8,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "The case for momentum investments",
+        "confidence": 0.7,
+        "rule_id": "RG.20"
+      }
+    ],
+    "20": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM, Datastream",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "2022-2024",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "The strategy presents a risk of capital loss.",
+        "confidence": 0.95,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "The case for momentum investments",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "performances",
+        "value": "Index Performance",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "tendances_marche",
+        "value": "Trends are likely to end and reverse at a certain point",
+        "confidence": 0.9,
+        "rule_id": "RG.29"
+      }
+    ],
+    "21": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "The fund presents a risk of capital loss.",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "opinion_text",
+        "value": "According to our analysis",
+        "confidence": 0.8,
+        "rule_id": "RG.6"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "The case for momentum investments",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "performances",
+        "value": "Momentum effect can be exploited via a trend following investment approach offering high outperformance potential in the long term",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "tendances_marche",
+        "value": "Stock markets move in short to medium term trends",
+        "confidence": 0.9,
+        "rule_id": "RG.29"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "Momentum effect is persistent and cannot be arbitraged away",
+        "confidence": 0.8,
+        "rule_id": "RG.37"
+      }
+    ],
+    "22": [
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Investment Process",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      }
+    ],
+    "23": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "The fund presents a risk of capital loss.",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Investment Process Algo Trend Investment Process Overview",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "systematic and transparent – no “black box”! Long-term outperformers Short-term trend intact Preference for low volatility",
+        "confidence": 0.7,
+        "rule_id": "RG.37"
+      }
+    ],
+    "24": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM, Datastream",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "Past performance is not a reliable indication of future return and is not constant over time. The simulation presented does not constitute a forecast of the future performance of your investments.",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Investment Process",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "performances",
+        "value": "Short-term outperformers (35% of final trend score) Long-term outperformers (65% of final trend score)",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "tendances_marche",
+        "value": "Identification of high-quality Trends",
+        "confidence": 0.8,
+        "rule_id": "RG.29"
+      }
+    ],
+    "25": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "The fund presents a risk of capital loss. Past performance is not a reliable indication of future return and is not constant over time.",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Investment Process Step 2: Portfolio Construction Building a Broadly diversified and risk-controlled momentum portfolio",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "Broadly diversified and risk-controlled momentum portfolio",
+        "confidence": 0.7,
+        "rule_id": "RG.37"
+      }
+    ],
+    "26": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM, Datastream",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "31/10/2024",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "Past performance is not a reliable indication of future return and is not constant over time.",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Investment process Example of Portfolio Implementation: Iron Mountain Inc",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "performances",
+        "value": "momentum score and relative weight over time",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      }
+    ],
+    "27": [
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Portfolio",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      }
+    ],
+    "28": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "30/06/2025",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "These examples are no investment recommendations",
+        "confidence": 0.9,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Portfolio",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "Sector Allocation",
+        "confidence": 0.7,
+        "rule_id": "RG.37"
+      }
+    ],
+    "29": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "30/06/2025",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "These examples are no investment recommendations",
+        "confidence": 0.8,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Portfolio",
+        "confidence": 0.8,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "Largest Positions in the Portfolio",
+        "confidence": 0.8,
+        "rule_id": "RG.37"
+      }
+    ],
+    "30": [
+      {
+        "field_name": "source",
+        "value": "ODDO BHF AM",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "30/06/2025",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "These examples are no investment recommendations",
+        "confidence": 0.8,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "Portfolio",
+        "confidence": 0.7,
+        "rule_id": "RG.20"
+      }
+    ],
+    "31": [
+      {
+        "field_name": "source",
+        "value": "Source: ODDO BHF AM",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "2025",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "presentation_du_fonds",
+        "value": "ODDO BHF US Equity Active UCITS ETF",
+        "confidence": 0.95,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "Caractéristiques du fonds ODDO BHF US Equity Active UCITS ETF",
+        "confidence": 0.9,
+        "rule_id": "RG.37"
+      }
+    ],
+    "32": [
+      {
+        "field_name": "performances",
+        "value": "The funds’ cumulative performances are calculated with dividends reinvested.",
+        "confidence": 0.9,
+        "rule_id": "RG.20"
+      },
+      {
+        "field_name": "taux_interet",
+        "value": "Duration is a measure of interest rate risk in bond instruments.",
+        "confidence": 0.8,
+        "rule_id": "RG.29"
+      },
+      {
+        "field_name": "caracteristiques_fonds",
+        "value": "Active Share, Jensen’s alpha, Beta, Correlation coefficient, Duration, Distance to bond floor, Maximum Drawdown, Average maturity, Sharpe Ratio, Information ratio, Recovery Delay",
+        "confidence": 0.9,
+        "rule_id": "RG.37"
+      }
+    ],
+    "33": [
+      {
+        "field_name": "definition_anglicisme",
+        "value": "Yield to maturity, Equity sensitivity, Credit sensitivity, Interest rate sensitivity, Credit spread, Turnover rate, Tracking-Error, Weighted Average Life (WAL), Weighted Average Maturity (WAM), Ex-post Value at Risk (VaR), Volatility",
+        "confidence": 0.9,
+        "rule_id": "RG.10"
+      },
+      {
+        "field_name": "taux_interet",
+        "value": "Interest rate sensitivity",
+        "confidence": 0.8,
+        "rule_id": "RG.29"
+      }
+    ],
+    "34": [
+      {
+        "field_name": "source",
+        "value": "STOXX Limited (\"STOXX\")",
+        "confidence": 0.95,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "date",
+        "value": "13.10.2025",
+        "confidence": 0.9,
+        "rule_id": "RG.2"
+      },
+      {
+        "field_name": "disclaimer_risques",
+        "value": "This may result in the risk that the investment advice given may not be consistent with the investor’s interest.",
+        "confidence": 0.8,
+        "rule_id": "RG.5"
+      },
+      {
+        "field_name": "mention_autre_fonds",
+        "value": "fonds established by a different investment management company",
+        "confidence": 0.7,
+        "rule_id": "RG.14"
+      }
+    ]
+  }
+}

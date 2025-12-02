@@ -1,0 +1,58 @@
+{
+  "rule_id": "RG.10",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "anglicism_usage",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "anglicismes",
+        "retail",
+        "pr\u00e9sentations"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_defined",
+      "is_required": true
+    },
+    {
+      "field_name": "definition_method",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "notes",
+        "glossaire",
+        "renvoi"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "footnote_presence",
+      "extraction_method": "position_check",
+      "search_patterns": [
+        "note",
+        "bas",
+        "page"
+      ],
+      "expected_format": "boolean",
+      "validation_rule": "must_be_present",
+      "is_required": false
+    },
+    {
+      "field_name": "glossary_presence",
+      "extraction_method": "position_check",
+      "search_patterns": [
+        "glossaire",
+        "renvoi"
+      ],
+      "expected_format": "boolean",
+      "validation_rule": "must_be_present",
+      "is_required": false
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.7151598930358887,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:54.593002"
+}

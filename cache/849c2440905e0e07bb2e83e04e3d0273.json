@@ -1,0 +1,47 @@
+{
+  "rule_id": "RG.19",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "disclaimer_standard",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "disclaimer",
+        "standard",
+        "retail"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_disclaimer_text",
+      "is_required": true
+    },
+    {
+      "field_name": "profil_de_risque",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "profil",
+        "risque",
+        "exhaustive"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_risk_profile_text",
+      "is_required": true
+    },
+    {
+      "field_name": "pays_de_commercialisation",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "pays",
+        "commercialisation",
+        "registration"
+      ],
+      "expected_format": "list_of_countries",
+      "validation_rule": "must_contain_at_least_one_country",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.6247494220733643,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:01.161009"
+}

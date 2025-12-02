@@ -1,0 +1,48 @@
+{
+  "rule_id": "RG.32",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "fund_type",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "fonds",
+        "capital-investissement",
+        "professionnels"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_keywords",
+      "is_required": true
+    },
+    {
+      "field_name": "performance_metric",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "TRI",
+        "net",
+        "performance"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_keywords",
+      "is_required": true
+    },
+    {
+      "field_name": "fund_status",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "en",
+        "cours",
+        "de",
+        "vie"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_keywords",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 2.801645278930664,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:15.279060"
+}

@@ -1,0 +1,23 @@
+{
+  "rule_id": "RG.15",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "liquidity_claim",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "liquide",
+        "ETF",
+        "liquidite"
+      ],
+      "expected_format": "boolean",
+      "validation_rule": "must_be_absent",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.3167293071746826,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:57.633989"
+}

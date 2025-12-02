@@ -1,0 +1,47 @@
+{
+  "rule_id": "RG.20",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "document_type",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "commercial",
+        "communication",
+        "externe"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "fund_presentation",
+      "extraction_method": "position_check",
+      "search_patterns": [
+        "pr\u00e9sentation",
+        "fonds",
+        "du fonds"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_before_performance",
+      "is_required": true
+    },
+    {
+      "field_name": "performance_information",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "performances",
+        "performance",
+        "rendement"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_be_first",
+      "is_required": false
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.5697927474975586,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:01.835365"
+}

@@ -1,0 +1,35 @@
+{
+  "rule_id": "RG.22",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "performance_presentation",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "annuelles glissantes",
+        "annualis\u00e9es",
+        "cumul\u00e9es"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_all",
+      "is_required": true
+    },
+    {
+      "field_name": "performance_type",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "annuelles",
+        "annualis\u00e9es",
+        "cumul\u00e9es"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_at_least_one",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.5050709247589111,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:03.192030"
+}

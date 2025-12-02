@@ -1,0 +1,34 @@
+{
+  "rule_id": "RG.21",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "performance_duration",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "dur\u00e9e",
+        "ann\u00e9es",
+        "performances"
+      ],
+      "expected_format": "number",
+      "validation_rule": "must_be_greater_than_or_equal_to_10_for_annualised_or_5_for_others",
+      "is_required": true
+    },
+    {
+      "field_name": "performance_type",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "annualis\u00e9es",
+        "autres"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_either_annualised_or_others",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.6454074382781982,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:02.583116"
+}

@@ -1,0 +1,23 @@
+{
+  "rule_id": "RG.31",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "performance_duration",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "10 ans",
+        "dur\u00e9e minimum",
+        "performances"
+      ],
+      "expected_format": "number_of_years",
+      "validation_rule": "must_be_greater_or_equal_to_10",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 2.5230965614318848,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:12.374927"
+}

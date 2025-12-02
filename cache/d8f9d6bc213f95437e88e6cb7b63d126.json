@@ -1,0 +1,47 @@
+{
+  "rule_id": "RG.27",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "esg_approach",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "ESG",
+        "approche",
+        "Engageante"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_one_of_engageante_reduite_limitee",
+      "is_required": true
+    },
+    {
+      "field_name": "esg_cartographie_link",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "Cartographie ESG",
+        "lien",
+        "I:/service"
+      ],
+      "expected_format": "url",
+      "validation_rule": "must_be_valid_url",
+      "is_required": true
+    },
+    {
+      "field_name": "prospectus_limitation",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "Limit\u00e9e",
+        "au",
+        "prospectus"
+      ],
+      "expected_format": "boolean",
+      "validation_rule": "must_be_true_or_false",
+      "is_required": false
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.7195596694946289,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:07.087163"
+}

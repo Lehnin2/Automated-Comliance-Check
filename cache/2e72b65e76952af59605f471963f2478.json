@@ -1,0 +1,46 @@
+{
+  "rule_id": "RG.3",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "sri_mention",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "SRI",
+        "mention",
+        "obligatoire"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "disclaimer_associated",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "disclaimer",
+        "associ\u00e9",
+        "SRI"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "same_slide_verification",
+      "extraction_method": "position_check",
+      "search_patterns": [
+        "m\u00eame",
+        "slide"
+      ],
+      "expected_format": "boolean",
+      "validation_rule": "must_be_on_same_slide",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.8076171875,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:49.105385"
+}

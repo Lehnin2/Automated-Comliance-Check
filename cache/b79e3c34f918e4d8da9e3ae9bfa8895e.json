@@ -1,0 +1,35 @@
+{
+  "rule_id": "RG.6",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "opinion_statement",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "notre opinion",
+        "nos analyses",
+        "objectif de"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_attenuation",
+      "is_required": true
+    },
+    {
+      "field_name": "hypothesis_statement",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "selon notre",
+        "fonds a pour",
+        "objectif de"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_attenuation",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.47536540031433105,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:51.485299"
+}

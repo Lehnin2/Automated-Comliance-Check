@@ -1,0 +1,35 @@
+{
+  "rule_id": "RG.5",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "risk_warning_font",
+      "extraction_method": "style_check",
+      "search_patterns": [
+        "gras",
+        "police",
+        "taille"
+      ],
+      "expected_format": "bold_same_font_size",
+      "validation_rule": "must_match_text_style",
+      "is_required": true
+    },
+    {
+      "field_name": "risk_warning_visibility",
+      "extraction_method": "position_check",
+      "search_patterns": [
+        "visible",
+        "note",
+        "bas_de_page"
+      ],
+      "expected_format": "not_in_footnote",
+      "validation_rule": "must_be_visible",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.777836799621582,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:50.907390"
+}

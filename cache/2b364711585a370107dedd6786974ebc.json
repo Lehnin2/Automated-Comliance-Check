@@ -1,0 +1,44 @@
+{
+  "rule_id": "RG.12",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "strategy_presentation",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "strat\u00e9gie",
+        "pr\u00e9sentation"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_contain_fund_info",
+      "is_required": true
+    },
+    {
+      "field_name": "fund_presentation",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "fonds",
+        "pr\u00e9sentation"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_contain_strategy_info",
+      "is_required": true
+    },
+    {
+      "field_name": "document_type",
+      "extraction_method": "style_check",
+      "search_patterns": [
+        "titre",
+        "title"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_unique",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.5250613689422607,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:55.778871"
+}

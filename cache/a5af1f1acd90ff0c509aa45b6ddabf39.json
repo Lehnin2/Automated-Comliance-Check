@@ -1,0 +1,47 @@
+{
+  "rule_id": "RG.9",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "internal_limits",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "limites internes",
+        "comit\u00e9 risque",
+        "contr\u00f4le des risques"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "contractual_information",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "non contractuel",
+        "contractuel",
+        "information contractuelle"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_contain_internal_limits",
+      "is_required": true
+    },
+    {
+      "field_name": "presentation_content",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "pr\u00e9sentation",
+        "contenu",
+        "information"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_contain_internal_limits",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.8089118003845215,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:53.774381"
+}

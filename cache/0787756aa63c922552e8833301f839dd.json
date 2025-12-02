@@ -1,0 +1,55 @@
+{
+  "rule_id": "RG.7",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "investment_thresholds",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "seuils d\u2019investissement",
+        "classe d\u2019actifs"
+      ],
+      "expected_format": "numeric",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "investment_strategy",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "strat\u00e9gie",
+        "fonds"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "geographic_allocation",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "allocation",
+        "g\u00e9ographique"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "minimum_ticket",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "ticket",
+        "minimum"
+      ],
+      "expected_format": "numeric",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.5447123050689697,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:52.133842"
+}

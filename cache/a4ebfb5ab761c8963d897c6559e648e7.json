@@ -1,0 +1,67 @@
+{
+  "rule_id": "RG.17",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "fund_name",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "fonds",
+        "nom"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "month",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "mois",
+        "month"
+      ],
+      "expected_format": "numeric_or_text",
+      "validation_rule": "must_be_valid_month",
+      "is_required": true
+    },
+    {
+      "field_name": "year",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "ann\u00e9e",
+        "year"
+      ],
+      "expected_format": "numeric",
+      "validation_rule": "must_be_valid_year",
+      "is_required": true
+    },
+    {
+      "field_name": "document_type",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "document",
+        "promotionnel"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_document_promotionnel",
+      "is_required": true
+    },
+    {
+      "field_name": "target_audience",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "cible",
+        "retail",
+        "professionnel"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_retail_or_professional",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 1.0121228694915771,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:59.509868"
+}

@@ -1,0 +1,47 @@
+{
+  "rule_id": "RG.28",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "investment_recommendation",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "recommandation",
+        "investissement",
+        "directe"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "valuation_indication",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "sous-\u00e9valu\u00e9e",
+        "sur\u00e9valu\u00e9e",
+        "correctement \u00e9valu\u00e9e"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_be_present",
+      "is_required": true
+    },
+    {
+      "field_name": "investment_strategy",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "strat\u00e9gie",
+        "investissement",
+        "d\u2019investissement"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_be_present",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.7156438827514648,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:07.906386"
+}

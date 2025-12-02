@@ -1,0 +1,59 @@
+{
+  "rule_id": "RG.33",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "performance_simulation_basis",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "simulation",
+        "performances",
+        "futures"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_refer_to_past",
+      "is_required": true
+    },
+    {
+      "field_name": "hypothetical_assumptions",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "hypoth\u00e8ses",
+        "raisonnables",
+        "objectifs"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_reasonable",
+      "is_required": true
+    },
+    {
+      "field_name": "gross_performance_disclosure",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "performances",
+        "brutes",
+        "commissions"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_disclose_fees",
+      "is_required": true
+    },
+    {
+      "field_name": "fee_disclosure",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "commissions",
+        "redevances",
+        "frais"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 3.176482915878296,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:18.557935"
+}

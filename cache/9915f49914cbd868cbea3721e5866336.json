@@ -1,0 +1,53 @@
+{
+  "rule_id": "RG.18",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "pre-commercialisation_notice",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "VEUILLEZ NOTER",
+        "FONDS N'A PAS ENCORE \u00c9T\u00c9 AGR\u00c9\u00c9",
+        "AUTORIT\u00c9 DES MARCH\u00c9S FINANCIERS"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_contain_all_patterns",
+      "is_required": true
+    },
+    {
+      "field_name": "notice_color",
+      "extraction_method": "style_check",
+      "search_patterns": [
+        "rouge"
+      ],
+      "expected_format": "color",
+      "validation_rule": "must_be_red",
+      "is_required": true
+    },
+    {
+      "field_name": "notice_font",
+      "extraction_method": "style_check",
+      "search_patterns": [
+        "gras"
+      ],
+      "expected_format": "font",
+      "validation_rule": "must_be_bold",
+      "is_required": true
+    },
+    {
+      "field_name": "notice_page",
+      "extraction_method": "position_check",
+      "search_patterns": [
+        "page de garde"
+      ],
+      "expected_format": "page_number",
+      "validation_rule": "must_be_first_page",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.8196911811828613,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:00.433068"
+}

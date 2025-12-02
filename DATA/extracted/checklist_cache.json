@@ -1,0 +1,4529 @@
+{
+  "f37ba7a4e944a6826fed96b1eead1868": {
+    "fields_to_extract": [
+      {
+        "field_name": "disclaimer_retail",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "disclaimer",
+          "retail",
+          "déclaration"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "disclaimer retail",
+            "déclaration de non-responsabilité"
+          ],
+          "en": [
+            "retail disclaimer",
+            "disclaimer statement"
+          ],
+          "de": [
+            "Einzelhandels-Haftungsausschluss",
+            "Haftungsausschluss"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "footer",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_in_footer"
+        },
+        "footer_location": true
+      },
+      {
+        "field_name": "disclaimer_professionnel",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "disclaimer",
+          "professionnel",
+          "déclaration"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "disclaimer professionnel",
+            "déclaration de non-responsabilité"
+          ],
+          "en": [
+            "professional disclaimer",
+            "disclaimer statement"
+          ],
+          "de": [
+            "Fachhandels-Haftungsausschluss",
+            "Haftungsausschluss"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "footer",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_in_footer"
+        },
+        "footer_location": true
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "disclaimer retail ou professionnel présent",
+      "failure_action": "ajouter disclaimer manquant"
+    },
+    "external_references": [
+      {
+        "doc_type": "glossaire_disclaimers",
+        "reference": "disclaimer retail ou professionnel",
+        "field_name": "disclaimer_retail ou disclaimer_professionnel",
+        "match_type": "exact",
+        "similarity_threshold": 1
+      }
+    ],
+    "conditional_rules": [
+      {
+        "condition_type": "unless",
+        "condition_field": "type_de_document",
+        "condition_value": "retail",
+        "applies_to_field": "disclaimer_retail",
+        "explanation": "si document retail, inclure disclaimer retail"
+      },
+      {
+        "condition_type": "unless",
+        "condition_field": "type_de_document",
+        "condition_value": "professionnel",
+        "applies_to_field": "disclaimer_professionnel",
+        "explanation": "si document professionnel, inclure disclaimer professionnel"
+      }
+    ],
+    "format_validations": []
+  },
+  "9197b77893a1827f7b86f785391bb64f": {
+    "fields_to_extract": [
+      {
+        "field_name": "source",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "source",
+          "provenance",
+          "origin",
+          "Quelle"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "origine",
+            "provenance",
+            "référence",
+            "source étude",
+            "source données",
+            "source graphique"
+          ],
+          "en": [
+            "origin",
+            "reference",
+            "source study",
+            "data source",
+            "chart source"
+          ],
+          "de": [
+            "Herkunft",
+            "Referenz",
+            "Studienquelle",
+            "Datenquelle",
+            "Diagrammquelle"
+          ]
+        },
+        "validation_rule": "must_be_present",
+        "validation_priority": 0,
+        "depends_on": [],
+        "footer_location": true,
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "footer",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_in_footer_or_visible"
+        }
+      },
+      {
+        "field_name": "date",
+        "extraction_method": "regex_match",
+        "search_keywords": [
+          "date",
+          "année",
+          "date",
+          "Datum"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "date publication",
+            "année",
+            "période",
+            "date étude",
+            "date données",
+            "date graphique"
+          ],
+          "en": [
+            "publication date",
+            "year",
+            "period",
+            "study date",
+            "data date",
+            "chart date"
+          ],
+          "de": [
+            "Veröffentlichungsdatum",
+            "Jahr",
+            "Zeitraum",
+            "Studiendatum",
+            "Datendatum",
+            "Diagrammdatum"
+          ]
+        },
+        "expected_format": "YYYY ou MM/YYYY",
+        "validation_rule": "must_match_format",
+        "validation_priority": 0,
+        "depends_on": [],
+        "regex_pattern": "20[0-9]{2}|(0[1-9]|1[0-2])/20[0-9]{2}",
+        "footer_location": true,
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "footer",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_in_footer_or_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "Les champs source et date sont présents",
+      "failure_action": "Signaler l'absence des champs source ou date"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "ec0c52671e9f385ac280ee19ebbf33e6": {
+    "fields_to_extract": [
+      {
+        "field_name": "sri_text",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "SRI",
+          "Socially Responsible Investing",
+          "Investissement Responsable"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "Investissement socialement responsable",
+            "ISR"
+          ],
+          "en": [
+            "Socially Responsible Investment",
+            "SRI"
+          ],
+          "de": [
+            "Sozial verantwortliche Investition",
+            "SVI"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "disclaimer_text",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "Disclaimer",
+          "Avertissement",
+          "Haftungsausschluss"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "Avertissement légal",
+            "Disclaimer"
+          ],
+          "en": [
+            "Legal Disclaimer",
+            "Disclaimer"
+          ],
+          "de": [
+            "Rechtlicher Haftungsausschluss",
+            "Disclaimer"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "sri_text"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "SRI et disclaimer présents",
+      "failure_action": "Réexamen du document"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "709cbf33dbbd8a81e47c54a39d1644e4": {
+    "fields_to_extract": [
+      {
+        "field_name": "glossaire_termes_techniques",
+        "extraction_method": "text_presence",
+        "search_keywords": [
+          "glossaire",
+          "termes techniques",
+          "Glossar",
+          "technische Begriffe"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "lexique",
+            "dictionnaire",
+            "glossaire des termes"
+          ],
+          "en": [
+            "glossary",
+            "dictionary",
+            "technical terms"
+          ],
+          "de": [
+            "Glossar",
+            "Wörterbuch",
+            "technische Begriffe"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "présence du glossaire",
+        "validation_rule": "must_be_present",
+        "footer_location": true,
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "footer",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_in_footer"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "le glossaire est présent",
+      "failure_action": "le glossaire est absent"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "8318ceb4eec2085361d88e6cd2bcf5cb": {
+    "fields_to_extract": [
+      {
+        "field_name": "disclaimer_text",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "avertissement",
+          "risque",
+          "warning",
+          "risk",
+          "Warnung"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "avis",
+            "prudence",
+            "précaution"
+          ],
+          "en": [
+            "caution",
+            "advice",
+            "notice"
+          ],
+          "de": [
+            "Vorsicht",
+            "Warnung",
+            "Hinweis"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "true",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence|style|position",
+      "success_condition": "disclaimer_text is present and in bold and same size as body text",
+      "failure_action": "report error if disclaimer is missing or not in bold or not same size as body text"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "1aeb4b42a022e76870426121ccd7262f": {
+    "fields_to_extract": [
+      {
+        "field_name": "opinion_text",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "opinion",
+          "avis",
+          "view",
+          "Meinung"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "point de vue",
+            "jugement",
+            "appréciation"
+          ],
+          "en": [
+            "opinion",
+            "judgement",
+            "assessment"
+          ],
+          "de": [
+            "Meinung",
+            "Urteil",
+            "Bewertung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "hypothese_text",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "hypothèse",
+          "assomption",
+          "hypothesis",
+          "Annahme"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "supposition",
+            "prévision",
+            "présumé"
+          ],
+          "en": [
+            "assumption",
+            "guess",
+            "supposition"
+          ],
+          "de": [
+            "Annahme",
+            "Vermutung",
+            "Vermutung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "opinion_text and hypothese_text are present",
+      "failure_action": "report missing opinion or hypothesis text"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "8d6257197d1047ccd22e7767ceecf0fb": {
+    "fields_to_extract": [
+      {
+        "field_name": "strategie_du_fonds",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "stratégie",
+          "fonds",
+          "investment strategy",
+          "Anlagestrategie"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "approche d'investissement",
+            "politique d'investissement"
+          ],
+          "en": [
+            "investment approach",
+            "investment policy"
+          ],
+          "de": [
+            "Investitionsansatz",
+            "Investitionspolitik"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "seuils_d_investissement",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "seuils",
+          "investissement",
+          "investment thresholds",
+          "Investitionsschwellen"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "niveaux d'investissement",
+            "limites d'investissement"
+          ],
+          "en": [
+            "investment levels",
+            "investment limits"
+          ],
+          "de": [
+            "Investitionsniveaus",
+            "Investitionsgrenzen"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "strategie_du_fonds"
+        ],
+        "expected_format": "number",
+        "validation_rule": "must_be_numeric",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "allocation_geographique",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "allocation",
+          "géographique",
+          "geographic allocation",
+          "geografische Allokation"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "répartition géographique",
+            "allocation régionale"
+          ],
+          "en": [
+            "regional allocation",
+            "geographic distribution"
+          ],
+          "de": [
+            "regionale Allokation",
+            "geografische Verteilung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "strategie_du_fonds"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "ticket_minimum",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "ticket",
+          "minimum",
+          "minimum investment",
+          "Mindestanlage"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "investissement minimum",
+            "montant minimum"
+          ],
+          "en": [
+            "minimum amount",
+            "minimum investment"
+          ],
+          "de": [
+            "Mindestanlage",
+            "Mindestbetrag"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "strategie_du_fonds"
+        ],
+        "expected_format": "number",
+        "validation_rule": "must_be_numeric",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence|format|style|order|value|external|conditional",
+      "success_condition": "all_fields_present_and_valid",
+      "failure_action": "report_error_and_continue"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "e277befcc4b30271bbbfdfb6116939b8": {
+    "fields_to_extract": [
+      {
+        "field_name": "pays_de_commercialisation",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "pays",
+          "country",
+          "zone géographique"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "état",
+            "région",
+            "territoire"
+          ],
+          "en": [
+            "state",
+            "region",
+            "territory"
+          ],
+          "de": [
+            "Staat",
+            "Region",
+            "Gebiet"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "liste de pays",
+        "validation_rule": "must_be_in_authorized_list",
+        "external_doc_type": "registration_of_funds",
+        "external_doc_ref": "authorized_countries_list",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "présence de la liste de pays",
+      "failure_action": "rapport d'erreur"
+    },
+    "external_references": [
+      {
+        "doc_type": "registration_of_funds",
+        "reference": "authorized_countries_list",
+        "field_name": "pays_de_commercialisation",
+        "match_type": "exact",
+        "similarity_threshold": 1
+      }
+    ],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "6e2f9e8b8238286f88bf17e70d8bb9e2": {
+    "fields_to_extract": [
+      {
+        "field_name": "limites_internes",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "limites internes",
+          "comité risque",
+          "contrôle des risques"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "limites fixées",
+            "seuil de risque",
+            "contrôle interne"
+          ],
+          "en": [
+            "internal limits",
+            "risk committee",
+            "risk control"
+          ],
+          "de": [
+            "interne Grenzen",
+            "Risikoausschuss",
+            "Risikokontrolle"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_not_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "not_visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_not_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "absence",
+      "success_condition": "les limites internes ne sont pas présentes",
+      "failure_action": "rapporter l'erreur de conformité"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "7786a82df44aa7d343e4b3eb7e522e3b": {
+    "fields_to_extract": [
+      {
+        "field_name": "definition_anglicisme",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "anglicisme",
+          "definition",
+          "glossaire"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "définition",
+            "explication",
+            "glossaire"
+          ],
+          "en": [
+            "definition",
+            "explanation",
+            "glossary"
+          ],
+          "de": [
+            "Definition",
+            "Erklärung",
+            "Glossar"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "renvoi_bas_page",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "bas de page",
+          "footer",
+          "note"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "pied de page",
+            "note de bas de page"
+          ],
+          "en": [
+            "footer",
+            "footnote"
+          ],
+          "de": [
+            "Fußzeile",
+            "Fußnote"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "footer_location": true,
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "footer",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_in_footer"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence|format|style|order|value|external|conditional",
+      "success_condition": "condition de succès",
+      "failure_action": "action si échec"
+    },
+    "external_references": [
+      {
+        "doc_type": "glossaire_disclaimers|prospectus|registration_of_funds",
+        "reference": "référence exacte",
+        "field_name": "champ concerné",
+        "match_type": "exact|fuzzy|contains",
+        "similarity_threshold": 0.9
+      }
+    ],
+    "conditional_rules": [
+      {
+        "condition_type": "unless|only_if|depends_on",
+        "condition_field": "champ de condition",
+        "condition_value": "valeur attendue",
+        "applies_to_field": "champ cible",
+        "explanation": "explication de la condition"
+      }
+    ],
+    "format_validations": [
+      {
+        "field_name": "champ concerné",
+        "format_type": "date|currency|percentage|email|phone|url|number",
+        "regex_pattern": "pattern regex",
+        "expected_examples": [
+          "exemple1",
+          "exemple2"
+        ],
+        "error_message": "message si non conforme"
+      }
+    ]
+  },
+  "86cfde12f584b1df296229e7ac702016": {
+    "fields_to_extract": [
+      {
+        "field_name": "disclaimer_professionnel",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "disclaimer",
+          "professionnel",
+          "professional",
+          "Fachleute"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "avertissement",
+            "avis",
+            "note"
+          ],
+          "en": [
+            "disclaimer",
+            "warning",
+            "note"
+          ],
+          "de": [
+            "Haftungsausschluss",
+            "Warnung",
+            "Hinweis"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "disclaimer_professionnel est présent",
+      "failure_action": "ajouter disclaimer_professionnel"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "51fb07353ed3426329de1c7c8c78d053": {
+    "fields_to_extract": [
+      {
+        "field_name": "presentation_type",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "stratégie",
+          "fonds",
+          "strategy",
+          "fund"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "présentation de stratégie",
+            "présentation de fonds"
+          ],
+          "en": [
+            "strategy presentation",
+            "fund presentation"
+          ],
+          "de": [
+            "Strategiepräsentation",
+            "Fondspräsentation"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "présence de la présentation de stratégie ou de fonds",
+      "failure_action": "rapport d'erreur"
+    },
+    "external_references": [],
+    "conditional_rules": [
+      {
+        "condition_type": "unless",
+        "condition_field": "presentation_type",
+        "condition_value": "stratégie",
+        "applies_to_field": "fonds_presentation",
+        "explanation": "La présentation de stratégie et de fonds ne doit pas être confondue"
+      }
+    ],
+    "format_validations": []
+  },
+  "80fe9ec04ca53875a81cd91a01fdec56": {
+    "fields_to_extract": [
+      {
+        "field_name": "validation_fsma",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "FSMA",
+          "validation",
+          "Belgique"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "validation préalable",
+            "FSMA Belgique"
+          ],
+          "en": [
+            "FSMA validation",
+            "Belgium"
+          ],
+          "de": [
+            "FSMA Validierung",
+            "Belgien"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "présence de la validation FSMA",
+      "failure_action": "demander une validation préalable à la FSMA"
+    },
+    "external_references": [
+      {
+        "doc_type": "FSMA",
+        "reference": "validation préalable",
+        "field_name": "validation_fsma",
+        "match_type": "exact",
+        "similarity_threshold": 0.9
+      }
+    ],
+    "conditional_rules": [
+      {
+        "condition_type": "only_if",
+        "condition_field": "destination_client",
+        "condition_value": "non professionnel",
+        "applies_to_field": "validation_fsma",
+        "explanation": "La validation FSMA est requise uniquement pour les clients non professionnels belges"
+      }
+    ],
+    "format_validations": []
+  },
+  "2b41eb0b87d1bfd07e89b11ba476ae2a": {
+    "fields_to_extract": [
+      {
+        "field_name": "mention_autre_fonds",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "autre fonds",
+          "fonds différent",
+          "other fund",
+          "anderer Fonds"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "fonds concurrent",
+            "fonds alternatif"
+          ],
+          "en": [
+            "competing fund",
+            "alternative fund"
+          ],
+          "de": [
+            "konkurrenzfonds",
+            "alternativer Fonds"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_not_be_present_unless_presentation_de_gamme",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "presentation_de_gamme",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "présentation de gamme",
+          "gamme de fonds",
+          "fund range presentation",
+          "Fondsbauspräsentation"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "gamme de produits",
+            "sélection de fonds"
+          ],
+          "en": [
+            "product range",
+            "fund selection"
+          ],
+          "de": [
+            "Produktpalette",
+            "Fondsauswahl"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present_if_autre_fonds",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "conditional",
+      "success_condition": "mention_autre_fonds est absent ou présentation_de_gamme est présente",
+      "failure_action": "rapport d'erreur"
+    },
+    "external_references": [],
+    "conditional_rules": [
+      {
+        "condition_type": "unless",
+        "condition_field": "presentation_de_gamme",
+        "condition_value": "présente",
+        "applies_to_field": "mention_autre_fonds",
+        "explanation": "La mention d'autres fonds n'est autorisée que dans une présentation de gamme"
+      }
+    ],
+    "format_validations": []
+  },
+  "f274fa114653a0cb3a8b19ec104896cd": {
+    "fields_to_extract": [
+      {
+        "field_name": "mention_liquide",
+        "extraction_method": "text_presence",
+        "search_keywords": [
+          "liquide",
+          "liquid",
+          "flüssig"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "liquidité",
+            "flux de trésorerie"
+          ],
+          "en": [
+            "liquidity",
+            "cash flow"
+          ],
+          "de": [
+            "Liquidität",
+            "Kapitalfluss"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "absence",
+        "validation_rule": "must_be_absent",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "absence",
+      "success_condition": "le terme 'liquide' n'est pas présent",
+      "failure_action": "le document ne respecte pas la règle RG.15"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "fa0ee96e301760dff3d4d2c407b7b516": {
+    "fields_to_extract": [
+      {
+        "field_name": "nom_fonds",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "nom",
+          "fonds",
+          "fund name",
+          "Fondsname"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "dénomination",
+            "intitulé",
+            "appellation"
+          ],
+          "en": [
+            "fund title",
+            "fund denomination",
+            "product name"
+          ],
+          "de": [
+            "Fonds",
+            "Produktname",
+            "Bezeichnung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "date_document",
+        "extraction_method": "regex_match",
+        "search_keywords": [
+          "date",
+          "mois",
+          "année",
+          "month",
+          "year",
+          "Monat",
+          "Jahr"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "datation",
+            "période",
+            "millésime"
+          ],
+          "en": [
+            "period",
+            "vintage",
+            "edition"
+          ],
+          "de": [
+            "Datum",
+            "Zeitraum",
+            "Jahrgang"
+          ]
+        },
+        "expected_format": "MM/YYYY ou Mois YYYY",
+        "validation_rule": "must_match_format",
+        "validation_priority": 0,
+        "depends_on": [],
+        "regex_pattern": "(0[1-9]|1[0-2])/20[0-9]{2}|([Jj]anvier|[Ff]évrier|[Mm]ars|[Aa]vril|[Mm]ai|[Jj]uin|[Jj]uillet|[Aa]oût|[Ss]eptembre|[Oo]ctobre|[Nn]ovembre|[Dd]écembre)\\s+20[0-9]{2}",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "mention_promotionnel",
+        "extraction_method": "text_presence",
+        "search_keywords": [
+          "document promotionnel",
+          "promotional document",
+          "Werbedokument"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "document marketing",
+            "support commercial",
+            "matériel publicitaire"
+          ],
+          "en": [
+            "marketing material",
+            "advertising document",
+            "promotional material"
+          ],
+          "de": [
+            "Marketingdokument",
+            "Werbematerial",
+            "Verkaufsunterlage"
+          ]
+        },
+        "expected_format": "exact_text",
+        "validation_rule": "must_contain_exact_text",
+        "validation_priority": 0,
+        "depends_on": [],
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "cible",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "retail",
+          "professionnel",
+          "retail investor",
+          "professional investor"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "investisseur particulier",
+            "investisseur institutionnel"
+          ],
+          "en": [
+            "individual investor",
+            "institutional investor"
+          ],
+          "de": [
+            "privatinvestor",
+            "institutioneller Investeur"
+          ]
+        },
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "validation_priority": 0,
+        "depends_on": [],
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {},
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "0ea6e6384f9fa95ccc9bed002d5ed34e": {
+    "fields_to_extract": [
+      {
+        "field_name": "fonds_non_agree",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "fonds non agréé",
+          "non approved fund",
+          "nicht zugelassener Fonds"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "fonds en pré-commercialisation",
+            "fonds non autorisé"
+          ],
+          "en": [
+            "pre-marketing fund",
+            "unauthorized fund"
+          ],
+          "de": [
+            "Fonds in der Vorvermarktungsphase",
+            "nicht genehmigter Fonds"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "red",
+          "validation_rule": "must_be_red"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "true",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "text found",
+      "failure_action": "report error"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "23cb8a59af5e4392606e0f1727c19aa3": {
+    "fields_to_extract": [
+      {
+        "field_name": "disclaimer_standard",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "disclaimer",
+          "standard",
+          "retail",
+          "professionnel"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "avis",
+            "standard",
+            "déclaration"
+          ],
+          "en": [
+            "disclaimer",
+            "standard",
+            "statement"
+          ],
+          "de": [
+            "Haftungsausschluss",
+            "Standard",
+            "Erklärung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "profil_de_risque",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "profil de risque",
+          "risk profile",
+          "Risikoprofil"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "niveau de risque",
+            "catégorie de risque"
+          ],
+          "en": [
+            "risk level",
+            "risk category"
+          ],
+          "de": [
+            "Risikostufe",
+            "Risikokategorie"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "pays_de_commercialisation",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "pays de commercialisation",
+          "countries of distribution",
+          "Vertriebsländer"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "zones de vente",
+            "régions de commercialisation"
+          ],
+          "en": [
+            "sales areas",
+            "distribution regions"
+          ],
+          "de": [
+            "Vertriebsgebiete",
+            "Verkaufsregionen"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "tous les champs présents",
+      "failure_action": "rapport d'erreur"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "5506182bb69f3d1a3a7433437c969ca7": {
+    "fields_to_extract": [
+      {
+        "field_name": "presentation_du_fonds",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "présentation",
+          "fonds",
+          "presentation",
+          "fund"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "description",
+            "présentation du fonds"
+          ],
+          "en": [
+            "fund description",
+            "presentation"
+          ],
+          "de": [
+            "Fondsbeschreibung",
+            "Präsentation"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      },
+      {
+        "field_name": "performances",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "performances",
+          "rendement",
+          "return"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement",
+            "performance financière"
+          ],
+          "en": [
+            "financial performance",
+            "return"
+          ],
+          "de": [
+            "Rendite",
+            "Finanzleistung"
+          ]
+        },
+        "validation_priority": 1,
+        "depends_on": [
+          "presentation_du_fonds"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present_after_presentation",
+        "text_size": {
+          "validation_type": "style_check",
+          "description": "Taille du texte en points",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_size"
+        },
+        "font_type": {
+          "validation_type": "style_check",
+          "description": "Police de caractères",
+          "expected_value": "same_as_body_text",
+          "validation_rule": "must_match_body_text_font"
+        },
+        "color": {
+          "validation_type": "style_check",
+          "description": "Couleur du texte",
+          "expected_value": "black_or_standard",
+          "validation_rule": "must_be_standard_color"
+        },
+        "is_bold": {
+          "validation_type": "style_check",
+          "description": "Texte en gras ou non",
+          "expected_value": "false",
+          "validation_rule": "check_bold_requirement"
+        },
+        "visibility": {
+          "validation_type": "position_check",
+          "description": "Position du texte (footer, centre, visible)",
+          "expected_value": "visible",
+          "possible_values": [
+            "footer",
+            "center",
+            "visible",
+            "top"
+          ],
+          "validation_rule": "must_be_visible"
+        }
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "order",
+      "success_condition": "présentation du fonds avant performances",
+      "failure_action": "réorganiser le contenu"
+    },
+    "external_references": [],
+    "conditional_rules": [
+      {
+        "condition_type": "unless",
+        "condition_field": "type_de_document",
+        "condition_value": "présentation de gamme",
+        "applies_to_field": "performances",
+        "explanation": "les performances ne sont pas obligatoires pour les présentations de gamme"
+      }
+    ],
+    "format_validations": []
+  },
+  "9159ee62fc58fde41cda564e87037167": {
+    "fields_to_extract": [
+      {
+        "field_name": "texte_original",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "texte",
+          "original",
+          "source text",
+          "Originaltext"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "contenu original",
+            "texte source"
+          ],
+          "en": [
+            "original content",
+            "source text"
+          ],
+          "de": [
+            "Originalinhalt",
+            "Quelltext"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "texte_traduit",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "texte",
+          "traduit",
+          "translated text",
+          "Übersetzter Text"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "contenu traduit",
+            "version traduite"
+          ],
+          "en": [
+            "translated content",
+            "translated version"
+          ],
+          "de": [
+            "übersetzter Inhalt",
+            "übersetzte Version"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "texte_original"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "langue_originale",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "langue",
+          "originale",
+          "original language",
+          "Originalsprache"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "langue source",
+            "langue d'origine"
+          ],
+          "en": [
+            "source language",
+            "original language"
+          ],
+          "de": [
+            "Quellsprache",
+            "Originalsprache"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "texte_original"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "langue_traduite",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "langue",
+          "traduite",
+          "translated language",
+          "Übersetzte Sprache"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "langue cible",
+            "langue de traduction"
+          ],
+          "en": [
+            "target language",
+            "translation language"
+          ],
+          "de": [
+            "Zielsprache",
+            "Übersetzungsprache"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "texte_traduit"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "alignement_phrase",
+        "extraction_method": "text_presence",
+        "search_keywords": [
+          "alignement",
+          "phrase",
+          "sentence alignment",
+          "Satzausrichtung"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "correspondance phrase",
+            "alignement de phrase"
+          ],
+          "en": [
+            "sentence matching",
+            "phrase alignment"
+          ],
+          "de": [
+            "Satzübereinstimmung",
+            "Satzausrichtung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "texte_original",
+          "texte_traduit"
+        ],
+        "expected_format": "boolean",
+        "validation_rule": "must_be_aligned"
+      },
+      {
+        "field_name": "alignement_donnee",
+        "extraction_method": "text_presence",
+        "search_keywords": [
+          "alignement",
+          "donnée",
+          "data alignment",
+          "Datenausrichtung"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "correspondance donnée",
+            "alignement de donnée"
+          ],
+          "en": [
+            "data matching",
+            "data alignment"
+          ],
+          "de": [
+            "Datenübereinstimmung",
+            "Datenausrichtung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "texte_original",
+          "texte_traduit"
+        ],
+        "expected_format": "boolean",
+        "validation_rule": "must_be_aligned"
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence|format|style|order|value|external|conditional",
+      "success_condition": "tous les champs sont présents et alignés",
+      "failure_action": "rapport d'erreur détaillé"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "6e3678b0f3c63ec79099bbbb372f59ee": {
+    "fields_to_extract": [
+      {
+        "field_name": "performance_10ans",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "performance",
+          "10 ans",
+          "10 years",
+          "10 Jahre"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement 10 ans",
+            "performance sur 10 ans"
+          ],
+          "en": [
+            "10-year performance",
+            "10-year return"
+          ],
+          "de": [
+            "10-Jahres-Rendite",
+            "10-Jahres-Performance"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}(,[0-9]{3})*([.][0-9]+)?%",
+        "footer_location": true
+      },
+      {
+        "field_name": "performance_5ans",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "performance",
+          "5 ans",
+          "5 years",
+          "5 Jahre"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement 5 ans",
+            "performance sur 5 ans"
+          ],
+          "en": [
+            "5-year performance",
+            "5-year return"
+          ],
+          "de": [
+            "5-Jahres-Rendite",
+            "5-Jahres-Performance"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}(,[0-9]{3})*([.][0-9]+)?%",
+        "footer_location": true
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "les performances 10 ans et 5 ans sont présentes",
+      "failure_action": "signaler l'absence de performances"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": [
+      {
+        "field_name": "performance_10ans",
+        "format_type": "percentage",
+        "regex_pattern": "[0-9]{1,3}(,[0-9]{3})*([.][0-9]+)?%",
+        "expected_examples": [
+          "10%",
+          "5,5%"
+        ],
+        "error_message": "le format de la performance 10 ans n'est pas valide"
+      },
+      {
+        "field_name": "performance_5ans",
+        "format_type": "percentage",
+        "regex_pattern": "[0-9]{1,3}(,[0-9]{3})*([.][0-9]+)?%",
+        "expected_examples": [
+          "10%",
+          "5,5%"
+        ],
+        "error_message": "le format de la performance 5 ans n'est pas valide"
+      }
+    ]
+  },
+  "95b87f9e2fc5f2a6e3845b7ce6113584": {
+    "fields_to_extract": [
+      {
+        "field_name": "performance_annuelle",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "performance",
+          "annuelle",
+          "annual",
+          "Jahresleistung"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement annuel",
+            "performance sur un an"
+          ],
+          "en": [
+            "annual return",
+            "one-year performance"
+          ],
+          "de": [
+            "Jahresrendite",
+            "Ein-Jahres-Leistung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}([,.][0-9]{2})?"
+      },
+      {
+        "field_name": "performance_glissante",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "performance",
+          "glissante",
+          "rolling",
+          "gleitend"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement glissant",
+            "performance sur période glissante"
+          ],
+          "en": [
+            "rolling return",
+            "sliding performance"
+          ],
+          "de": [
+            "gleitende Rendite",
+            "Performance über gleitende Periode"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}([,.][0-9]{2})?"
+      },
+      {
+        "field_name": "performance_cumulee",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "performance",
+          "cumulée",
+          "cumulative",
+          "kumulativ"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement cumulé",
+            "performance sur période cumulée"
+          ],
+          "en": [
+            "cumulative return",
+            "accumulated performance"
+          ],
+          "de": [
+            "kumulativer Rendite",
+            "kumulierte Leistung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}([,.][0-9]{2})?"
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "toutes les performances sont présentes",
+      "failure_action": "signaler l'absence de données de performance"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": [
+      {
+        "field_name": "performance_annuelle",
+        "format_type": "percentage",
+        "regex_pattern": "[0-9]{1,3}([,.][0-9]{2})?",
+        "expected_examples": [
+          "12,5%",
+          "10%"
+        ],
+        "error_message": "le format de la performance annuelle n'est pas valide"
+      },
+      {
+        "field_name": "performance_glissante",
+        "format_type": "percentage",
+        "regex_pattern": "[0-9]{1,3}([,.][0-9]{2})?",
+        "expected_examples": [
+          "12,5%",
+          "10%"
+        ],
+        "error_message": "le format de la performance glissante n'est pas valide"
+      },
+      {
+        "field_name": "performance_cumulee",
+        "format_type": "percentage",
+        "regex_pattern": "[0-9]{1,3}([,.][0-9]{2})?",
+        "expected_examples": [
+          "12,5%",
+          "10%"
+        ],
+        "error_message": "le format de la performance cumulée n'est pas valide"
+      }
+    ]
+  },
+  "6716cc4c1a025331f366c0c68643d068": {
+    "fields_to_extract": [
+      {
+        "field_name": "performance_ytd",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "YTD",
+          "performance",
+          "rendement"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "performance depuis le début de l'année",
+            "rendement annuel"
+          ],
+          "en": [
+            "year-to-date performance",
+            "annual return"
+          ],
+          "de": [
+            "Jahresperformance",
+            "Rendite seit Jahresbeginn"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present_if_not_gamme",
+        "regex_pattern": "[0-9]{1,3}([.,][0-9]{3})*([%,])?"
+      },
+      {
+        "field_name": "performance_10ans",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "10 ans",
+          "performance",
+          "rendement"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "performance sur 10 ans",
+            "rendement décennal"
+          ],
+          "en": [
+            "10-year performance",
+            "decennial return"
+          ],
+          "de": [
+            "10-Jahres-Performance",
+            "dekadische Rendite"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}([.,][0-9]{3})*([%,])?"
+      },
+      {
+        "field_name": "performance_5ans",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "5 ans",
+          "performance",
+          "rendement"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "performance sur 5 ans",
+            "rendement quinquennal"
+          ],
+          "en": [
+            "5-year performance",
+            "quinquennial return"
+          ],
+          "de": [
+            "5-Jahres-Performance",
+            "quinquennale Rendite"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}([.,][0-9]{3})*([%,])?"
+      },
+      {
+        "field_name": "performance_3ans",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "3 ans",
+          "performance",
+          "rendement"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "performance sur 3 ans",
+            "rendement triennal"
+          ],
+          "en": [
+            "3-year performance",
+            "triennial return"
+          ],
+          "de": [
+            "3-Jahres-Performance",
+            "triennale Rendite"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}([.,][0-9]{3})*([%,])?"
+      },
+      {
+        "field_name": "performance_1an",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "1 an",
+          "performance",
+          "rendement"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "performance sur 1 an",
+            "rendement annuel"
+          ],
+          "en": [
+            "1-year performance",
+            "annual return"
+          ],
+          "de": [
+            "1-Jahres-Performance",
+            "jährliche Rendite"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}([.,][0-9]{3})*([%,])?"
+      },
+      {
+        "field_name": "performance_depuis_creation",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "depuis la création",
+          "performance",
+          "rendement"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "performance depuis la création",
+            "rendement total"
+          ],
+          "en": [
+            "performance since inception",
+            "total return"
+          ],
+          "de": [
+            "Performance seit Gründung",
+            "Gesamtrendite"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}([.,][0-9]{3})*([%,])?"
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "toutes les performances sont présentes",
+      "failure_action": "signaler l'absence de performances"
+    },
+    "external_references": [],
+    "conditional_rules": [
+      {
+        "condition_type": "unless",
+        "condition_field": "presentation_type",
+        "condition_value": "gamme",
+        "applies_to_field": "performance_ytd",
+        "explanation": "la performance YTD n'est pas requise si c'est une présentation de gamme"
+      }
+    ],
+    "format_validations": [
+      {
+        "field_name": "performance_ytd",
+        "format_type": "pourcentage ou nombre",
+        "regex_pattern": "[0-9]{1,3}([.,][0-9]{3})*([%,])?",
+        "expected_examples": [
+          "10%",
+          "5,6"
+        ],
+        "error_message": "format de performance non valide"
+      }
+    ]
+  },
+  "9bdd81b67831623d2df9852e61e06acb": {
+    "fields_to_extract": [
+      {
+        "field_name": "fonds_historique_performances",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "fonds",
+          "historique",
+          "performances",
+          "fund history",
+          "Leistung"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "fonds avec historique",
+            "performances passées"
+          ],
+          "en": [
+            "fund with history",
+            "past performances"
+          ],
+          "de": [
+            "Fonds mit Historie",
+            "vergangene Leistungen"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_not_be_present",
+        "footer_location": true
+      },
+      {
+        "field_name": "duree_historique_performances",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "duree",
+          "historique",
+          "moins d'un an",
+          "duration",
+          "less than one year",
+          "weniger als ein Jahr"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "période",
+            "durée de référence"
+          ],
+          "en": [
+            "period",
+            "reference period"
+          ],
+          "de": [
+            "Zeitraum",
+            "Referenzzeitraum"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_not_be_present",
+        "footer_location": true
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "absence",
+      "success_condition": "le fonds n'a pas d'historique de performances de moins d'un an",
+      "failure_action": "le document ne respecte pas la règle RG.24"
+    },
+    "external_references": [],
+    "conditional_rules": [
+      {
+        "condition_type": "unless",
+        "condition_field": "fonds_historique_performances",
+        "condition_value": "présent",
+        "applies_to_field": "duree_historique_performances",
+        "explanation": "si le fonds a un historique de performances, la durée de cet historique doit être supérieure ou égale à un an"
+      }
+    ],
+    "format_validations": []
+  },
+  "82528dc6217161a904e2824c746870c6": {
+    "fields_to_extract": [
+      {
+        "field_name": "performance_fonds",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "performance",
+          "rendement",
+          "return"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement du fonds",
+            "performance financière"
+          ],
+          "en": [
+            "fund performance",
+            "financial return"
+          ],
+          "de": [
+            "Fondsperformance",
+            "finanzielle Rendite"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "nombre ou pourcentage",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}([,.][0-9]{3})*([,.][0-9]{2})?|[0-9]{1,3}%"
+      },
+      {
+        "field_name": "indicateur_reference",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "indicateur de référence",
+          "benchmark",
+          "referenzwert"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "indice de référence",
+            "étalon"
+          ],
+          "en": [
+            "reference index",
+            "benchmark index"
+          ],
+          "de": [
+            "Referenzindex",
+            "Vergleichswert"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "comparaison_performance",
+        "extraction_method": "text_presence",
+        "search_keywords": [
+          "comparaison",
+          "comparison",
+          "vergleich"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rapprochement",
+            "confrontation"
+          ],
+          "en": [
+            "comparison",
+            "contrast"
+          ],
+          "de": [
+            "Vergleich",
+            "Gegenüberstellung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "performance_fonds",
+          "indicateur_reference"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_contain_text",
+        "footer_location": true
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "tous les champs sont présents",
+      "failure_action": "rapport d'erreur"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": [
+      {
+        "field_name": "performance_fonds",
+        "format_type": "number",
+        "regex_pattern": "[0-9]{1,3}([,.][0-9]{3})*([,.][0-9]{2})?|[0-9]{1,3}%",
+        "expected_examples": [
+          "12,34%",
+          "56,78"
+        ],
+        "error_message": "format de performance non valide"
+      }
+    ]
+  },
+  "6817303151228122c8e02cdbdd04d854": {
+    "fields_to_extract": [
+      {
+        "field_name": "performance_nette_frais",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "performance",
+          "nette",
+          "frais",
+          "net performance",
+          "Netto-Rendite"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement net",
+            "performance nette de frais"
+          ],
+          "en": [
+            "net return",
+            "net performance"
+          ],
+          "de": [
+            "Netto-Rendite",
+            "Netto-Performance"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}([\\\\s.]?[0-9]{3})*,[0-9]{2}|[0-9]+%"
+      },
+      {
+        "field_name": "frais_de_gestion",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "frais",
+          "gestion",
+          "management fees",
+          "Verwaltungsgebühren"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "coûts de gestion",
+            "frais administratifs"
+          ],
+          "en": [
+            "management costs",
+            "administrative fees"
+          ],
+          "de": [
+            "Verwaltungskosten",
+            "Administrationsgebühren"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "frais_variables",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "frais",
+          "variables",
+          "variable costs",
+          "variable Kosten"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "coûts variables",
+            "frais fluctuants"
+          ],
+          "en": [
+            "variable expenses",
+            "fluctuating fees"
+          ],
+          "de": [
+            "variable Kosten",
+            "schwankende Gebühren"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "commission_de_mouvement",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "commission",
+          "mouvement",
+          "movement fee",
+          "Bewegungsgebühr"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "frais de mouvement",
+            "coût de transaction"
+          ],
+          "en": [
+            "transaction fee",
+            "movement cost"
+          ],
+          "de": [
+            "Transaktionsgebühr",
+            "Bewegungskosten"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "tous les champs sont présents",
+      "failure_action": "rapport d'erreur"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": [
+      {
+        "field_name": "performance_nette_frais",
+        "format_type": "pourcentage ou nombre",
+        "regex_pattern": "[0-9]{1,3}([\\\\s.]?[0-9]{3})*,[0-9]{2}|[0-9]+%",
+        "expected_examples": [
+          "10%",
+          "1000"
+        ],
+        "error_message": "format de performance non conforme"
+      }
+    ]
+  },
+  "cba6ffc48686def5ed3abb35f0dba30e": {
+    "fields_to_extract": [
+      {
+        "field_name": "approche_esg",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "ESG",
+          "approche",
+          "approach",
+          "Ansatz"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "stratégie ESG",
+            "politique ESG"
+          ],
+          "en": [
+            "ESG strategy",
+            "ESG policy"
+          ],
+          "de": [
+            "ESG-Strategie",
+            "ESG-Politik"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "footer_location": true
+      },
+      {
+        "field_name": "type_approche_esg",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "engageante",
+          "réduite",
+          "limitée",
+          "engaged",
+          "reduced",
+          "limited",
+          "engagiert",
+          "reduziert",
+          "begrenzt"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "approche active",
+            "approche passive"
+          ],
+          "en": [
+            "active approach",
+            "passive approach"
+          ],
+          "de": [
+            "aktiver Ansatz",
+            "passiver Ansatz"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "approche_esg"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "footer_location": true
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "approche ESG et type d'approche présents",
+      "failure_action": "requérir la présence de l'approche ESG et de son type"
+    },
+    "external_references": [
+      {
+        "doc_type": "cartographie_esg",
+        "reference": "I:/service/OAM/PROCEDURES ET POLITIQUES OBAM SAS/CARTOGRAPHIE ESG",
+        "field_name": "approche_esg",
+        "match_type": "exact",
+        "similarity_threshold": 0.9
+      }
+    ],
+    "conditional_rules": [
+      {
+        "condition_type": "only_if",
+        "condition_field": "approche_esg",
+        "condition_value": "présent",
+        "applies_to_field": "type_approche_esg",
+        "explanation": "le type d'approche ESG doit être présent si l'approche ESG est mentionnée"
+      }
+    ],
+    "format_validations": [
+      {
+        "field_name": "approche_esg",
+        "format_type": "text",
+        "regex_pattern": "",
+        "expected_examples": [
+          "approche ESG",
+          "ESG approach"
+        ],
+        "error_message": "l'approche ESG doit être présente"
+      },
+      {
+        "field_name": "type_approche_esg",
+        "format_type": "text",
+        "regex_pattern": "",
+        "expected_examples": [
+          "engageante",
+          "réduite",
+          "limitée"
+        ],
+        "error_message": "le type d'approche ESG doit être présent et valide"
+      }
+    ]
+  },
+  "506f490a5dab9469ec1ca2c3b0fca425": {
+    "fields_to_extract": [
+      {
+        "field_name": "recommandation_investissement",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "recommandation",
+          "investissement",
+          "investment recommendation",
+          "Anlageempfehlung"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "conseil d'investissement",
+            "suggestion d'investissement"
+          ],
+          "en": [
+            "investment advice",
+            "investment suggestion"
+          ],
+          "de": [
+            "Anlageberatung",
+            "Anlagevorschlag"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_not_be_present",
+        "regex_pattern": ""
+      },
+      {
+        "field_name": "evaluation_valeur",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "évaluation",
+          "valeur",
+          "valuation",
+          "Wert"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "appréciation",
+            "estimation"
+          ],
+          "en": [
+            "appraisal",
+            "estimation"
+          ],
+          "de": [
+            "Bewertung",
+            "Schätzung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_not_be_present",
+        "regex_pattern": ""
+      },
+      {
+        "field_name": "strategie_investissement",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "stratégie",
+          "investissement",
+          "investment strategy",
+          "Anlagestrategie"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "plan d'investissement",
+            "approche d'investissement"
+          ],
+          "en": [
+            "investment plan",
+            "investment approach"
+          ],
+          "de": [
+            "Anlageplan",
+            "Anlageansatz"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_not_be_present",
+        "regex_pattern": ""
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "absence",
+      "success_condition": "pas de recommandation d'investissement directe ou indirecte",
+      "failure_action": "rapport d'erreur"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "693c7e8bb948f910a4408bfd8f24e56b": {
+    "fields_to_extract": [
+      {
+        "field_name": "tendances_marche",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "tendances",
+          "marché",
+          "market trends",
+          "Markttrends"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "évolution marché",
+            "tendance financière"
+          ],
+          "en": [
+            "financial trend",
+            "market evolution"
+          ],
+          "de": [
+            "Finanztrend",
+            "Marktentwicklung"
+          ]
+        },
+        "validation_priority": 1,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "taux_change",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "taux",
+          "change",
+          "exchange rate",
+          "Wechselkurs"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "cours de change",
+            "taux de conversion"
+          ],
+          "en": [
+            "exchange ratio",
+            "conversion rate"
+          ],
+          "de": [
+            "Wechselkurs",
+            "Umwandlungsrate"
+          ]
+        },
+        "validation_priority": 1,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "taux_interet",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "taux",
+          "intérêt",
+          "interest rate",
+          "Zinssatz"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "taux d'intérêt",
+            "coût d'emprunt"
+          ],
+          "en": [
+            "interest charge",
+            "borrowing cost"
+          ],
+          "de": [
+            "Zinssatz",
+            "Kreditkosten"
+          ]
+        },
+        "validation_priority": 1,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "marchandises",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "marchandises",
+          "matières premières",
+          "commodities",
+          "Rohstoffe"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "produits de base",
+            "biens premiers"
+          ],
+          "en": [
+            "primary goods",
+            "raw materials"
+          ],
+          "de": [
+            "Rohstoffe",
+            "Vorprodukte"
+          ]
+        },
+        "validation_priority": 1,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "indicateurs_macro",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "indicateurs",
+          "macroéconomiques",
+          "macroeconomic indicators",
+          "makroökonomische Indikatoren"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "indicateurs économiques",
+            "agrégats macro"
+          ],
+          "en": [
+            "economic indicators",
+            "macro aggregates"
+          ],
+          "de": [
+            "Wirtschaftsindikatoren",
+            "Makro-Aggregate"
+          ]
+        },
+        "validation_priority": 1,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "tous les champs sont présents",
+      "failure_action": "rapport d'erreur"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "c91a3fcdca1881019f0f39b11452f13e": {
+    "fields_to_extract": [
+      {
+        "field_name": "presentation_strategie",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "stratégie",
+          "strategy",
+          "Strategie"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "présentation de la stratégie",
+            "approche"
+          ],
+          "en": [
+            "strategy presentation",
+            "approach"
+          ],
+          "de": [
+            "Strategiepräsentation",
+            "Ansatz"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "footer_location": false
+      },
+      {
+        "field_name": "performance_presentation",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "performance",
+          "rendement",
+          "return"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "présentation des performances",
+            "rendement"
+          ],
+          "en": [
+            "performance presentation",
+            "return"
+          ],
+          "de": [
+            "Renditepräsentation",
+            "Ertrag"
+          ]
+        },
+        "validation_priority": 1,
+        "depends_on": [
+          "presentation_strategie"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_after_strategie",
+        "footer_location": false
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "order",
+      "success_condition": "stratégie avant performances",
+      "failure_action": "réorganiser le contenu"
+    },
+    "external_references": [],
+    "conditional_rules": [
+      {
+        "condition_type": "only_if",
+        "condition_field": "presentation_strategie",
+        "condition_value": "présent",
+        "applies_to_field": "performance_presentation",
+        "explanation": "Les performances ne doivent être présentées qu'après la stratégie"
+      }
+    ],
+    "format_validations": []
+  },
+  "87e3415c4df85f1939ea323039e14dea": {
+    "fields_to_extract": [
+      {
+        "field_name": "performance_10ans",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "performance",
+          "10 ans",
+          "10 years",
+          "10 Jahre"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement 10 ans",
+            "performance sur 10 ans"
+          ],
+          "en": [
+            "10-year performance",
+            "10-year return"
+          ],
+          "de": [
+            "10-Jahres-Rendite",
+            "10-Jahres-Performance"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "nombre ou pourcentage",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "[0-9]{1,3}(,[0-9]{3})*([.][0-9]+)?%?"
+      },
+      {
+        "field_name": "periode_de_reference",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "période de référence",
+          "reference period",
+          "Referenzperiode"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "durée de référence",
+            "période considérée"
+          ],
+          "en": [
+            "reference duration",
+            "considered period"
+          ],
+          "de": [
+            "Referenzdauer",
+            "berücksichtigter Zeitraum"
+          ]
+        },
+        "validation_priority": 1,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "toutes les performances sont présentes",
+      "failure_action": "signaler l'absence de performances"
+    },
+    "external_references": [],
+    "conditional_rules": [
+      {
+        "condition_type": "unless",
+        "condition_field": "presentation_type",
+        "condition_value": "gamme",
+        "applies_to_field": "performance_10ans",
+        "explanation": "les performances ne sont pas requises pour les présentations de gamme"
+      }
+    ],
+    "format_validations": [
+      {
+        "field_name": "performance_10ans",
+        "format_type": "number",
+        "regex_pattern": "[0-9]{1,3}(,[0-9]{3})*([.][0-9]+)?%?",
+        "expected_examples": [
+          "10%",
+          "5,5%"
+        ],
+        "error_message": "le format de la performance n'est pas valide"
+      }
+    ]
+  },
+  "919e3c867cddaefd780bc1f4070e295a": {
+    "fields_to_extract": [
+      {
+        "field_name": "fonds_de_private_equity",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "fonds de private equity",
+          "private equity fund",
+          "Private Equity Fonds"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "fonds d'investissement",
+            "fonds de capital-investissement"
+          ],
+          "en": [
+            "investment fund",
+            "private equity investment"
+          ],
+          "de": [
+            "Investmentfonds",
+            "Private-Equity-Fonds"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "evolution_performance_tri_net",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "évolution de la performance",
+          "TRI net",
+          "net return"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "performance nette",
+            "rendement net"
+          ],
+          "en": [
+            "net performance",
+            "net return"
+          ],
+          "de": [
+            "Netto-Performance",
+            "Netto-Rendite"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "fonds_de_private_equity"
+        ],
+        "expected_format": "numeric",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "fonds_en_cours_de_vie",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "fonds en cours de vie",
+          "active fund",
+          "aktiver Fonds"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "fonds actif",
+            "fonds en activité"
+          ],
+          "en": [
+            "active investment",
+            "ongoing fund"
+          ],
+          "de": [
+            "aktiver Investmentfonds",
+            "laufender Fonds"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "fonds_de_private_equity"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "all fields present",
+      "failure_action": "report error"
+    },
+    "external_references": [],
+    "conditional_rules": [
+      {
+        "condition_type": "only_if",
+        "condition_field": "fonds_de_private_equity",
+        "condition_value": "present",
+        "applies_to_field": "evolution_performance_tri_net",
+        "explanation": "évolution de la performance TRI net est uniquement communiquée pour des fonds de capital-investissement professionnels en cours de vie"
+      }
+    ],
+    "format_validations": []
+  },
+  "497e8e28baa4a0815a0a9a2eb624cc43": {
+    "fields_to_extract": [
+      {
+        "field_name": "information_simulation",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "simulation",
+          "performances futures",
+          "future performance",
+          "zukünftige Leistung"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "prévision",
+            "projection",
+            "perspectives"
+          ],
+          "en": [
+            "forecast",
+            "projection",
+            "outlook"
+          ],
+          "de": [
+            "Prognose",
+            "Projektion",
+            "Ausblick"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "footer_location": true
+      },
+      {
+        "field_name": "hypothese_raisonnable",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "hypothèse raisonnable",
+          "reasonable assumption",
+          "vernünftige Annahme"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "supposition logique",
+            "prévision fondée"
+          ],
+          "en": [
+            "logical assumption",
+            "founded forecast"
+          ],
+          "de": [
+            "logische Annahme",
+            "begründete Prognose"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "information_simulation"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "performance_brute",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "performance brute",
+          "gross performance",
+          "Bruttorendite"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement avant frais",
+            "performance avant déduction"
+          ],
+          "en": [
+            "pre-fee performance",
+            "gross return"
+          ],
+          "de": [
+            "Vorab-Fondrentabilität",
+            "Bruttorendite vor Abzügen"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "information_simulation"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "commissions_redevances",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "commissions",
+          "redevances",
+          "frais",
+          "fees",
+          "Gebühren"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "frais de gestion",
+            "coûts associés"
+          ],
+          "en": [
+            "management fees",
+            "associated costs"
+          ],
+          "de": [
+            "Verwaltungsgebühren",
+            "zugehörige Kosten"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "performance_brute"
+        ],
+        "expected_format": "text",
+        "validation_rule": "must_be_present"
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "tous les champs requis sont présents",
+      "failure_action": "rapport d'erreur détaillé"
+    },
+    "external_references": [],
+    "conditional_rules": [
+      {
+        "condition_type": "unless",
+        "condition_field": "performance_brute",
+        "condition_value": "présent",
+        "applies_to_field": "commissions_redevances",
+        "explanation": "Les commissions et redevances doivent être spécifiées lorsque la performance brute est mentionnée."
+      }
+    ],
+    "format_validations": []
+  },
+  "7a61a8f8c2e22462f2ff28f912968460": {
+    "fields_to_extract": [
+      {
+        "field_name": "performance_fonds",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "performance",
+          "rendement",
+          "return",
+          "Rendite"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement du fonds",
+            "performance financière"
+          ],
+          "en": [
+            "fund performance",
+            "financial return"
+          ],
+          "de": [
+            "Fondsrendite",
+            "finanzielle Leistung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "numérique",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "\\\\d{1,3}(\\\\.\\\\d{3})*(,\\\\d+)?"
+      },
+      {
+        "field_name": "indicateur_reference",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "indicateur de référence",
+          "benchmark",
+          "Referenzwert"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "indice de référence",
+            "étalon"
+          ],
+          "en": [
+            "reference index",
+            "standard"
+          ],
+          "de": [
+            "Referenzindex",
+            "Standard"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "texte",
+        "validation_rule": "must_be_present"
+      },
+      {
+        "field_name": "comparaison_performance",
+        "extraction_method": "text_presence",
+        "search_keywords": [
+          "comparaison",
+          "comparison",
+          "Vergleich"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rapprochement",
+            "confrontation"
+          ],
+          "en": [
+            "matching",
+            "confrontation"
+          ],
+          "de": [
+            "Abgleich",
+            "Gegenüberstellung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [
+          "performance_fonds",
+          "indicateur_reference"
+        ],
+        "expected_format": "texte",
+        "validation_rule": "must_contain_text",
+        "footer_location": true
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "tous les champs sont présents",
+      "failure_action": "rapport d'erreur"
+    },
+    "external_references": [],
+    "conditional_rules": [
+      {
+        "condition_type": "only_if",
+        "condition_field": "indicateur_reference",
+        "condition_value": "présent",
+        "applies_to_field": "comparaison_performance",
+        "explanation": "La comparaison de performance est requise si l'indicateur de référence est présent"
+      }
+    ],
+    "format_validations": [
+      {
+        "field_name": "performance_fonds",
+        "format_type": "numérique",
+        "regex_pattern": "\\\\d{1,3}(\\\\.\\\\d{3})*(,\\\\d+)?",
+        "expected_examples": [
+          "12,34",
+          "56,78"
+        ],
+        "error_message": "Le format de la performance du fonds est incorrect"
+      }
+    ]
+  },
+  "f104a7696353907b39856aa6c7e04db9": {
+    "fields_to_extract": [
+      {
+        "field_name": "evaluation_valeur",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "sous-évalué",
+          "surévalué",
+          "correctement évalué",
+          "undervalued",
+          "overvalued",
+          "fairly valued"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "évaluation basse",
+            "évaluation haute",
+            "évaluation juste"
+          ],
+          "en": [
+            "low valuation",
+            "high valuation",
+            "fair valuation"
+          ],
+          "de": [
+            "Unterbewertung",
+            "Überbewertung",
+            "faire Bewertung"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_not_be_present",
+        "footer_location": true
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "le texte ne contient pas les mots-clés",
+      "failure_action": "le texte contient les mots-clés interdits"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": []
+  },
+  "bb2d1292a92e962dd5febbffb843ed71": {
+    "fields_to_extract": [
+      {
+        "field_name": "performance_10ans",
+        "extraction_method": "data_extraction",
+        "search_keywords": [
+          "performance",
+          "10 ans",
+          "10 years",
+          "10 Jahre"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "rendement 10 ans",
+            "performance sur 10 ans"
+          ],
+          "en": [
+            "10-year performance",
+            "10-year return"
+          ],
+          "de": [
+            "10-Jahres-Rendite",
+            "10-Jahres-Performance"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "pourcentage ou nombre",
+        "validation_rule": "must_be_present",
+        "regex_pattern": "\\\\d{1,3}(?:[.,]\\\\d{3})*(?:[.,]\\\\d+)?",
+        "footer_location": true
+      },
+      {
+        "field_name": "periode_de_reference",
+        "extraction_method": "text_search",
+        "search_keywords": [
+          "période de référence",
+          "reference period",
+          "Referenzperiode"
+        ],
+        "auto_synonyms": {
+          "fr": [
+            "durée de référence",
+            "période d'évaluation"
+          ],
+          "en": [
+            "evaluation period",
+            "reference timeframe"
+          ],
+          "de": [
+            "Bewertungsperiode",
+            "Referenzzeitraum"
+          ]
+        },
+        "validation_priority": 0,
+        "depends_on": [],
+        "expected_format": "text",
+        "validation_rule": "must_be_present",
+        "footer_location": true
+      }
+    ],
+    "validation_criteria": {
+      "check_type": "presence",
+      "success_condition": "performance_10ans est présent",
+      "failure_action": "rapport d'erreur"
+    },
+    "external_references": [],
+    "conditional_rules": [],
+    "format_validations": [
+      {
+        "field_name": "performance_10ans",
+        "format_type": "number",
+        "regex_pattern": "\\\\d{1,3}(?:[.,]\\\\d{3})*(?:[.,]\\\\d+)?",
+        "expected_examples": [
+          "10,5%",
+          "12,2"
+        ],
+        "error_message": "Format de performance non conforme"
+      }
+    ]
+  }
+}

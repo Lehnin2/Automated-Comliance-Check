@@ -1,0 +1,35 @@
+{
+  "rule_id": "RG.30",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "strategy_presentation",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "strat\u00e9gie",
+        "pr\u00e9sentation",
+        "entreprise"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_before_performance",
+      "is_required": true
+    },
+    {
+      "field_name": "performance_section",
+      "extraction_method": "position_check",
+      "search_patterns": [
+        "performances",
+        "r\u00e9sultats",
+        "rendement"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_be_first",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.7142274379730225,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:09.749394"
+}

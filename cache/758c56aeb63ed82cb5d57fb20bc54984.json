@@ -1,0 +1,46 @@
+{
+  "rule_id": "RG.13",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "fsma_validation",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "FSMA",
+        "validation",
+        "pr\u00e9alable"
+      ],
+      "expected_format": "boolean",
+      "validation_rule": "must_be_true",
+      "is_required": true
+    },
+    {
+      "field_name": "client_type",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "clients",
+        "non",
+        "professionnels"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_non_professional",
+      "is_required": true
+    },
+    {
+      "field_name": "destination_country",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "Belgique",
+        "Belgium"
+      ],
+      "expected_format": "country_name",
+      "validation_rule": "must_be_belgium",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.7601959705352783,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:56.641136"
+}

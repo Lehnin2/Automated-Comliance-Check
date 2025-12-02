@@ -1,0 +1,795 @@
+{
+  "rules": [
+    {
+      "rule_id": "RG.1",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Inclusion des disclaimers",
+      "description": "Si document retail : inclure les disclaimers retail (cf. Glossaire des disclaimers). Si document professionnel : inclure les disclaimers professionnels (cf. Glossaire des disclaimers).",
+      "required": true,
+      "validation_type": "presence",
+      "keywords": [
+        "disclaimers",
+        "retail",
+        "professionnel"
+      ],
+      "error_message": "Les disclaimers doivent être inclus",
+      "severity": "critique",
+      "source_text": "Si document retail : inclure les disclaimers retail (cf. Glossaire des disclaimers). Si document professionnel : inclure les disclaimers professionnels (cf. Glossaire des disclaimers).",
+      "notes": "Attention non-harmonisation entre les disclaimers Private Equity et Listed Asset.",
+      "references": [
+        "Glossaire des disclaimers"
+      ],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.2",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Renvoi pour les études et données chiffrées",
+      "description": "Les études/ données chiffrées /graphiques etc., doivent faire l’objet d’un renvoi (note de bas de page) précisant à minima la source et la date",
+      "required": true,
+      "validation_type": "presence",
+      "keywords": [
+        "études",
+        "données chiffrées",
+        "graphiques"
+      ],
+      "error_message": "Un renvoi est nécessaire pour les études et données chiffrées",
+      "severity": "critique",
+      "source_text": "Les études/ données chiffrées /graphiques etc., doivent faire l’objet d’un renvoi (note de bas de page) précisant à minima la source et la date",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.3",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Mention du SRI et du disclaimer associé",
+      "description": "Pour chaque fonds présenté : mention obligatoire du SRI avec le disclaimer associé sur la même slide (cf. Glossaire)",
+      "required": true,
+      "validation_type": "presence",
+      "keywords": [
+        "SRI",
+        "disclaimer"
+      ],
+      "error_message": "La mention du SRI et du disclaimer associé est obligatoire",
+      "severity": "critique",
+      "source_text": "Pour chaque fonds présenté : mention obligatoire du SRI avec le disclaimer associé sur la même slide (cf. Glossaire)",
+      "notes": "",
+      "references": [
+        "Glossaire"
+      ],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.4",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Inclusion du Glossaire des termes techniques",
+      "description": "Pour les présentations retail : inclure un Glossaire des termes techniques en fin de présentation et s’assurer que ces termes figurent dans le document",
+      "required": true,
+      "validation_type": "presence",
+      "keywords": [
+        "Glossaire",
+        "termes techniques"
+      ],
+      "error_message": "Le Glossaire des termes techniques doit être inclus",
+      "severity": "critique",
+      "source_text": "Pour les présentations retail : inclure un Glossaire des termes techniques en fin de présentation et s’assurer que ces termes figurent dans le document",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.5",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Avertissements et disclaimers sur les risques",
+      "description": "Les avertissements/disclaimers sur les risques doivent : être en gras, utiliser la même police et taille que le texte principal, être visibles (pas en note de bas de page)",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "avertissements",
+        "disclaimers",
+        "risques"
+      ],
+      "error_message": "Les avertissements et disclaimers sur les risques doivent être en gras et visibles",
+      "severity": "critique",
+      "source_text": "Les avertissements/disclaimers sur les risques doivent : être en gras, utiliser la même police et taille que le texte principal, être visibles (pas en note de bas de page)",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.6",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Atténuation des opinions et hypothèses",
+      "description": "Les opinions et hypothèses doivent être atténuées : Ex. : « selon notre opinion », « selon nos analyses », « le fonds a pour objectif de… »",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "opinions",
+        "hypothèses"
+      ],
+      "error_message": "Les opinions et hypothèses doivent être atténuées",
+      "severity": "critique",
+      "source_text": "Les opinions et hypothèses doivent être atténuées : Ex. : « selon notre opinion », « selon nos analyses », « le fonds a pour objectif de… »",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.7",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Présentation de la stratégie du fonds",
+      "description": "La stratégie du fonds doit être présentée conformément à la documentation légale : seuils d’investissement par classe d’actifs, stratégie, allocation géographique, ticket minimum, etc.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "stratégie",
+        "fonds"
+      ],
+      "error_message": "La stratégie du fonds doit être présentée conformément à la documentation légale",
+      "severity": "critique",
+      "source_text": "La stratégie du fonds doit être présentée conformément à la documentation légale : seuils d’investissement par classe d’actifs, stratégie, allocation géographique, ticket minimum, etc.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.8",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Pays de commercialisation",
+      "description": "Les pays de commercialisation indiqués doivent être conformes aux dernières données (fichier EXCEL : « registration abroad » disponible : I:/service/DOC LIB/GENERAL/Registration abroad of Funds)",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "pays de commercialisation"
+      ],
+      "error_message": "Les pays de commercialisation doivent être conformes aux dernières données",
+      "severity": "critique",
+      "source_text": "Les pays de commercialisation indiqués doivent être conformes aux dernières données (fichier EXCEL : « registration abroad » disponible : I:/service/DOC LIB/GENERAL/Registration abroad of Funds)",
+      "notes": "Attention pour le Private Equity, ne pas se référer à ce document.",
+      "references": [
+        "Registration abroad of Funds"
+      ],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.9",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Limites internes",
+      "description": "Les limites internes (fixées par le comité risque ou le contrôle des risques) ne doivent pas apparaître dans aucune présentation car non contractuel",
+      "required": true,
+      "validation_type": "absence",
+      "keywords": [
+        "limites internes"
+      ],
+      "error_message": "Les limites internes ne doivent pas apparaître dans la présentation",
+      "severity": "critique",
+      "source_text": "Les limites internes (fixées par le comité risque ou le contrôle des risques) ne doivent pas apparaître dans aucune présentation car non contractuel",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.10",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Anglicismes",
+      "description": "Éviter les anglicismes dans les présentations retail, ou les définir (notes de bas de page ou glossaire avec renvoi)",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "anglicismes"
+      ],
+      "error_message": "Les anglicismes doivent être évités ou définis",
+      "severity": "mineure",
+      "source_text": "Éviter les anglicismes dans les présentations retail, ou les définir (notes de bas de page ou glossaire avec renvoi)",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.11",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Documents commerciaux relatifs à des stratégies",
+      "description": "Les documents commerciaux relatifs à des stratégies sont réservés aux clients professionnels uniquement → inclure le disclaimer professionnel",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "documents commerciaux",
+        "stratégies"
+      ],
+      "error_message": "Les documents commerciaux relatifs à des stratégies doivent être réservés aux clients professionnels",
+      "severity": "critique",
+      "source_text": "Les documents commerciaux relatifs à des stratégies sont réservés aux clients professionnels uniquement → inclure le disclaimer professionnel",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.12",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Présentation d'une stratégie et d'un fonds",
+      "description": "Pas de confusion entre la présentation d’une stratégie et celle d’un fonds dans un même document",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "stratégie",
+        "fonds"
+      ],
+      "error_message": "La présentation d'une stratégie et d'un fonds doit être distincte",
+      "severity": "critique",
+      "source_text": "Pas de confusion entre la présentation d’une stratégie et celle d’un fonds dans un même document",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.13",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Validation préalable de la FSMA",
+      "description": "Pour la Belgique : si présentation à destination de clients non professionnels belges, s’assurer de la validation préalable de la FSMA",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "Belgique",
+        "FSMA"
+      ],
+      "error_message": "La validation préalable de la FSMA est requise pour la Belgique",
+      "severity": "critique",
+      "source_text": "Pour la Belgique : si présentation à destination de clients non professionnels belges, s’assurer de la validation préalable de la FSMA",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.14",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Mention d'autres fonds",
+      "description": "Éviter de mentionner d’autres fonds (Oddo ou autres) dans une présentation standard d’un fonds sauf si c’est une présentation de gamme.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "fonds",
+        "gamme"
+      ],
+      "error_message": "La mention d'autres fonds doit être évitée",
+      "severity": "mineure",
+      "source_text": "Éviter de mentionner d’autres fonds (Oddo ou autres) dans une présentation standard d’un fonds sauf si c’est une présentation de gamme.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.15",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Liquité d'un ETF",
+      "description": "Ne pas dire qu'un ETF est liquide",
+      "required": true,
+      "validation_type": "absence",
+      "keywords": [
+        "ETF",
+        "liquide"
+      ],
+      "error_message": "La liquité d'un ETF ne doit pas être mentionnée",
+      "severity": "mineure",
+      "source_text": "Ne pas dire qu'un ETF est liquide",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.16",
+      "category": "global",
+      "slide_number": "any",
+      "title": "Alignement des versions linguistiques",
+      "description": "Si deux documents sont des versions du même texte mais dans des langues différentes, l'alignement entre le sens de chaque phrase et les données doit être exact et cohérent.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "versions linguistiques",
+        "alignement"
+      ],
+      "error_message": "Les versions linguistiques doivent être alignées",
+      "severity": "mineure",
+      "source_text": "Si deux documents sont des versions du même texte mais dans des langues différentes, l'alignement entre le sens de chaque phrase et les données doit être exact et cohérent.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 0.85,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.17",
+      "category": "page_de_garde",
+      "slide_number": "1",
+      "title": "Page de garde",
+      "description": "Doit indiquer : le nom du fonds, le mois et l’année, la mention « document promotionnel », la cible : retail ou professionnel",
+      "required": true,
+      "validation_type": "presence",
+      "keywords": [
+        "page de garde",
+        "fonds"
+      ],
+      "error_message": "La page de garde doit contenir les informations requises",
+      "severity": "critique",
+      "source_text": "Doit indiquer : le nom du fonds, le mois et l’année, la mention « document promotionnel », la cible : retail ou professionnel",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.18",
+      "category": "page_de_garde",
+      "slide_number": "1",
+      "title": "Fonds en pré-commercialisation",
+      "description": "Pour les fonds en pré-commercialisation : mentionner en rouge et gras sur la page de garde : « VEUILLEZ NOTER QUE LE FONDS N'A PAS ENCORE ÉTÉ AGRÉÉ PAR L'AUTORITÉ DES MARCHÉS FINANCIERS »",
+      "required": true,
+      "validation_type": "presence",
+      "keywords": [
+        "fonds en pré-commercialisation"
+      ],
+      "error_message": "La mention de fonds en pré-commercialisation doit être faite",
+      "severity": "critique",
+      "source_text": "Pour les fonds en pré-commercialisation : mentionner en rouge et gras sur la page de garde : « VEUILLEZ NOTER QUE LE FONDS N'A PAS ENCORE ÉTÉ AGRÉÉ PAR L'AUTORITÉ DES MARCHÉS FINANCIERS »",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.19",
+      "category": "slide_2",
+      "slide_number": "2",
+      "title": "Slide 2",
+      "description": "La Slide 2 (après la page de garde - Présentation Standard) contient a minima : le disclaimer standard (retail ou professionnel), la mention exhaustive du profil de risque, les pays de commercialisation (registration abroad)",
+      "required": true,
+      "validation_type": "presence",
+      "keywords": [
+        "slide 2",
+        "disclaimer"
+      ],
+      "error_message": "La slide 2 doit contenir les informations requises",
+      "severity": "critique",
+      "source_text": "La Slide 2 (après la page de garde - Présentation Standard) contient a minima : le disclaimer standard (retail ou professionnel), la mention exhaustive du profil de risque, les pays de commercialisation (registration abroad)",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.20",
+      "category": "performances",
+      "slide_number": "any",
+      "title": "Performances",
+      "description": "Un document commercial ou une communication externe ne peut pas débuter par les performances mais au minimum par la présentation du fonds.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "performances",
+        "fonds"
+      ],
+      "error_message": "Les performances ne doivent pas être présentées en premier",
+      "severity": "critique",
+      "source_text": "Un document commercial ou une communication externe ne peut pas débuter par les performances mais au minimum par la présentation du fonds.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.21",
+      "category": "performances",
+      "slide_number": "any",
+      "title": "Durée minimum de présentation des performances",
+      "description": "Les performances doivent être présentées sur une durée minimum de 10 ans pour les performances annualisées et 5 ans pour les autres.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "performances",
+        "durée"
+      ],
+      "error_message": "La durée minimum de présentation des performances doit être respectée",
+      "severity": "critique",
+      "source_text": "Les performances doivent être présentées sur une durée minimum de 10 ans pour les performances annualisées et 5 ans pour les autres.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.22",
+      "category": "performances",
+      "slide_number": "any",
+      "title": "Forme de présentation des performances",
+      "description": "Les performances doivent être présentées nécessairement sous forme de performances annuelles glissantes, annualisées et/ou cumulées (dans l’ordre que l’on souhaite).",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "performances",
+        "forme de présentation"
+      ],
+      "error_message": "La forme de présentation des performances doit être respectée",
+      "severity": "critique",
+      "source_text": "Les performances doivent être présentées nécessairement sous forme de performances annuelles glissantes, annualisées et/ou cumulées (dans l’ordre que l’on souhaite).",
+      "notes": "",
+      "references": [],
+      "confidence_score": 0.85,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.23",
+      "category": "performances",
+      "slide_number": "any",
+      "title": "Performances year to date (YTD)",
+      "description": "Les performances en YTD peuvent être mentionnées à la stricte condition de l’affichage des performances sur 10 ans, 5 ans, 3 ans, 1 an et/ou depuis la création.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "performances",
+        "YTD"
+      ],
+      "error_message": "Les performances YTD doivent être présentées avec les performances sur 10 ans, 5 ans, 3 ans, 1 an et/ou depuis la création",
+      "severity": "critique",
+      "source_text": "Les performances en YTD peuvent être mentionnées à la stricte condition de l’affichage des performances sur 10 ans, 5 ans, 3 ans, 1 an et/ou depuis la création.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.24",
+      "category": "performances",
+      "slide_number": "any",
+      "title": "Performances de moins d’un an",
+      "description": "Les fonds avec un historique de performances de moins d’un an ne peuvent en aucun cas afficher de performances.",
+      "required": true,
+      "validation_type": "absence",
+      "keywords": [
+        "performances",
+        "moins d’un an"
+      ],
+      "error_message": "Les performances de moins d’un an ne doivent pas être affichées",
+      "severity": "critique",
+      "source_text": "Les fonds avec un historique de performances de moins d’un an ne peuvent en aucun cas afficher de performances.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.25",
+      "category": "performances",
+      "slide_number": "any",
+      "title": "Présentation des performances en cas d’indicateur de référence ou de benchmark",
+      "description": "Les performances sont obligatoirement et en permanence comparées à l’indicateur de référence du fonds s’il existe.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "performances",
+        "indicateur de référence"
+      ],
+      "error_message": "Les performances doivent être comparées à l’indicateur de référence du fonds",
+      "severity": "critique",
+      "source_text": "Les performances sont obligatoirement et en permanence comparées à l’indicateur de référence du fonds s’il existe.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.26",
+      "category": "performances",
+      "slide_number": "any",
+      "title": "Performances nettes ou brutes",
+      "description": "Les performances sont obligatoirement présentées nettes de tout frais de gestion pour la clientèle retail y compris au travers de la distribution (fixes, variables, commission de mouvement) à préciser dans le document.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "performances",
+        "nettes ou brutes"
+      ],
+      "error_message": "Les performances doivent être présentées nettes de tout frais de gestion",
+      "severity": "critique",
+      "source_text": "Les performances sont obligatoirement présentées nettes de tout frais de gestion pour la clientèle retail y compris au travers de la distribution (fixes, variables, commission de mouvement) à préciser dans le document.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.27",
+      "category": "ESG",
+      "slide_number": "any",
+      "title": "Mentions spécifiques relatives à l’ESG",
+      "description": "Distinguer l’approche ESG du fonds (cf. Cartographie ESG, disponible au lien suivant I:/service/OAM/PROCEDURES ET POLITIQUES OBAM SAS/CARTOGRAPHIE ESG) : Engageante, Réduite, Limitée au prospectus",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "ESG",
+        "approche"
+      ],
+      "error_message": "L’approche ESG du fonds doit être distinguée",
+      "severity": "mineure",
+      "source_text": "Distinguer l’approche ESG du fonds (cf. Cartographie ESG, disponible au lien suivant I:/service/OAM/PROCEDURES ET POLITIQUES OBAM SAS/CARTOGRAPHIE ESG) : Engageante, Réduite, Limitée au prospectus",
+      "notes": "",
+      "references": [
+        "Cartographie ESG"
+      ],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.28",
+      "category": "valeurs",
+      "slide_number": "any",
+      "title": "Mentions spécifiques des valeurs",
+      "description": "À NE PAS FAIRE : Pas de recommandation d’investissement directe ou indirecte, Ne pas indiquer si une valeur est sous-évaluée / surévaluée / correctement évaluée, Ne pas suggérer une stratégie d’investissement",
+      "required": true,
+      "validation_type": "absence",
+      "keywords": [
+        "valeurs",
+        "recommandation"
+      ],
+      "error_message": "Les recommandations d’investissement doivent être évitées",
+      "severity": "critique",
+      "source_text": "À NE PAS FAIRE : Pas de recommandation d’investissement directe ou indirecte, Ne pas indiquer si une valeur est sous-évaluée / surévaluée / correctement évaluée, Ne pas suggérer une stratégie d’investissement",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.29",
+      "category": "valeurs",
+      "slide_number": "any",
+      "title": "Mentions spécifiques des valeurs",
+      "description": "À FAIRE : Évoquer les tendances de marché, Références aux taux de change, taux d’intérêt, matières premières, indicateurs macroéconomiques (sans mention d’un instrument ou émetteur)",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "valeurs",
+        "tendances de marché"
+      ],
+      "error_message": "Les tendances de marché doivent être évoquées",
+      "severity": "mineure",
+      "source_text": "À FAIRE : Évoquer les tendances de marché, Références aux taux de change, taux d’intérêt, matières premières, indicateurs macroéconomiques (sans mention d’un instrument ou émetteur)",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.30",
+      "category": "stratégies",
+      "slide_number": "any",
+      "title": "Modalités pour les stratégies",
+      "description": "Un document commercial ou une communication externe ne peut pas débuter par les performances mais au minimum par la présentation de la stratégie.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "stratégies",
+        "présentation"
+      ],
+      "error_message": "La présentation de la stratégie doit précéder les performances",
+      "severity": "critique",
+      "source_text": "Un document commercial ou une communication externe ne peut pas débuter par les performances mais au minimum par la présentation de la stratégie.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.31",
+      "category": "stratégies",
+      "slide_number": "any",
+      "title": "Durée minimum de présentation des performances pour les stratégies",
+      "description": "Les performances doivent être présentées sur une durée minimum de 10 ans.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "stratégies",
+        "durée"
+      ],
+      "error_message": "La durée minimum de présentation des performances pour les stratégies doit être respectée",
+      "severity": "critique",
+      "source_text": "Les performances doivent être présentées sur une durée minimum de 10 ans.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.32",
+      "category": "fonds_de_private_equity",
+      "slide_number": "any",
+      "title": "Caractéristiques particulières pour les fonds de Private equity",
+      "description": "L’évolution de la performance sous forme de TRI net est uniquement communiquée pour des fonds de capital-investissement professionnels en cours de vie.",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "fonds de private equity",
+        "TRI net"
+      ],
+      "error_message": "La performance sous forme de TRI net doit être communiquée pour les fonds de capital-investissement professionnels",
+      "severity": "mineure",
+      "source_text": "L’évolution de la performance sous forme de TRI net est uniquement communiquée pour des fonds de capital-investissement professionnels en cours de vie.",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.33",
+      "category": "simulations",
+      "slide_number": "any",
+      "title": "Simulations de performances futures",
+      "description": "En cas de simulation de performances futures, les données de ces dernières doivent remplir les conditions suivantes : L'information ne se fonde pas sur des simulations de performances passées ni ne s'y réfère ; Elle repose sur des hypothèses raisonnables fondées sur des éléments objectifs ; Lorsque l'information est fondée sur des performances brutes, l'effet des commissions, des redevances ou autres frais est précisé ;",
+      "required": true,
+      "validation_type": "format",
+      "keywords": [
+        "simulations",
+        "performances futures"
+      ],
+      "error_message": "Les simulations de performances futures doivent remplir les conditions requises",
+      "severity": "mineure",
+      "source_text": "En cas de simulation de performances futures, les données de ces dernières doivent remplir les conditions suivantes : L'information ne se fonde pas sur des simulations de performances passées ni ne s'y réfère ; Elle repose sur des hypothèses raisonnables fondées sur des éléments objectifs ; Lorsque l'information est fondée sur des performances brutes, l'effet des commissions, des redevances ou autres frais est précisé ;",
+      "notes": "",
+      "references": [],
+      "confidence_score": 1.0,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.34",
+      "category": "Présentation des performances",
+      "slide_number": "4.3",
+      "title": "Présentation des performances en cas d’indicateur de référence ou de benchmark",
+      "description": "Les performances doivent être obligatoirement et en permanence comparées à l’indicateur de référence du fonds s’il existe.",
+      "required": true,
+      "validation_type": "Comparaison",
+      "keywords": [
+        "indicateur de référence",
+        "benchmark"
+      ],
+      "error_message": "Les performances ne sont pas comparées à l’indicateur de référence du fonds.",
+      "severity": "Élevé",
+      "confidence_score": 0.9,
+      "status": "validated"
+    },
+    {
+      "rule_id": "RG.35",
+      "category": "Mentions spécifiques relatives aux valeurs",
+      "slide_number": "4.2",
+      "title": "Mentions spécifiques des valeurs au sein des présentations",
+      "description": "Ne pas indiquer si une valeur est sous-évaluée / surévaluée / correctement évaluée.",
+      "required": true,
+      "validation_type": "Vérification de contenu",
+      "keywords": [
+        "valeur",
+        "évaluation"
+      ],
+      "error_message": "La présentation contient une évaluation d’une valeur.",
+      "severity": "Moyen",
+      "confidence_score": 0.75,
+      "status": "to_review"
+    },
+    {
+      "rule_id": "RG.36",
+      "category": "Modalités pour les stratégies",
+      "slide_number": "Modalités pour les stratégies",
+      "title": "Présentation des performances pour les stratégies",
+      "description": "Les performances doivent être présentées sur une durée minimum de 10 ans.",
+      "required": true,
+      "validation_type": "Vérification de durée",
+      "keywords": [
+        "stratégie",
+        "performance"
+      ],
+      "error_message": "Les performances ne sont pas présentées sur une durée minimum de 10 ans.",
+      "severity": "Élevé",
+      "confidence_score": 0.9,
+      "status": "validated"
+    }
+  ],
+  "report": {
+    "total_rules": 36,
+    "validated": 35,
+    "to_review": 1,
+    "to_correct": 0,
+    "validation_rate": 0.9722222222222222,
+    "rules_by_status": {
+      "validated": [
+        "RG.1",
+        "RG.2",
+        "RG.3",
+        "RG.4",
+        "RG.5",
+        "RG.6",
+        "RG.7",
+        "RG.8",
+        "RG.9",
+        "RG.10",
+        "RG.11",
+        "RG.12",
+        "RG.13",
+        "RG.14",
+        "RG.15",
+        "RG.16",
+        "RG.17",
+        "RG.18",
+        "RG.19",
+        "RG.20",
+        "RG.21",
+        "RG.22",
+        "RG.23",
+        "RG.24",
+        "RG.25",
+        "RG.26",
+        "RG.27",
+        "RG.28",
+        "RG.29",
+        "RG.30",
+        "RG.31",
+        "RG.32",
+        "RG.33",
+        "RG.34",
+        "RG.36"
+      ],
+      "to_review": [
+        "RG.35"
+      ],
+      "to_correct": []
+    }
+  },
+  "statistics": {
+    "by_category": {
+      "global": 16,
+      "page_de_garde": 2,
+      "slide_2": 1,
+      "performances": 7,
+      "ESG": 1,
+      "valeurs": 2,
+      "stratégies": 2,
+      "fonds_de_private_equity": 1,
+      "simulations": 1,
+      "Présentation des performances": 1,
+      "Mentions spécifiques relatives aux valeurs": 1,
+      "Modalités pour les stratégies": 1
+    },
+    "by_severity": {
+      "critique": 25,
+      "mineure": 8,
+      "Élevé": 2,
+      "Moyen": 1
+    },
+    "avg_confidence": 0.9791666666666666
+  }
+}

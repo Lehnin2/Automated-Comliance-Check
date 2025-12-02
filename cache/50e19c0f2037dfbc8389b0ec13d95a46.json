@@ -1,0 +1,35 @@
+{
+  "rule_id": "RG.4",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "glossaire_des_termes",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "glossaire",
+        "termes",
+        "techniques"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_be_present_at_end",
+      "is_required": true
+    },
+    {
+      "field_name": "termes_techniques",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "termes",
+        "techniques",
+        "d\u00e9finition"
+      ],
+      "expected_format": "list",
+      "validation_rule": "must_match_glossaire",
+      "is_required": true
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.8176355361938477,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:19:50.026841"
+}

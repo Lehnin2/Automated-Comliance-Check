@@ -1,0 +1,23 @@
+{
+  "rule_id": "RG.35",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "evaluation_status",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "sous-\u00e9valu\u00e9e",
+        "sur\u00e9valu\u00e9e",
+        "correctement \u00e9valu\u00e9e"
+      ],
+      "expected_format": "text",
+      "validation_rule": "must_not_be_present",
+      "is_required": false
+    }
+  ],
+  "validation": null,
+  "execution_time": 2.5234944820404053,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:24.050223"
+}

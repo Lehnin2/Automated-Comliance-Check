@@ -1,0 +1,83 @@
+{
+  "rule_id": "RG.23",
+  "status": "success",
+  "fields": [
+    {
+      "field_name": "ytd_performance",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "YTD",
+        "performance",
+        "year"
+      ],
+      "expected_format": "percentage",
+      "validation_rule": "must_be_accompanied_by_long_term_performance",
+      "is_required": false
+    },
+    {
+      "field_name": "ten_year_performance",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "10 ans",
+        "10 years",
+        "decade"
+      ],
+      "expected_format": "percentage",
+      "validation_rule": "must_be_present_if_ytd_mentioned",
+      "is_required": false
+    },
+    {
+      "field_name": "five_year_performance",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "5 ans",
+        "5 years",
+        "five"
+      ],
+      "expected_format": "percentage",
+      "validation_rule": "must_be_present_if_ytd_mentioned",
+      "is_required": false
+    },
+    {
+      "field_name": "three_year_performance",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "3 ans",
+        "3 years",
+        "three"
+      ],
+      "expected_format": "percentage",
+      "validation_rule": "must_be_present_if_ytd_mentioned",
+      "is_required": false
+    },
+    {
+      "field_name": "one_year_performance",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "1 an",
+        "1 year",
+        "one"
+      ],
+      "expected_format": "percentage",
+      "validation_rule": "must_be_present_if_ytd_mentioned",
+      "is_required": false
+    },
+    {
+      "field_name": "since_inception_performance",
+      "extraction_method": "text_search",
+      "search_patterns": [
+        "depuis la cr\u00e9ation",
+        "since inception",
+        "creation"
+      ],
+      "expected_format": "percentage",
+      "validation_rule": "must_be_present_if_ytd_mentioned",
+      "is_required": false
+    }
+  ],
+  "validation": null,
+  "execution_time": 0.9229891300201416,
+  "retry_count": 0,
+  "error_message": null,
+  "timestamp": "2025-11-17T22:20:04.218459"
+}

@@ -1,0 +1,2475 @@
+{
+  "compliance_checklist": {
+    "rules": [
+      {
+        "rule_id": "RG.10",
+        "rule_category": "global",
+        "rule_description": "Éviter les anglicismes dans les présentations retail, ou les définir (notes de bas de page ou glossaire avec renvoi)",
+        "slide_location": "pages_suivantes",
+        "fields_to_extract": [
+          {
+            "field_name": "definition_anglicisme",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "anglicisme",
+              "definition",
+              "glossaire"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "définition",
+                "explication",
+                "glossaire"
+              ],
+              "en": [
+                "definition",
+                "explanation",
+                "glossary"
+              ],
+              "de": [
+                "Definition",
+                "Erklärung",
+                "Glossar"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence|format|style|order|value|external|conditional",
+          "success_condition": "condition de succès",
+          "failure_action": "action si échec"
+        },
+        "severity": "mineure",
+        "required": true,
+        "external_references": [
+          {
+            "doc_type": "glossaire_disclaimers|prospectus|registration_of_funds",
+            "reference": "référence exacte",
+            "field_name": "champ concerné",
+            "match_type": "exact|fuzzy|contains",
+            "similarity_threshold": 0.9
+          }
+        ],
+        "conditional_rules": [
+          {
+            "condition_type": "unless|only_if|depends_on",
+            "condition_field": "champ de condition",
+            "condition_value": "valeur attendue",
+            "applies_to_field": "champ cible",
+            "explanation": "explication de la condition"
+          }
+        ],
+        "format_validations": [
+          {
+            "field_name": "champ concerné",
+            "format_type": "date|currency|percentage|email|phone|url|number",
+            "regex_pattern": "pattern regex",
+            "expected_examples": [
+              "exemple1",
+              "exemple2"
+            ],
+            "error_message": "message si non conforme"
+          }
+        ],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.2",
+        "rule_category": "global",
+        "rule_description": "Les études/ données chiffrées /graphiques etc., doivent faire l'objet d'un renvoi (note de bas de page) précisant à minima la source et la date",
+        "slide_location": "regles_generales",
+        "fields_to_extract": [
+          {
+            "field_name": "source",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "source",
+              "provenance",
+              "origin",
+              "Quelle"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "origine",
+                "provenance",
+                "référence",
+                "source étude",
+                "source données",
+                "source graphique"
+              ],
+              "en": [
+                "origin",
+                "reference",
+                "source study",
+                "data source",
+                "chart source"
+              ],
+              "de": [
+                "Herkunft",
+                "Referenz",
+                "Studienquelle",
+                "Datenquelle",
+                "Diagrammquelle"
+              ]
+            },
+            "validation_rule": "must_be_present",
+            "validation_priority": 0,
+            "depends_on": [],
+            "footer_location": true,
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "footer",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_in_footer_or_visible"
+            }
+          },
+          {
+            "field_name": "date",
+            "extraction_method": "regex_match",
+            "search_keywords": [
+              "date",
+              "année",
+              "date",
+              "Datum"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "date publication",
+                "année",
+                "période",
+                "date étude",
+                "date données",
+                "date graphique"
+              ],
+              "en": [
+                "publication date",
+                "year",
+                "period",
+                "study date",
+                "data date",
+                "chart date"
+              ],
+              "de": [
+                "Veröffentlichungsdatum",
+                "Jahr",
+                "Zeitraum",
+                "Studiendatum",
+                "Datendatum",
+                "Diagrammdatum"
+              ]
+            },
+            "expected_format": "YYYY ou MM/YYYY",
+            "validation_rule": "must_match_format",
+            "validation_priority": 0,
+            "depends_on": [],
+            "regex_pattern": "20[0-9]{2}|(0[1-9]|1[0-2])/20[0-9]{2}",
+            "footer_location": true,
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "footer",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_in_footer_or_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "Les champs source et date sont présents",
+          "failure_action": "Signaler l'absence des champs source ou date"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.5",
+        "rule_category": "global",
+        "rule_description": "Les avertissements/disclaimers sur les risques doivent : être en gras, utiliser la même police et taille que le texte principal, être visibles (pas en note de bas de page)",
+        "slide_location": "regles_generales",
+        "fields_to_extract": [
+          {
+            "field_name": "disclaimer_risques",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "avertissement",
+              "risque",
+              "warning",
+              "risk",
+              "Warnung"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "avis",
+                "prudence",
+                "précaution"
+              ],
+              "en": [
+                "caution",
+                "advice",
+                "notice"
+              ],
+              "de": [
+                "Vorsicht",
+                "Warnung",
+                "Hinweis"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "true",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence|style|position",
+          "success_condition": "disclaimer_text is present and in bold and same size as body text",
+          "failure_action": "report error if disclaimer is missing or not in bold or not same size as body text"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.6",
+        "rule_category": "global",
+        "rule_description": "Les opinions et hypothèses doivent être atténuées : Ex. : « selon notre opinion », « selon nos analyses », « le fonds a pour objectif de… »",
+        "slide_location": "regles_generales",
+        "fields_to_extract": [
+          {
+            "field_name": "opinion_text",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "opinion",
+              "avis",
+              "view",
+              "Meinung"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "point de vue",
+                "jugement",
+                "appréciation"
+              ],
+              "en": [
+                "opinion",
+                "judgement",
+                "assessment"
+              ],
+              "de": [
+                "Meinung",
+                "Urteil",
+                "Bewertung"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          },
+          {
+            "field_name": "hypothese_text",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "hypothèse",
+              "assomption",
+              "hypothesis",
+              "Annahme"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "supposition",
+                "prévision",
+                "présumé"
+              ],
+              "en": [
+                "assumption",
+                "guess",
+                "supposition"
+              ],
+              "de": [
+                "Annahme",
+                "Vermutung",
+                "Vermutung"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "opinion_text and hypothese_text are present",
+          "failure_action": "report missing opinion or hypothesis text"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.9",
+        "rule_category": "global",
+        "rule_description": "Les limites internes (fixées par le comité risque ou le contrôle des risques) ne doivent pas apparaître dans aucune présentation car non contractuel",
+        "slide_location": "regles_generales",
+        "fields_to_extract": [
+          {
+            "field_name": "limites_internes",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "limites internes",
+              "comité risque",
+              "contrôle des risques"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "limites fixées",
+                "seuil de risque",
+                "contrôle interne"
+              ],
+              "en": [
+                "internal limits",
+                "risk committee",
+                "risk control"
+              ],
+              "de": [
+                "interne Grenzen",
+                "Risikoausschuss",
+                "Risikokontrolle"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_not_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "not_visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_not_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "absence",
+          "success_condition": "les limites internes ne sont pas présentes",
+          "failure_action": "rapporter l'erreur de conformité"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.13",
+        "rule_category": "global",
+        "rule_description": "Pour la Belgique : si présentation à destination de clients non professionnels belges, s'assurer de la validation préalable de la FSMA",
+        "slide_location": "regles_generales",
+        "fields_to_extract": [
+          {
+            "field_name": "validation_fsma",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "FSMA",
+              "validation",
+              "Belgique"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "validation préalable",
+                "FSMA Belgique"
+              ],
+              "en": [
+                "FSMA validation",
+                "Belgium"
+              ],
+              "de": [
+                "FSMA Validierung",
+                "Belgien"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "présence de la validation FSMA",
+          "failure_action": "demander une validation préalable à la FSMA"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [
+          {
+            "doc_type": "FSMA",
+            "reference": "validation préalable",
+            "field_name": "validation_fsma",
+            "match_type": "exact",
+            "similarity_threshold": 0.9
+          }
+        ],
+        "conditional_rules": [
+          {
+            "condition_type": "only_if",
+            "condition_field": "destination_client",
+            "condition_value": "non professionnel",
+            "applies_to_field": "validation_fsma",
+            "explanation": "La validation FSMA est requise uniquement pour les clients non professionnels belges"
+          }
+        ],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.14",
+        "rule_category": "global",
+        "rule_description": "Éviter de mentionner d'autres fonds (Oddo ou autres) dans une présentation standard d'un fonds sauf si c'est une présentation de gamme.",
+        "slide_location": "regles_generales",
+        "fields_to_extract": [
+          {
+            "field_name": "mention_autre_fonds",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "autre fonds",
+              "fonds différent",
+              "other fund",
+              "anderer Fonds"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "fonds concurrent",
+                "fonds alternatif"
+              ],
+              "en": [
+                "competing fund",
+                "alternative fund"
+              ],
+              "de": [
+                "konkurrenzfonds",
+                "alternativer Fonds"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_not_be_present_unless_presentation_de_gamme",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          },
+          {
+            "field_name": "presentation_de_gamme",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "présentation de gamme",
+              "gamme de fonds",
+              "fund range presentation",
+              "Fondsbauspräsentation"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "gamme de produits",
+                "sélection de fonds"
+              ],
+              "en": [
+                "product range",
+                "fund selection"
+              ],
+              "de": [
+                "Produktpalette",
+                "Fondsauswahl"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present_if_autre_fonds",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "conditional",
+          "success_condition": "mention_autre_fonds est absent ou présentation_de_gamme est présente",
+          "failure_action": "rapport d'erreur"
+        },
+        "severity": "mineure",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [
+          {
+            "condition_type": "unless",
+            "condition_field": "presentation_de_gamme",
+            "condition_value": "présente",
+            "applies_to_field": "mention_autre_fonds",
+            "explanation": "La mention d'autres fonds n'est autorisée que dans une présentation de gamme"
+          }
+        ],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.15",
+        "rule_category": "global",
+        "rule_description": "Ne pas dire qu'un ETF est liquide",
+        "slide_location": "regles_generales",
+        "fields_to_extract": [
+          {
+            "field_name": "mention_liquide",
+            "extraction_method": "text_presence",
+            "search_keywords": [
+              "liquide",
+              "ETF",
+              "liquid",
+              "flüssig"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "liquidité",
+                "flux de trésorerie"
+              ],
+              "en": [
+                "liquidity",
+                "cash flow"
+              ],
+              "de": [
+                "Liquidität",
+                "Kapitalfluss"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "absence",
+            "validation_rule": "must_be_absent",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "absence",
+          "success_condition": "le terme 'liquide' n'est pas présent",
+          "failure_action": "le document ne respecte pas la règle RG.15"
+        },
+        "severity": "mineure",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.17",
+        "rule_category": "page_de_garde",
+        "rule_description": "Doit indiquer : le nom du fonds, le mois et l'année, la mention « document promotionnel », la cible : retail ou professionnel",
+        "slide_location": "page_de_garde",
+        "fields_to_extract": [
+          {
+            "field_name": "nom_fonds",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "nom",
+              "fonds",
+              "fund name",
+              "Fondsname"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "dénomination",
+                "intitulé",
+                "appellation"
+              ],
+              "en": [
+                "fund title",
+                "fund denomination",
+                "product name"
+              ],
+              "de": [
+                "Fonds",
+                "Produktname",
+                "Bezeichnung"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          },
+          {
+            "field_name": "date_document",
+            "extraction_method": "regex_match",
+            "search_keywords": [
+              "date",
+              "mois",
+              "année",
+              "month",
+              "year",
+              "Monat",
+              "Jahr"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "datation",
+                "période",
+                "millésime"
+              ],
+              "en": [
+                "period",
+                "vintage",
+                "edition"
+              ],
+              "de": [
+                "Datum",
+                "Zeitraum",
+                "Jahrgang"
+              ]
+            },
+            "expected_format": "MM/YYYY ou Mois YYYY",
+            "validation_rule": "must_match_format",
+            "validation_priority": 0,
+            "depends_on": [],
+            "regex_pattern": "(0[1-9]|1[0-2])/20[0-9]{2}|([Jj]anvier|[Ff]évrier|[Mm]ars|[Aa]vril|[Mm]ai|[Jj]uin|[Jj]uillet|[Aa]oût|[Ss]eptembre|[Oo]ctobre|[Nn]ovembre|[Dd]écembre)\\s+20[0-9]{2}",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          },
+          {
+            "field_name": "mention_promotionnel",
+            "extraction_method": "text_presence",
+            "search_keywords": [
+              "document promotionnel",
+              "promotional document",
+              "Werbedokument"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "document marketing",
+                "support commercial",
+                "matériel publicitaire"
+              ],
+              "en": [
+                "marketing material",
+                "advertising document",
+                "promotional material"
+              ],
+              "de": [
+                "Marketingdokument",
+                "Werbematerial",
+                "Verkaufsunterlage"
+              ]
+            },
+            "expected_format": "exact_text",
+            "validation_rule": "must_contain_exact_text",
+            "validation_priority": 0,
+            "depends_on": [],
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          },
+          {
+            "field_name": "cible",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "retail",
+              "professionnel",
+              "retail investor",
+              "professional investor"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "investisseur particulier",
+                "investisseur institutionnel"
+              ],
+              "en": [
+                "individual investor",
+                "institutional investor"
+              ],
+              "de": [
+                "privatinvestor",
+                "institutioneller Investeur"
+              ]
+            },
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "validation_priority": 0,
+            "depends_on": [],
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {},
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.18",
+        "rule_category": "page_de_garde",
+        "rule_description": "Pour les fonds en pré-commercialisation : la page de garde doit afficher clairement, en rouge et en gras : « VEUILLEZ NOTER QUE LE FONDS N'A PAS ENCORE ÉTÉ AGRÉÉ PAR L'AUTORITÉ DES MARCHÉS FINANCIERS ».",
+        "slide_location": "page_de_garde",
+        "fields_to_extract": [
+          {
+            "field_name": "fonds_precommercialisation",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "fonds en pré-commercialisation",
+              "fonds non agréé",
+              "non approved fund",
+              "pre-marketing fund",
+              "nicht zugelassener Fonds",
+              "Fonds in der Vorvermarktungsphase"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "fonds en pré-commercialisation",
+                "fonds non agréé",
+                "fonds non autorisé"
+              ],
+              "en": [
+                "pre-marketing fund",
+                "unauthorized fund",
+                "non approved fund"
+              ],
+              "de": [
+                "Fonds in der Vorvermarktungsphase",
+                "nicht genehmigter Fonds",
+                "nicht zugelassener Fonds"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "red",
+              "validation_rule": "must_be_red"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "true",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible, top)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "text found",
+          "failure_action": "report error"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.38",
+        "rule_category": "page_de_garde",
+        "rule_description": "Mention « do not disclose » si document professionnel",
+        "slide_location": "page_de_garde",
+        "fields_to_extract": [
+          {
+            "field_name": "mention_do_not_disclose",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "do not disclose",
+              "ne pas divulguer",
+              "confidentiel",
+              "confidential"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "ne pas diffuser",
+                "document confidentiel",
+                "usage interne",
+                "restreint"
+              ],
+              "en": [
+                "confidential document",
+                "not for distribution",
+                "internal use only",
+                "restricted"
+              ],
+              "de": [
+                "Vertraulich",
+                "Nicht weitergeben",
+                "Internes Dokument",
+                "Eingeschränkt"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present_if_professionnel",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "true",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "conditional",
+          "success_condition": "La mention 'do not disclose' est présente pour les documents professionnels",
+          "failure_action": "Ajouter la mention 'do not disclose' pour les documents professionnels"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [
+          {
+            "condition_type": "only_if",
+            "condition_field": "cible",
+            "condition_value": "professionnel",
+            "applies_to_field": "mention_do_not_disclose",
+            "explanation": "La mention 'do not disclose' est requise uniquement pour les documents destinés aux clients professionnels"
+          }
+        ],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.39",
+        "rule_category": "page_de_garde",
+        "rule_description": "Pour les documents spécifiques à un client, indiquer le nom du client",
+        "slide_location": "page_de_garde",
+        "fields_to_extract": [
+          {
+            "field_name": "nom_client",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "client",
+              "destiné à",
+              "pour le compte de",
+              "spécifique à"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "destinataire",
+                "présentation pour",
+                "document client",
+                "personnalisé pour"
+              ],
+              "en": [
+                "recipient",
+                "presentation for",
+                "client document",
+                "customized for"
+              ],
+              "de": [
+                "Empfänger",
+                "Présentation für",
+                "Kundendokument",
+                "angepasst für"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present_if_document_specifique",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "conditional",
+          "success_condition": "Le nom du client est indiqué pour les documents spécifiques",
+          "failure_action": "Indiquer le nom du client pour les documents spécifiques"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [
+          {
+            "condition_type": "only_if",
+            "condition_field": "type_document",
+            "condition_value": "specifique_client",
+            "applies_to_field": "nom_client_specifique",
+            "explanation": "Le nom du client est requis uniquement pour les documents spécifiques à un client"
+          }
+        ],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.19",
+        "rule_category": "slide_2",
+        "rule_description": "La Slide 2 (après la page de garde - Présentation Standard) contient a minima : le disclaimer standard (retail ou professionnel), la mention exhaustive du profil de risque, les pays de commercialisation (registration abroad)",
+        "slide_location": "slide_2",
+        "fields_to_extract": [
+          {
+            "field_name": "disclaimer_standard",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "disclaimer",
+              "standard",
+              "retail",
+              "professionnel"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "avis",
+                "standard",
+                "déclaration"
+              ],
+              "en": [
+                "disclaimer",
+                "standard",
+                "statement"
+              ],
+              "de": [
+                "Haftungsausschluss",
+                "Standard",
+                "Erklärung"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          },
+          {
+            "field_name": "profil_de_risque",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "profil de risque",
+              "risk profile",
+              "Risikoprofil"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "niveau de risque",
+                "catégorie de risque"
+              ],
+              "en": [
+                "risk level",
+                "risk category"
+              ],
+              "de": [
+                "Risikostufe",
+                "Risikokategorie"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          },
+          {
+            "field_name": "pays_de_commercialisation",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "pays de commercialisation",
+              "countries of distribution",
+              "Vertriebsländer"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "zones de vente",
+                "régions de commercialisation"
+              ],
+              "en": [
+                "sales areas",
+                "distribution regions"
+              ],
+              "de": [
+                "Vertriebsgebiete",
+                "Verkaufsregionen"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "tous les champs présents",
+          "failure_action": "rapport d'erreur"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.20",
+        "rule_category": "performances",
+        "rule_description": "Un document commercial ou une communication externe ne peut pas débuter par les performances mais au minimum par la présentation du fonds.",
+        "slide_location": "pages_suivantes",
+        "fields_to_extract": [
+          {
+            "field_name": "presentation_du_fonds",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "présentation",
+              "fonds",
+              "presentation",
+              "fund"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "description",
+                "présentation du fonds"
+              ],
+              "en": [
+                "fund description",
+                "presentation"
+              ],
+              "de": [
+                "Fondsbeschreibung",
+                "Présentation"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          },
+          {
+            "field_name": "performances",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "performances",
+              "rendement",
+              "return"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "rendement",
+                "performance financière"
+              ],
+              "en": [
+                "financial performance",
+                "return"
+              ],
+              "de": [
+                "Rendite",
+                "Finanzleistung"
+              ]
+            },
+            "validation_priority": 1,
+            "depends_on": [
+              "presentation_du_fonds"
+            ],
+            "expected_format": "text",
+            "validation_rule": "must_be_present_after_presentation",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "order",
+          "success_condition": "présentation du fonds avant performances",
+          "failure_action": "réorganiser le contenu"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [
+          {
+            "condition_type": "unless",
+            "condition_field": "type_de_document",
+            "condition_value": "présentation de gamme",
+            "applies_to_field": "performances",
+            "explanation": "les performances ne sont pas obligatoires pour les présentations de gamme"
+          }
+        ],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.27",
+        "rule_category": "ESG",
+        "rule_description": "Distinguer l'approche ESG du fonds (cf. Cartographie ESG, disponible au lien suivant I:/service/OAM/PROCEDURES ET POLITIQUES OBAM SAS/CARTOGRAPHIE ESG) : Engageante, Réduite, Limitée au prospectus",
+        "slide_location": "pages_suivantes",
+        "fields_to_extract": [
+          {
+            "field_name": "approche_esg",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "ESG",
+              "approche",
+              "approach",
+              "Ansatz"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "stratégie ESG",
+                "politique ESG"
+              ],
+              "en": [
+                "ESG strategy",
+                "ESG policy"
+              ],
+              "de": [
+                "ESG-Strategie",
+                "ESG-Politik"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "footer_location": true
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "ESG mention is present",
+          "failure_action": "ESG mention is missing"
+        },
+        "severity": "mineure",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.29",
+        "rule_category": "valeurs",
+        "rule_description": "À FAIRE : Évoquer les tendances de marché, Références aux taux de change, taux d'intérêt, matières premières, indicateurs macroéconomiques (sans mention d'un instrument ou émetteur)",
+        "slide_location": "pages_suivantes",
+        "fields_to_extract": [
+          {
+            "field_name": "tendances_marche",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "tendances",
+              "marché",
+              "market trends",
+              "Markttrends"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "évolution marché",
+                "tendance financière"
+              ],
+              "en": [
+                "financial trend",
+                "market evolution"
+              ],
+              "de": [
+                "Finanztrend",
+                "Marktentwicklung"
+              ]
+            },
+            "validation_priority": 1,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present"
+          },
+          {
+            "field_name": "taux_change",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "taux",
+              "change",
+              "exchange rate",
+              "Wechselkurs"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "cours de change",
+                "taux de conversion"
+              ],
+              "en": [
+                "exchange ratio",
+                "conversion rate"
+              ],
+              "de": [
+                "Wechselkurs",
+                "Umwandlungsrate"
+              ]
+            },
+            "validation_priority": 1,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present"
+          },
+          {
+            "field_name": "taux_interet",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "taux",
+              "intérêt",
+              "interest rate",
+              "Zinssatz"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "taux d'intérêt",
+                "coût d'emprunt"
+              ],
+              "en": [
+                "interest charge",
+                "borrowing cost"
+              ],
+              "de": [
+                "Zinssatz",
+                "Kreditkosten"
+              ]
+            },
+            "validation_priority": 1,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present"
+          },
+          {
+            "field_name": "marchandises",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "marchandises",
+              "matières premières",
+              "commodities",
+              "Rohstoffe"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "produits de base",
+                "biens premiers"
+              ],
+              "en": [
+                "primary goods",
+                "raw materials"
+              ],
+              "de": [
+                "Rohstoffe",
+                "Vorprodukte"
+              ]
+            },
+            "validation_priority": 1,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present"
+          },
+          {
+            "field_name": "indicateurs_macro",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "indicateurs",
+              "macroéconomiques",
+              "macroeconomic indicators",
+              "makroökonomische Indikatoren"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "indicateurs économiques",
+                "agrégats macro"
+              ],
+              "en": [
+                "economic indicators",
+                "macro aggregates"
+              ],
+              "de": [
+                "Wirtschaftsindikatoren",
+                "Makro-Aggregate"
+              ]
+            },
+            "validation_priority": 1,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present"
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "tous les champs sont présents",
+          "failure_action": "rapport d'erreur"
+        },
+        "severity": "mineure",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.35",
+        "rule_category": "Mentions spécifiques relatives aux valeurs",
+        "rule_description": "Ne pas indiquer si une valeur est sous-évaluée / surévaluée / correctement évaluée.",
+        "slide_location": "pages_suivantes",
+        "fields_to_extract": [
+          {
+            "field_name": "evaluation_valeur",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "sous-évalué",
+              "surévalué",
+              "correctement évalué",
+              "undervalued",
+              "overvalued",
+              "fairly valued"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "évaluation basse",
+                "évaluation haute",
+                "évaluation juste"
+              ],
+              "en": [
+                "low valuation",
+                "high valuation",
+                "fair valuation"
+              ],
+              "de": [
+                "Unterbewertung",
+                "Überbewertung",
+                "faire Bewertung"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_not_be_present",
+            "footer_location": true
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "le texte ne contient pas les mots-clés",
+          "failure_action": "le texte contient les mots-clés interdits"
+        },
+        "severity": "Moyen",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 0,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.37",
+        "rule_category": "caracteristiques_fonds",
+        "rule_description": "En fin de présentation : inclure les caractéristiques détaillées du fonds",
+        "slide_location": "pages_suivantes",
+        "fields_to_extract": [
+          {
+            "field_name": "caracteristiques_fonds",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "caractéristiques",
+              "détails",
+              "fiche technique",
+              "caractéristiques du fonds"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "spécifications",
+                "détails du fonds",
+                "fiche descriptive",
+                "informations techniques"
+              ],
+              "en": [
+                "specifications",
+                "fund details",
+                "technical sheet",
+                "product characteristics"
+              ],
+              "de": [
+                "Spezifikationen",
+                "Fondsdetails",
+                "technisches Datenblatt",
+                "Produktmerkmale"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "visible",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "Les caractéristiques détaillées du fonds sont présentes",
+          "failure_action": "Ajouter les caractéristiques détaillées du fonds"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.4",
+        "rule_category": "global",
+        "rule_description": "Pour les présentations retail : inclure un Glossaire des termes techniques en fin de présentation et s'assurer que ces termes figurent dans le document",
+        "slide_location": "page_finale",
+        "fields_to_extract": [
+          {
+            "field_name": "glossaire_termes_techniques",
+            "extraction_method": "text_presence",
+            "search_keywords": [
+              "glossaire",
+              "termes techniques",
+              "Glossar",
+              "technische Begriffe"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "lexique",
+                "dictionnaire",
+                "glossaire des termes"
+              ],
+              "en": [
+                "glossary",
+                "dictionary",
+                "technical terms"
+              ],
+              "de": [
+                "Glossar",
+                "Wörterbuch",
+                "technische Begriffe"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "présence du glossaire",
+            "validation_rule": "must_be_present",
+            "footer_location": true,
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "footer",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_in_footer"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "le glossaire est présent",
+          "failure_action": "le glossaire est absent"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 0,
+        "field_dependencies": []
+      },
+      {
+        "rule_id": "RG.36",
+        "rule_category": "page_de_fin",
+        "rule_description": "Page de fin de présentation : Mention légale de la SGP (cf. Glossaire)",
+        "slide_location": "page_finale",
+        "fields_to_extract": [
+          {
+            "field_name": "mention_legale_sgp",
+            "extraction_method": "text_search",
+            "search_keywords": [
+              "SGP",
+              "Société de Gestion de Portefeuille",
+              "legal mention",
+              "mention légale"
+            ],
+            "auto_synonyms": {
+              "fr": [
+                "société de gestion",
+                "gestionnaire",
+                "mention SGP",
+                "disclaimer SGP"
+              ],
+              "en": [
+                "portfolio management company",
+                "management company",
+                "SGP legal notice"
+              ],
+              "de": [
+                "Portfoliomanagementgesellschaft",
+                "Verwaltungsgesellschaft",
+                "SGP rechtlicher Hinweis"
+              ]
+            },
+            "validation_priority": 0,
+            "depends_on": [],
+            "expected_format": "text",
+            "validation_rule": "must_be_present",
+            "footer_location": true,
+            "text_size": {
+              "validation_type": "style_check",
+              "description": "Taille du texte en points",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_size"
+            },
+            "font_type": {
+              "validation_type": "style_check",
+              "description": "Police de caractères",
+              "expected_value": "same_as_body_text",
+              "validation_rule": "must_match_body_text_font"
+            },
+            "color": {
+              "validation_type": "style_check",
+              "description": "Couleur du texte",
+              "expected_value": "black_or_standard",
+              "validation_rule": "must_be_standard_color"
+            },
+            "is_bold": {
+              "validation_type": "style_check",
+              "description": "Texte en gras ou non",
+              "expected_value": "false",
+              "validation_rule": "check_bold_requirement"
+            },
+            "visibility": {
+              "validation_type": "position_check",
+              "description": "Position du texte (footer, centre, visible)",
+              "expected_value": "footer",
+              "possible_values": [
+                "footer",
+                "center",
+                "visible",
+                "top"
+              ],
+              "validation_rule": "must_be_in_footer_or_visible"
+            }
+          }
+        ],
+        "validation_criteria": {
+          "check_type": "presence",
+          "success_condition": "La mention légale de la SGP est présente",
+          "failure_action": "Ajouter la mention légale de la SGP"
+        },
+        "severity": "critique",
+        "required": true,
+        "external_references": [
+          {
+            "doc_type": "glossaire_disclaimers",
+            "reference": "mention légale SGP",
+            "field_name": "mention_legale_sgp",
+            "match_type": "contains",
+            "similarity_threshold": 0.8
+          }
+        ],
+        "conditional_rules": [],
+        "format_validations": [],
+        "validation_priority": 1,
+        "field_dependencies": []
+      }
+    ]
+  },
+  "statistics": {
+    "total_rules": 39,
+    "total_check_items": 39,
+    "total_fields_to_extract": 90,
+    "total_external_references": 7,
+    "total_conditional_rules": 19,
+    "total_format_validations": 14,
+    "critical_rules": 29,
+    "rules_by_location": {
+      "regles_generales": 10,
+      "page_de_garde": 5,
+      "slide_2": 1,
+      "pages_suivantes": 20,
+      "page_finale": 3
+    },
+    "rules_by_severity": {
+      "critique": 29,
+      "majeure": 0,
+      "mineure": 8,
+      "Moyen": 1
+    },
+    "external_references_by_type": {
+      "glossaire_disclaimers": 2,
+      "registration_of_funds": 1,
+      "glossaire_disclaimers|prospectus|registration_of_funds": 1,
+      "FSMA": 1,
+      "cartographie_esg": 1
+    }
+  },
+  "metadata": {
+    "model_used": "llama-3.3-70b-versatile",
+    "generation_method": "compliance_checklist_llm_enriched",
+    "purpose": "PowerPoint extraction and validation with external docs and conditional rules",
+    "features": [
+      "format_validation",
+      "external_references",
+      "conditional_rules",
+      "regex_patterns"
+    ]
+  }
+}
