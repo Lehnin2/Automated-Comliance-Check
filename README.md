@@ -67,6 +67,7 @@ PowerPoint Compliance Checker streamlines the review process for financial prese
 
 ## Architecture Overview
 
+```
 ┌─────────────────────┐
 │   Frontend Layer    │
 │   (React + MUI)     │
@@ -150,10 +151,12 @@ PowerPoint Compliance Checker streamlines the review process for financial prese
 │  │  (CSV files)       │  │  (JSON files)      │    │
 │  └────────────────────┘  └────────────────────┘    │
 └─────────────────────────────────────────────────────┘
+```
 
 ### Pipeline Data Flow
 
-*Phase 1: Document Upload & Preview*
+**Phase 1: Document Upload & Preview**
+```
 User ──> Frontend ──> POST /api/upload-preview
                          │
                          ├─> Save files to uploads/<job_id>/
@@ -164,8 +167,10 @@ User ──> Frontend ──> POST /api/upload-preview
                          └─> Generate slide previews
                              └─> pptx_preview.py
                                  └─> Returns base64 images
+```
 
-*Phase 2: Document Extraction*
+**Phase 2: Document Extraction**
+```
 User ──> Frontend ──> Background extraction initiated
                          │
                          └─> extraction_manager.py
@@ -181,8 +186,10 @@ User ──> Frontend ──> Background extraction initiated
                                    "metadata": {...},
                                    "decision_trace": [...] (if AI-powered)
                                  }
+```
 
-*Phase 3: Compliance Analysis*
+**Phase 3: Compliance Analysis**
+```
 User ──> Frontend ──> POST /api/check-modules
                          │
                          └─> compliance_backend.py
@@ -204,8 +211,10 @@ User ──> Frontend ──> POST /api/check-modules
                                  ├─> master_compliance_report.txt
                                  ├─> violations.json
                                  └─> annotated_presentation.pptx
+```
 
-*Phase 4: Results & Visualization*
+**Phase 4: Results & Visualization**
+```
 User ──> Frontend ──> Results Viewer
            │
            ├─> GET /api/download/{job_id}/report
@@ -219,6 +228,7 @@ User ──> Frontend ──> Results Viewer
            │
            └─> JSON Viewer + Decision Trace
                └─> extracted_document.json with trace visualization
+```
 
 ### Data Flow
 1. **Upload Phase**: User uploads PowerPoint and metadata files through React interface
