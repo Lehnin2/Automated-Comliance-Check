@@ -1,0 +1,85 @@
+/**
+ * ODDO BHF Brand Theme
+ * Colors and styling for VeriDeck
+ */
+
+:root {
+  /* ODDO BHF Brand Colors */
+  --oddo-navy: #003366;
+  --oddo-gold: #FFD700;
+  --oddo-light-blue: #0066CC;
+  --oddo-dark-navy: #001A33;
+  --oddo-light: #E6F2FF;
+  
+  /* Application Colors */
+  --primary: var(--oddo-navy);
+  --secondary: var(--oddo-gold);
+  --accent: var(--oddo-light-blue);
+  --dark: var(--oddo-dark-navy);
+  --light: var(--oddo-light);
+  
+  /* Gradients */
+  --gradient-primary: linear-gradient(135deg, var(--oddo-gold) 0%, #FFA500 100%);
+  --gradient-background: linear-gradient(135deg, var(--oddo-dark-navy) 0%, var(--oddo-navy) 50%, var(--oddo-dark-navy) 100%);
+  --gradient-card: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 165, 0, 0.05) 100%);
+}
+
+/* Brand Button Styles */
+.btn-brand-primary {
+  background: var(--gradient-primary);
+  border: none;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.btn-brand-primary:hover {
+  opacity: 0.9;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(255, 215, 0, 0.3);
+}
+
+/* Brand Card Styles */
+.card-brand {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  transition: all 0.3s ease;
+}
+
+.card-brand:hover {
+  border-color: rgba(255, 215, 0, 0.3);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+/* Brand Text Styles */
+.text-brand-gold {
+  color: var(--oddo-gold);
+}
+
+.text-brand-accent {
+  color: var(--oddo-light-blue);
+}
+
+/* Brand Background */
+.bg-brand-gradient {
+  background: var(--gradient-background);
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--oddo-dark-navy);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--oddo-navy);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--oddo-light-blue);
+}
+

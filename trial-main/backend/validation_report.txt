@@ -1,0 +1,133 @@
+COMPLIANCE VALIDATION REPORT
+================================================================================
+
+Generated using TokenFactory API (Llama-3.1-70B-Instruct)
+Document: C:\Users\moham\Desktop\interTRIAL\ODOO-main\trial-main\backend\uploads\664fbfd3-2418-448d-bdd1-5791a3cc0954\extracted_document.json
+Rules: structure_rules.json
+Metadata: C:\Users\moham\Desktop\interTRIAL\ODOO-main\trial-main\backend\uploads\664fbfd3-2418-448d-bdd1-5791a3cc0954\metadata.json
+================================================================================
+
+**VALIDATION RESULTS**
+
+### Rule 1: STRUCT_001
+**Rule ID**: STRUCT_001
+**Section**: Cover Page
+**Applicability**: Yes
+**JSON Path Checked**: page_de_garde.content
+**Value Found**: ODDO BHF US Equity Active UCITS ETF
+**Validation Result**: COMPLIANT ✅
+**Explanation**: The fund name is present on the cover page.
+
+### Rule 2: STRUCT_002
+**Rule ID**: STRUCT_002
+**Section**: Cover Page
+**Applicability**: Yes
+**JSON Path Checked**: page_de_garde.content
+**Value Found**: October 2025
+**Validation Result**: COMPLIANT ✅
+**Explanation**: The publication date (month and year) is present on the cover page.
+
+### Rule 3: STRUCT_003
+**Rule ID**: STRUCT_003
+**Section**: Cover Page
+**Applicability**: Yes
+**JSON Path Checked**: page_de_garde.content
+**Value Found**: None
+**Validation Result**: VIOLATION ❌
+**Explanation**: The mention 'promotional document' is missing from the cover page.
+
+### Rule 4: STRUCT_004
+**Rule ID**: STRUCT_004
+**Section**: Cover Page
+**Applicability**: Yes
+**JSON Path Checked**: document_metadata.client_type
+**Value Found**: retail
+**Validation Result**: COMPLIANT ✅
+**Explanation**: The target audience (retail/professional) is indicated on the cover page.
+
+### Rule 5: STRUCT_005
+**Rule ID**: STRUCT_005
+**Section**: Cover Page
+**Applicability**: Yes
+**JSON Path Checked**: page_de_garde.content
+**Value Found**: None
+**Validation Result**: VIOLATION ❌
+**Explanation**: The pre-commercialisation disclaimer is missing from the cover page.
+
+### Rule 6: STRUCT_006
+**Rule ID**: STRUCT_006
+**Section**: Cover Page
+**Applicability**: No
+**JSON Path Checked**: N/A
+**Value Found**: N/A
+**Validation Result**: N/A
+**Explanation**: This rule only applies to professional documents.
+
+### Rule 7: STRUCT_007
+**Rule ID**: STRUCT_007
+**Section**: Cover Page
+**Applicability**: No
+**JSON Path Checked**: N/A
+**Value Found**: N/A
+**Validation Result**: N/A
+**Explanation**: This rule only applies to client-specific documents.
+
+### Rule 8: STRUCT_008
+**Rule ID**: STRUCT_008
+**Section**: Disclaimer Slide (Slide 2)
+**Applicability**: Yes
+**JSON Path Checked**: slide_2.content
+**Value Found**: None
+**Validation Result**: VIOLATION ❌
+**Explanation**: The standard disclaimer is missing from Slide 2.
+
+### Rule 9: STRUCT_009
+**Rule ID**: STRUCT_009
+**Section**: Disclaimer Slide (Slide 2)
+**Applicability**: Yes
+**JSON Path Checked**: slide_2.content
+**Value Found**: None
+**Validation Result**: VIOLATION ❌
+**Explanation**: The complete list of risk profile is missing from Slide 2.
+
+### Rule 10: STRUCT_010
+**Rule ID**: STRUCT_010
+**Section**: Disclaimer Slide (Slide 2)
+**Applicability**: Yes
+**JSON Path Checked**: slide_2.content
+**Value Found**: None
+**Validation Result**: VIOLATION ❌
+**Explanation**: The list of commercialisation countries is missing from Slide 2.
+
+### Rule 11: STRUCT_011
+**Rule ID**: STRUCT_011
+**Section**: Back Page
+**Applicability**: Yes
+**JSON Path Checked**: page_de_fin.content
+**Value Found**: ODDO BHF Asset Management SAS (France)...
+**Validation Result**: COMPLIANT ✅
+**Explanation**: The legal mention of the management company (SGP) is present on the back page.
+
+**SUMMARY**
+
+* **CRITICAL VIOLATIONS** (severity: critical): 5
+	+ STRUCT_003: Promotional document mention missing
+	+ STRUCT_005: Pre-commercialisation disclaimer missing
+	+ STRUCT_008: Standard disclaimer missing
+	+ STRUCT_009: Risk profile missing
+	+ STRUCT_010: Commercialisation countries list missing
+* **MAJOR ISSUES** (severity: major): 0
+* **MINOR ISSUES** (severity: minor): 0
+* **COMPLIANT ELEMENTS**: 3
+	+ STRUCT_001: Fund name present
+	+ STRUCT_002: Publication date present
+	+ STRUCT_011: Legal mention of management company present
+* **Total Violations Count**: 5
+
+**Detailed Remediation Steps**
+
+1. Add the mention 'promotional document' to the cover page.
+2. Add the pre-commercialisation disclaimer to the cover page.
+3. Add the standard disclaimer to Slide 2.
+4. Add the complete list of risk profile to Slide 2.
+5. Add the list of commercialisation countries to Slide 2.
