@@ -67,21 +67,158 @@ PowerPoint Compliance Checker streamlines the review process for financial prese
 
 ## Architecture Overview
 
-```
-[Frontend (React)] ──► [FastAPI Backend]
-        │                       │
-        │                       ├── Extraction Manager
-        │                       │     ├── Baseline Extraction (python-pptx)
-        │                       │     ├── AI-Powered Extraction (LangGraph + LLMs)
-        │                       │     ├── High-Performance Processing (Specialized APIs)
-        │                       │     └── Advanced Parallel Processing
-        │                       │           ↳ writes uploads/<job_id>/extracted_document.json
-        │                       │
-        │                       └── Compliance Backend → Rule Engine
-        │                              ↳ consolidate violations, generate reports
-        │
-        └── Results & History views, JSON viewer, Decision Trace visualization
-```
+┌─────────────────────┐
+│   Frontend Layer    │
+│   (React + MUI)     │
+└──────────┬──────────┘
+           │ HTTP/REST API
+           │
+┌──────────▼──────────────────────────────────────────┐
+│              FastAPI Backend                        │
+│  ┌────────────────────────────────────────────┐    │
+│  │         API Layer (main.py)                │    │
+│  │  • Upload Management                       │    │
+│  │  • Background Task Orchestration           │    │
+│  │  • Job Status Tracking                     │    │
+│  │  • Results Distribution                    │    │
+│  └─────────┬──────────────────────────────────┘    │
+│            │                                        │
+│  ┌─────────▼──────────────────────────────────┐    │
+│  │   Extraction Pipeline                      │    │
+│  │   (extraction_manager.py)                  │    │
+│  │                                            │    │
+│  │   ┌─────────────────────────────────┐     │    │
+│  │   │  Baseline Extraction            │     │    │
+│  │   │  (python-pptx)                  │     │    │
+│  │   └─────────────────────────────────┘     │    │
+│  │                                            │    │
+│  │   ┌─────────────────────────────────┐     │    │
+│  │   │  AI-Powered Extraction          │     │    │
+│  │   │  (fida.py + LangGraph)          │     │    │
+│  │   │  • Multi-agent workflows        │     │    │
+│  │   │  • Decision trace generation    │     │    │
+│  │   │  • Gemini API integration       │     │    │
+│  │   └─────────────────────────────────┘     │    │
+│  │                                            │    │
+│  │   ┌─────────────────────────────────┐     │    │
+│  │   │  High-Performance Processing    │     │    │
+│  │   │  • Groq API                     │     │    │
+│  │   │  • TokenFactory API             │     │    │
+│  │   │  • Parallel processing          │     │    │
+│  │   └─────────────────────────────────┘     │    │
+│  └─────────┬──────────────────────────────────┘    │
+│            │ extracted_document.json                │
+│            │                                        │
+│  ┌─────────▼──────────────────────────────────┐    │
+│  │   Compliance Pipeline                      │    │
+│  │   (compliance_backend.py)                  │    │
+│  │                                            │    │
+│  │   ┌─────────────────────────────────┐     │    │
+│  │   │  Rule Engine                    │     │    │
+│  │   │  (run_all_compliance_checks.py) │     │    │
+│  │   │                                 │     │    │
+│  │   │  • Structure Module             │     │    │
+│  │   │  • Registration Module          │     │    │
+│  │   │  • ESG Module                   │     │    │
+│  │   │  • Disclaimers Module           │     │    │
+│  │   │  • Performance Module           │     │    │
+│  │   │  • Values Module                │     │    │
+│  │   │  • Prospectus Module            │     │    │
+│  │   │  • General Module               │     │    │
+│  │   └─────────────────────────────────┘     │    │
+│  │                                            │    │
+│  │   ┌─────────────────────────────────┐     │    │
+│  │   │  Report Generation              │     │    │
+│  │   │  • Violation consolidation      │     │    │
+│  │   │  • Master report creation       │     │    │
+│  │   │  • Annotated PPTX generation    │     │    │
+│  │   └─────────────────────────────────┘     │    │
+│  └────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────┘
+           │
+           │ File System Storage
+           │
+┌──────────▼──────────────────────────────────────────┐
+│              Data Layer                             │
+│  ┌────────────────────┐  ┌────────────────────┐    │
+│  │  Uploads Storage   │  │  Results Storage   │    │
+│  │  (by job_id)       │  │  (by job_id)       │    │
+│  └────────────────────┘  └────────────────────┘    │
+│                                                     │
+│  ┌────────────────────┐  ┌────────────────────┐    │
+│  │  Reference Data    │  │  Compliance Rules  │    │
+│  │  (CSV files)       │  │  (JSON files)      │    │
+│  └────────────────────┘  └────────────────────┘    │
+└─────────────────────────────────────────────────────┘
+
+### Pipeline Data Flow
+
+*Phase 1: Document Upload & Preview*
+User ──> Frontend ──> POST /api/upload-preview
+                         │
+                         ├─> Save files to uploads/<job_id>/
+                         │   • presentation.pptx
+                         │   • metadata.json
+                         │   • prospectus.docx (optional)
+                         │
+                         └─> Generate slide previews
+                             └─> pptx_preview.py
+                                 └─> Returns base64 images
+
+*Phase 2: Document Extraction*
+User ──> Frontend ──> Background extraction initiated
+                         │
+                         └─> extraction_manager.py
+                             │
+                             ├─> Method Selection Logic:
+                             │   ├─> Baseline: python-pptx
+                             │   ├─> AI-Powered: fida.py + Gemini
+                             │   └─> High-Performance: Groq + TokenFactory
+                             │
+                             └─> Output: uploads/<job_id>/extracted_document.json
+                                 {
+                                   "slides": [...],
+                                   "metadata": {...},
+                                   "decision_trace": [...] (if AI-powered)
+                                 }
+
+*Phase 3: Compliance Analysis*
+User ──> Frontend ──> POST /api/check-modules
+                         │
+                         └─> compliance_backend.py
+                             │
+                             ├─> Load extracted_document.json
+                             │
+                             ├─> run_all_compliance_checks.py
+                             │   │
+                             │   ├─> Structure validation
+                             │   ├─> Registration verification
+                             │   ├─> ESG compliance
+                             │   ├─> Disclaimers check
+                             │   ├─> Performance rules
+                             │   ├─> Values mentions
+                             │   ├─> Prospectus alignment
+                             │   └─> General guidelines
+                             │
+                             └─> Generate outputs:
+                                 ├─> master_compliance_report.txt
+                                 ├─> violations.json
+                                 └─> annotated_presentation.pptx
+
+*Phase 4: Results & Visualization*
+User ──> Frontend ──> Results Viewer
+           │
+           ├─> GET /api/download/{job_id}/report
+           │   └─> master_compliance_report.txt
+           │
+           ├─> GET /api/download/{job_id}/violations
+           │   └─> violations.json (displayed in UI)
+           │
+           ├─> GET /api/download/{job_id}/pptx
+           │   └─> annotated_presentation.pptx
+           │
+           └─> JSON Viewer + Decision Trace
+               └─> extracted_document.json with trace visualization
 
 ### Data Flow
 1. **Upload Phase**: User uploads PowerPoint and metadata files through React interface
